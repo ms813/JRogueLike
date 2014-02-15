@@ -1,5 +1,4 @@
-import org.jsfml.graphics.CircleShape;
-import org.jsfml.graphics.Color;
+import org.jsfml.graphics.Drawable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,15 +7,10 @@ import org.jsfml.graphics.Color;
  * Time: 12:56
  * To change this template use File | Settings | File Templates.
  */
-public class Actor extends CircleShape{
+public interface Actor{
 
-    private String name;
+    Drawable getDrawable();
 
-    public Actor(String _name, int radius, Color color){
-        super(radius);
-        setFillColor(color);
-        name = _name;
-    }
-
+    String getName();
 
 }

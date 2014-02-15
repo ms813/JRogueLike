@@ -1,5 +1,8 @@
 import org.jsfml.graphics.RenderWindow;
+import org.jsfml.system.Vector2i;
+import org.jsfml.window.Keyboard;
 import org.jsfml.window.event.Event;
+import org.jsfml.window.event.KeyEvent;
 
 
 /**
@@ -11,25 +14,66 @@ import org.jsfml.window.event.Event;
  */
 public class Main {
 
-
-
-    public static void main (String[] args){
+    public static void main(String[] args) {
 
         Game game = new Game("JRogueLike");
+        Player player = game.getPlayer();
 
-        RenderWindow _window = game.getWindow();
+        RenderWindow window = game.getWindow();
 
-        while(_window.isOpen()){
-            _window.clear();
+        while (window.isOpen()) {
+            window.clear();
 
-            game.drawScene(0);
-            _window.display();
+            //event loop
+            for (Event event : window.pollEvents()) {
 
-            for(Event event : _window.pollEvents()){
-                if(event.type == Event.Type.CLOSED){
-                    _window.close();
+                //executed when the window is closed
+                if (event.type == Event.Type.CLOSED) {
+                    window.close();
+                }
+                //look for WASD input for character movement
+                if (event.type == Event.Type.KEY_PRESSED) {
+
+                    KeyEvent keyEvent = event.asKeyEvent();
+
+                    if(keyEvent.key == Keyboard.Key.A){
+                        MoveDirections.left = true;
+                    }
+                    if(keyEvent.key == Keyboard.Key.D){
+                        MoveDirections.right = true;
+                    }
+                    if(keyEvent.key == Keyboard.Key.W){
+                        MoveDirections.up = true;
+                    }
+                    if(keyEvent.key == Keyboard.Key.S){
+                        MoveDirections.down = true;
+                    }
+                }
+
+                if (event.type == Event.Type.KEY_RELEASED) {
+
+                    KeyEvent keyEvent = event.asKeyEvent();
+
+                    if(keyEvent.key == Keyboard.Key.A){
+                        MoveDirections.left = false;
+                    }
+                    if(keyEvent.key == Keyboard.Key.D){
+                        MoveDirections.right = false;
+                    }
+                    if(keyEvent.key == Keyboard.Key.W){
+                        MoveDirections.up = false;
+                    }
+                    if(keyEvent.key == Keyboard.Key.S){
+                        MoveDirections.down = false;
+                    }
                 }
             }
+
+            player.move();
+            game.setViewCenter(new Vector2i(player.getDrawable().getPosition()));
+
+            game.drawScene(0);
+            window.display();
         }
 
     }

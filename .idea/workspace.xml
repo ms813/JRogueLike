@@ -4,10 +4,13 @@
     <list default="true" id="1d524270-dda5-4475-9494-acb6a7abec8c" name="Default" comment="" />
     <ignored path="JRogueLike.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392471896650" ignored="false" />
-    <file path="/Game.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392471903633" ignored="false" />
-    <file path="/Actor.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392470831289" ignored="false" />
-    <file path="/Scene.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392471884489" ignored="false" />
+    <file path="/Main.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392492129195" ignored="false" />
+    <file path="/Game.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392492335042" ignored="false" />
+    <file path="/Actor.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392485984725" ignored="false" />
+    <file path="/Scene.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392483721896" ignored="false" />
+    <file path="/Player.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392492034387" ignored="false" />
+    <file path="/MoveDirection.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392490088924" ignored="false" />
+    <file path="/MoveDirections.java" changelist="1d524270-dda5-4475-9494-acb6a7abec8c" time="1392491399985" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +71,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="28" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
+            <state line="67" column="92" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.49228132">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,13 +82,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="72" selection-start="328" selection-end="328" vertical-scroll-proportion="0.008576329">
+            <state line="79" column="31" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#372#379#0" expanded="true" />
+                <element signature="e#556#563#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,10 +97,30 @@
       <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Scene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="10" selection-start="504" selection-end="504" vertical-scroll-proportion="0.0">
+            <state line="56" column="24" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#385#392#0" expanded="true" />
+                <element signature="e#525#532#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Actor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Actor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="14" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="52" selection-start="1676" selection-end="1676" vertical-scroll-proportion="-16.2">
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,8 +138,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/Actor.java" />
         <option value="$PROJECT_DIR$/src/Scene.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/MoveDirection.java" />
+        <option value="$PROJECT_DIR$/src/InputDirections.java" />
+        <option value="$PROJECT_DIR$/src/MoveDirections.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -391,13 +418,13 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.67070484" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12700106" sideWeight="0.67070484" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.67070484" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32929516" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -465,28 +492,33 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/MoveDirections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="10" selection-start="313" selection-end="313" vertical-scroll-proportion="0.34991422">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Actor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="4" selection-start="440" selection-end="440" vertical-scroll-proportion="0.5831904">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="13" column="14" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="10" selection-start="504" selection-end="504" vertical-scroll-proportion="0.0">
+        <state line="56" column="24" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#385#392#0" expanded="true" />
+            <element signature="e#525#532#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="28" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
+        <state line="77" column="52" selection-start="1676" selection-end="1676" vertical-scroll-proportion="-16.2">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -495,10 +527,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="72" selection-start="328" selection-end="328" vertical-scroll-proportion="0.008576329">
+        <state line="79" column="31" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#372#379#0" expanded="true" />
+            <element signature="e#556#563#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="92" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.49228132">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

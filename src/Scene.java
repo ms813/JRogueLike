@@ -1,8 +1,11 @@
-import org.jsfml.graphics.Color;
-import org.jsfml.graphics.RectangleShape;
+import org.jsfml.graphics.Sprite;
+import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
 
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -14,22 +17,52 @@ import java.util.List;
  */
 public class Scene {
 
-    private List<Actor> mActors = new ArrayList<Actor>();
-    private String name;
+    //by convention, the player should always be actors.get(0);
+    private List<Actor> actors = new ArrayList<Actor>();
+    private String sceneName;
 
-    private RectangleShape background;
+    private Texture bgTexture = new Texture();
+    private Sprite bgSprite;
 
-    public Scene(String _name){
-        mActors.add(new Actor("blueCircle", 50, Color.BLUE));
-        name = _name;
-        background = new RectangleShape(new Vector2f(500.0f, 500.0f));
+    public Scene(String _sceneName){
+        actors.add(new Player("player"));
+        sceneName = _sceneName;
+
+        try{
+            bgTexture.loadFromFile(Paths.get("resources/" + _sceneName + ".png"));
+
+
+            bgSprite = new Sprite(bgTexture);
+            bgSprite.setOrigin(new Vector2f(Game.screenW, Game.screenH));
+            
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
-    public RectangleShape getBackground(){
-        return background;
+    public Sprite getBackground(){
+        return bgSprite;
+
     }
 
     public List<Actor> getActors(){
-        return mActors;
+        return actors;
+    }
+
+    public Player getPlayer(){
+        Player player = null;
+
+        for(Iterator<Actor> i = actors.iterator(); i.hasNext();){
+            Actor actor = i.next();
+            if(actor.getName() == "player"){
+                player = (Player) actor;
+            }
+        }
+
+        if(player == null){
+            System.err.println("Player is undefined!");
+        }
+
+        return player;
     }
 }
