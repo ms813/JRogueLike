@@ -1,7 +1,4 @@
-import org.jsfml.graphics.CircleShape;
-import org.jsfml.graphics.Color;
 import org.jsfml.graphics.RenderWindow;
-import org.jsfml.window.VideoMode;
 import org.jsfml.window.event.Event;
 
 
@@ -14,24 +11,23 @@ import org.jsfml.window.event.Event;
  */
 public class Main {
 
+
+
     public static void main (String[] args){
-        RenderWindow window = new RenderWindow();
-        window.create(new VideoMode(1080, 720), "Hello JSMFL!");
 
-        window.setFramerateLimit(60);
+        Game game = new Game("JRogueLike");
 
-        CircleShape circle = new CircleShape(100);
-        circle.setFillColor(Color.BLUE);
+        RenderWindow _window = game.getWindow();
 
-        while(window.isOpen()){
-            window.clear();
+        while(_window.isOpen()){
+            _window.clear();
 
-            window.draw(circle);
-            window.display();
+            game.drawScene(0);
+            _window.display();
 
-            for(Event event : window.pollEvents()){
+            for(Event event : _window.pollEvents()){
                 if(event.type == Event.Type.CLOSED){
-                    window.close();
+                    _window.close();
                 }
             }
         }
