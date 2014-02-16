@@ -25,6 +25,7 @@ public class Scene {
     private Sprite bgSprite;
 
     public Scene(String _sceneName){
+
         actors.add(new Player("player"));
         sceneName = _sceneName;
 
@@ -64,5 +65,27 @@ public class Scene {
         }
 
         return player;
+    }
+
+    public void addActor(Actor actor){
+        actors.add(actor);
+    }
+
+    public void updateProjectiles(){
+        //make a temporary list to prevent us removing items from the list we are iterating over
+        List<Actor> tempActors = new ArrayList<Actor>(actors);
+
+        for(Iterator<Actor> i = tempActors.iterator(); i.hasNext();){
+            Actor actor = i.next();
+
+            if(actor instanceof Projectile){
+                if(!((Projectile) actor).isReadyForDestruction()){
+                    ((Projectile) actor).updatePosition();
+                } else{
+                    actors.remove(actor);
+                }
+            }
+        }
+
     }
 }

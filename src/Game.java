@@ -21,13 +21,13 @@ public class Game {
     public static int screenH = 720;
 
     private List<Scene> mSceneList = new ArrayList<Scene>();
-    private Scene currentScene;
+    private static Scene currentScene;
 
-    private Player player;
+    private static Player player;
 
-    private RenderWindow window = new RenderWindow();
+    private static RenderWindow window = new RenderWindow();
 
-    private View mainView;
+    private static View mainView;
 
     public Game(String gameTitle){
 
@@ -50,16 +50,6 @@ public class Game {
         return window;
     }
 
-    public void drawCurrentScene(){
-        window.draw(currentScene.getBackground());
-
-        for(Iterator<Actor> i = currentScene.getActors().iterator(); i.hasNext();){
-            Actor actor = i.next();
-            window.draw(actor.getDrawable());
-        }
-
-    }
-
     public void drawScene(int index){
 
         Scene scene = mSceneList.get(index);
@@ -76,12 +66,15 @@ public class Game {
     }
 
     public void setViewCenter(Vector2i pos){
-        //Vector2f worldPos = window.mapPixelToCoords(pos);
         mainView.setCenter(new Vector2f(pos));
         window.setView(mainView);
     }
 
     public Player getPlayer(){
         return currentScene.getPlayer();
+    }
+
+    public Scene getCurrentScene(){
+        return currentScene;
     }
 }

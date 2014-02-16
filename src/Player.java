@@ -27,19 +27,11 @@ public class Player implements Actor {
             playerTexture.loadFromFile(Paths.get("resources/" + _playerName + ".png"));
 
             playerSprite = new Sprite(playerTexture);
+            playerSprite.setScale(0.5f, 0.5f);
 
         } catch(IOException e){
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public Sprite getDrawable(){
-       return playerSprite;
-    }
-
-    public String getName(){
-        return playerName;
     }
 
     float velX = 0;
@@ -51,22 +43,22 @@ public class Player implements Actor {
 
     public void move(){
 
-        if(MoveDirections.up){
+        if(InputBooleans.up){
             if(velY > -speed){
                 velY--;
             }
         }
-        if(MoveDirections.down){
+        if(InputBooleans.down){
             if(velY < speed){
                 velY++;
             }
         }
-        if(MoveDirections.left){
+        if(InputBooleans.left){
             if(velX > -speed){
                 velX--;
             }
         }
-        if(MoveDirections.right){
+        if(InputBooleans.right){
             if(velX < speed){
                 velX++;
             }
@@ -77,4 +69,14 @@ public class Player implements Actor {
 
         playerSprite.move(new Vector2f(velX, velY));
     }
+
+    public Sprite getDrawable(){
+        return playerSprite;
+    }
+
+    public String getName(){
+        return playerName;
+    }
+
+    public Vector2f getCurrentPosition(){ return playerSprite.getPosition();}
 }

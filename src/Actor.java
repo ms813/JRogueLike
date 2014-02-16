@@ -1,4 +1,5 @@
 import org.jsfml.graphics.Drawable;
+import org.jsfml.system.Vector2f;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,6 +11,8 @@ import org.jsfml.graphics.Drawable;
 public interface Actor{
 
     Drawable getDrawable();
+
+    Vector2f getCurrentPosition();
 
     String getName();
 

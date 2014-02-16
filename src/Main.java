@@ -1,8 +1,11 @@
 import org.jsfml.graphics.RenderWindow;
+import org.jsfml.system.Vector2f;
 import org.jsfml.system.Vector2i;
 import org.jsfml.window.Keyboard;
+import org.jsfml.window.Mouse;
 import org.jsfml.window.event.Event;
 import org.jsfml.window.event.KeyEvent;
+import org.jsfml.window.event.MouseButtonEvent;
 
 
 /**
@@ -33,42 +36,75 @@ public class Main {
                 }
                 //look for WASD input for character movement
                 if (event.type == Event.Type.KEY_PRESSED) {
-
                     KeyEvent keyEvent = event.asKeyEvent();
 
                     if(keyEvent.key == Keyboard.Key.A){
-                        MoveDirections.left = true;
+                        InputBooleans.left = true;
                     }
                     if(keyEvent.key == Keyboard.Key.D){
-                        MoveDirections.right = true;
+                        InputBooleans.right = true;
                     }
                     if(keyEvent.key == Keyboard.Key.W){
-                        MoveDirections.up = true;
+                        InputBooleans.up = true;
                     }
                     if(keyEvent.key == Keyboard.Key.S){
-                        MoveDirections.down = true;
+                        InputBooleans.down = true;
                     }
                 }
 
                 if (event.type == Event.Type.KEY_RELEASED) {
-
                     KeyEvent keyEvent = event.asKeyEvent();
 
                     if(keyEvent.key == Keyboard.Key.A){
-                        MoveDirections.left = false;
+                        InputBooleans.left = false;
                     }
                     if(keyEvent.key == Keyboard.Key.D){
-                        MoveDirections.right = false;
+                        InputBooleans.right = false;
                     }
                     if(keyEvent.key == Keyboard.Key.W){
-                        MoveDirections.up = false;
+                        InputBooleans.up = false;
                     }
                     if(keyEvent.key == Keyboard.Key.S){
-                        MoveDirections.down = false;
+                        InputBooleans.down = false;
+                    }
+                }
+
+                if(event.type == Event.Type.MOUSE_BUTTON_PRESSED){
+                    MouseButtonEvent mbEvent = event.asMouseButtonEvent();
+
+                    Vector2f mousePos = window.mapPixelToCoords(mbEvent.position);
+
+                    if(mbEvent.button == Mouse.Button.LEFT){
+                        InputBooleans.lmb = true;
+                        game.getCurrentScene().addActor(new MagicDart(player, mousePos));
+                        System.out.println("MousePos: " + mousePos);
+                    }
+                    if(mbEvent.button == Mouse.Button.RIGHT){
+                        InputBooleans.rmb = true;
+                    }
+
+                    if(mbEvent.button == Mouse.Button.MIDDLE){
+                        InputBooleans.mmb = true;
+                    }
+                }
+
+                if(event.type == Event.Type.MOUSE_BUTTON_RELEASED){
+                    MouseButtonEvent mbEvent = event.asMouseButtonEvent();
+
+                    if(mbEvent.button == Mouse.Button.LEFT){
+                        InputBooleans.lmb = true;
+                    }
+                    if(mbEvent.button == Mouse.Button.RIGHT){
+                        InputBooleans.rmb = true;
+                    }
+
+                    if(mbEvent.button == Mouse.Button.MIDDLE){
+                        InputBooleans.mmb = true;
                     }
                 }
             }
 
+            game.getCurrentScene().updateProjectiles();
             player.move();
             game.setViewCenter(new Vector2i(player.getDrawable().getPosition()));
 
