@@ -81,6 +81,7 @@ public class Main {
                     }
                     if(mbEvent.button == Mouse.Button.RIGHT){
                         InputBooleans.rmb = true;
+                        game.getCurrentScene().addActor(new IceBolt(player, mousePos));
                     }
 
                     if(mbEvent.button == Mouse.Button.MIDDLE){

@@ -17,6 +17,12 @@ public class Player implements Actor {
     private String playerName;
     private Sprite playerSprite;
 
+    //used for movement
+    private float velX = 0;
+    private float velY = 0;
+    private float speed = 0.05f;
+    private float friction = 0.9f;
+
     public Player(String _playerName){
         playerName = _playerName;
         playerSprite = new Sprite();
@@ -33,13 +39,6 @@ public class Player implements Actor {
             e.printStackTrace();
         }
     }
-
-    float velX = 0;
-    float velY = 0;
-    float speed = 0.05f;
-    float friction = 0.9f;
-
-    boolean[] directions = new boolean[3];
 
     public void move(){
 
@@ -81,5 +80,13 @@ public class Player implements Actor {
     public Vector2f getCurrentPosition(){
         //return the top left corner
         return playerSprite.getPosition();
+    }
+
+    public float getSpeed(){
+        return VectorArithmetic.magnitude(new Vector2f(velX, velY));
+    }
+
+    public Vector2f getVelocity(){
+        return new Vector2f(velX, velY);
     }
 }

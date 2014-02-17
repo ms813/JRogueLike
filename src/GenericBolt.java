@@ -29,7 +29,6 @@ public abstract class GenericBolt implements Projectile {
 
     protected void buildSprite(Texture texture){
         boltSprite = new Sprite(texture);
-        boltSprite.setScale(0.5f, 0.5f);
         boltSprite.setPosition(startPosition);
 
         //define rotation relative to the up axis of the start position
@@ -76,5 +75,4 @@ public abstract class GenericBolt implements Projectile {
     public boolean isReadyForDestruction(){
         return readyForDestruction;
     }
-
 }

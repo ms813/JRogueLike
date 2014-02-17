@@ -13,5 +13,4 @@ public interface Actor{
     Drawable getDrawable();
 
     Vector2f getCurrentPosition();
-
 }

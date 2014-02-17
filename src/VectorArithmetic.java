@@ -20,12 +20,14 @@ public class VectorArithmetic {
         return Vector2f.div(vector,magnitude(vector));
     }
 
-    strictfp static float AngleBetweenVectorsDegrees(Vector2f a, Vector2f b){
+    strictfp static float AngleBetweenVectorsRadians(Vector2f a, Vector2f b){
         float dot = a.x * b.x + a.y * b.y;
         float cosTheta = dot/(magnitude(a) * magnitude(b));
 
-        return new Float(Math.acos(cosTheta) * 180/Math.PI);
+        return new Float(Math.acos(cosTheta));
     }
 
-
+    strictfp static float AngleBetweenVectorsDegrees(Vector2f a, Vector2f b){
+        return new Float(AngleBetweenVectorsRadians(a,b)  * 180/Math.PI);
+    }
 }
