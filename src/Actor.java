@@ -14,6 +14,4 @@ public interface Actor{
 
     Vector2f getCurrentPosition();
 
-    String getName();
-
 }

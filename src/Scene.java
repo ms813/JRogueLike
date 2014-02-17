@@ -55,7 +55,7 @@ public class Scene {
 
         for(Iterator<Actor> i = actors.iterator(); i.hasNext();){
             Actor actor = i.next();
-            if(actor.getName() == "player"){
+            if(actor instanceof Player){
                 player = (Player) actor;
             }
         }

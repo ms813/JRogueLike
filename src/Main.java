@@ -77,7 +77,7 @@ public class Main {
                     if(mbEvent.button == Mouse.Button.LEFT){
                         InputBooleans.lmb = true;
                         game.getCurrentScene().addActor(new MagicDart(player, mousePos));
-                        System.out.println("MousePos: " + mousePos);
+                        //System.out.println("MousePos: " + mousePos);
                     }
                     if(mbEvent.button == Mouse.Button.RIGHT){
                         InputBooleans.rmb = true;

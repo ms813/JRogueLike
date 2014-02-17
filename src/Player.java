@@ -78,5 +78,8 @@ public class Player implements Actor {
         return playerName;
     }
 
-    public Vector2f getCurrentPosition(){ return playerSprite.getPosition();}
+    public Vector2f getCurrentPosition(){
+        //return the top left corner
+        return playerSprite.getPosition();
+    }
 }
