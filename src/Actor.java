@@ -10,7 +10,9 @@ import org.jsfml.system.Vector2f;
  */
 public interface Actor{
 
-    Drawable getDrawable();
+    public Drawable getDrawable();
 
-    Vector2f getCurrentPosition();
+    public Vector2f getCurrentPosition();
+
+    public void onCollision(Actor collider);
 }

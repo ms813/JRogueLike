@@ -1,3 +1,4 @@
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
@@ -15,7 +16,7 @@ import java.util.List;
  * Time: 12:56
  * To change this template use File | Settings | File Templates.
  */
-public class Scene {
+public class Scene{
 
     //by convention, the player should always be actors.get(0);
     private List<Actor> actors = new ArrayList<Actor>();
@@ -27,6 +28,10 @@ public class Scene {
     public Scene(String _sceneName){
 
         actors.add(new Player());
+        Skeleton skeleton = new Skeleton();
+        skeleton.setPosition(500,500);
+        actors.add(skeleton);
+
         sceneName = _sceneName;
 
         try{
@@ -67,25 +72,52 @@ public class Scene {
         return player;
     }
 
-    public void addActor(Actor actor){
-        actors.add(actor);
-    }
-
     public void updateProjectiles(){
-        //make a temporary list to prevent us removing items from the list we are iterating over
+
+        //build 2 lists, one of projectiles and one of collidables
+        //TODO this will need refined as enemy projectiles need to be blocked with shields etc
+
+        List<Projectile> tempProjectiles = new ArrayList<Projectile>();
+        List<Actor> tempCollidables = new ArrayList<Actor>();
         List<Actor> tempActors = new ArrayList<Actor>(actors);
 
-        for(Iterator<Actor> i = tempActors.iterator(); i.hasNext();){
-            Actor actor = i.next();
-
+        for(Actor actor : tempActors){
             if(actor instanceof Projectile){
+
                 if(!((Projectile) actor).isReadyForDestruction()){
                     ((Projectile) actor).updatePosition();
                 } else{
                     actors.remove(actor);
                 }
+
+                tempProjectiles.add((Projectile) actor);
+            } else if(!(actor instanceof  Player)) {
+                tempCollidables.add(actor);
+            }
+        }
+
+        for(Projectile projectile : tempProjectiles){
+            for(Actor collidable : tempCollidables){
+
+                Sprite projSprite = (Sprite) projectile.getDrawable();
+                FloatRect projBounds = projSprite.getGlobalBounds();
+
+                Sprite collidableSprite = (Sprite) collidable.getDrawable();
+                FloatRect collidableBounds = collidableSprite.getGlobalBounds();
+
+                if(projBounds.intersection(collidableBounds) != null){
+
+                    projectile.onCollision(collidable);
+                    collidable.onCollision(projectile);
+                }
             }
         }
 
     }
+
+    public void addActor(Actor actor){
+        actors.add(actor);
+    }
+
+
 }

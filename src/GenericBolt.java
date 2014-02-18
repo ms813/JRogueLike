@@ -27,6 +27,9 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
 
     protected void buildSprite(Texture _texture){
         boltSprite = new Sprite(_texture);
+
+        //set the origin to the center of the sprite rather than the top left
+        boltSprite.setOrigin(boltSprite.getLocalBounds().width/2, boltSprite.getLocalBounds().height/2);
         boltSprite.setPosition(startPosition);
     }
 
@@ -53,6 +56,13 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
         }
     }
 
+    public void OnCollision(Actor collider){
+        if(collider instanceof Projectile){
+            Projectile projectile = (Projectile) collider;
+        }
+
+    }
+
     public Sprite getDrawable(){
         return boltSprite;
     }
@@ -64,4 +74,9 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     public boolean isReadyForDestruction(){
         return readyForDestruction;
     }
+
+    public void onCollision(Actor collider){
+        readyForDestruction = true;
+    }
+
 }

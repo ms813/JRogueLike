@@ -63,13 +63,13 @@
     <favorites_list name="JRogueLike" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.4828851">
       <split-first>
         <leaf>
           <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="74" column="79" selection-start="2375" selection-end="2375" vertical-scroll-proportion="-16.846153" vertical-offset="820" max-vertical-offset="1581">
+                <state line="58" column="78" selection-start="1838" selection-end="1838" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -77,13 +77,13 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Game.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="62" column="9" selection-start="1566" selection-end="1566" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1309">
+                <state line="40" column="0" selection-start="970" selection-end="970" vertical-scroll-proportion="0.48706895" vertical-offset="239" max-vertical-offset="1207">
                   <folding>
-                    <element signature="e#1901#1902#0" expanded="true" />
-                    <element signature="e#1936#1937#0" expanded="true" />
+                    <element signature="e#1615#1616#0" expanded="true" />
+                    <element signature="e#1650#1651#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -92,8 +92,13 @@
           <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="29" column="51" selection-start="747" selection-end="747" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1428">
-                  <folding />
+                <state line="98" column="0" selection-start="2616" selection-end="2616" vertical-scroll-proportion="-51.0" vertical-offset="255" max-vertical-offset="2108">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1999#2011#0" expanded="true" />
+                    <element signature="e#2066#2073#0" expanded="true" />
+                    <element signature="e#2123#2130#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -101,7 +106,7 @@
           <file leaf-file-name="Actor.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Actor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="34" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+                <state line="14" column="11" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
                   <folding />
                 </state>
               </provider>
@@ -110,11 +115,11 @@
           <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Player.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="72" column="49" selection-start="1751" selection-end="1761" vertical-scroll-proportion="0.0" vertical-offset="505" max-vertical-offset="1394">
+                <state line="74" column="42" selection-start="1976" selection-end="1976" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1428">
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#1456#1457#0" expanded="true" />
-                    <element signature="e#1491#1492#0" expanded="true" />
+                    <element signature="e#1537#1538#0" expanded="true" />
+                    <element signature="e#1572#1573#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -123,34 +128,16 @@
           <file leaf-file-name="Projectile.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Projectile.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="5" column="36" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+                <state line="5" column="11" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MagicDart.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="MagicDart.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/MagicDart.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="7" selection-start="164" selection-end="164" vertical-scroll-proportion="0.12518409" vertical-offset="0" max-vertical-offset="679">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IceBolt.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/IceBolt.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="19" column="25" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="VectorArithmetic.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/VectorArithmetic.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="11" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+                <state line="9" column="7" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
                   <folding />
                 </state>
               </provider>
@@ -163,11 +150,32 @@
           <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Player.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="55" column="32" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.0" vertical-offset="592" max-vertical-offset="1394">
+                <state line="68" column="28" selection-start="1820" selection-end="1820" vertical-scroll-proportion="0.0" vertical-offset="745" max-vertical-offset="1428">
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#1456#1457#0" expanded="true" />
-                    <element signature="e#1491#1492#0" expanded="true" />
+                    <element signature="e#1537#1538#0" expanded="true" />
+                    <element signature="e#1572#1573#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Enemy.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Enemy.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="3" column="36" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PlayerMagicManager.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/PlayerMagicManager.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="38" column="53" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1071">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#265#273#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -176,28 +184,21 @@
           <file leaf-file-name="GenericBolt.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/GenericBolt.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="26" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1139">
-                  <folding />
+                <state line="67" column="20" selection-start="2232" selection-end="2232" vertical-scroll-proportion="0.0" vertical-offset="745" max-vertical-offset="1428">
+                  <folding>
+                    <element signature="e#2366#2367#0" expanded="true" />
+                    <element signature="e#2408#2409#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MagicSpell.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/MagicSpell.java">
+          <file leaf-file-name="Skeleton.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Skeleton.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="8" column="43" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PlayerMagicManager.java" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/PlayerMagicManager.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="36" column="96" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.41714287" vertical-offset="320" max-vertical-offset="1037">
+                <state line="46" column="55" selection-start="1182" selection-end="1182" vertical-scroll-proportion="0.75574714" vertical-offset="222" max-vertical-offset="969">
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#265#273#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -224,19 +225,22 @@
         <option value="$PROJECT_DIR$/src/ProjectileHandler.java" />
         <option value="$PROJECT_DIR$/src/BoltSpells/GenericBolt.java" />
         <option value="$PROJECT_DIR$/src/BoltSpells/MagicDart.java" />
-        <option value="$PROJECT_DIR$/src/Actor.java" />
         <option value="$PROJECT_DIR$/src/VectorArithmetic.java" />
         <option value="$PROJECT_DIR$/src/Directions.java" />
-        <option value="$PROJECT_DIR$/src/Projectile.java" />
-        <option value="$PROJECT_DIR$/src/Scene.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/MagicSpell.java" />
-        <option value="$PROJECT_DIR$/src/GenericBolt.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/IceBolt.java" />
         <option value="$PROJECT_DIR$/src/MagicDart.java" />
+        <option value="$PROJECT_DIR$/src/Enemy.java" />
         <option value="$PROJECT_DIR$/src/PlayerMagicManager.java" />
+        <option value="$PROJECT_DIR$/src/CollisionListener.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/Actor.java" />
+        <option value="$PROJECT_DIR$/src/Projectile.java" />
+        <option value="$PROJECT_DIR$/src/Skeleton.java" />
+        <option value="$PROJECT_DIR$/src/Scene.java" />
+        <option value="$PROJECT_DIR$/src/GenericBolt.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
     </option>
   </component>
@@ -563,7 +567,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12886049" sideWeight="0.67070484" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22435898" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22863248" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -631,8 +635,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="68" column="10" selection-start="1705" selection-end="1707" vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="1462">
           <folding>
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1936#1937#0" expanded="true" />
+            <element signature="e#1615#1616#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -640,7 +644,12 @@
     <entry file="file://$PROJECT_DIR$/src/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="59" selection-start="1463" selection-end="1463" vertical-scroll-proportion="0.0" vertical-offset="1003" max-vertical-offset="1649">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1999#2011#0" expanded="true" />
+            <element signature="e#2066#2073#0" expanded="true" />
+            <element signature="e#2123#2130#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -656,8 +665,8 @@
         <state line="89" column="40" selection-start="2035" selection-end="2035" vertical-scroll-proportion="0.0" vertical-offset="1513" max-vertical-offset="1666">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1456#1457#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -703,8 +712,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="68" column="0" selection-start="1697" selection-end="1697" vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="1462">
           <folding>
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1936#1937#0" expanded="true" />
+            <element signature="e#1615#1616#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -712,7 +721,12 @@
     <entry file="file://$PROJECT_DIR$/src/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="17" selection-start="1957" selection-end="1962" vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="1649">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1999#2011#0" expanded="true" />
+            <element signature="e#2066#2073#0" expanded="true" />
+            <element signature="e#2123#2130#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -728,8 +742,8 @@
         <state line="80" column="30" selection-start="1744" selection-end="1744" vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="1496">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1456#1457#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -768,8 +782,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="31" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="1581">
           <folding>
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1936#1937#0" expanded="true" />
+            <element signature="e#1615#1616#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -777,7 +791,12 @@
     <entry file="file://$PROJECT_DIR$/src/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="24" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="1258">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1999#2011#0" expanded="true" />
+            <element signature="e#2066#2073#0" expanded="true" />
+            <element signature="e#2123#2130#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -793,8 +812,8 @@
         <state line="51" column="73" selection-start="1146" selection-end="1146" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1326">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1456#1457#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -812,8 +831,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="31" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="1581">
           <folding>
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1936#1937#0" expanded="true" />
+            <element signature="e#1615#1616#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -821,7 +840,12 @@
     <entry file="file://$PROJECT_DIR$/src/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="24" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="1258">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1999#2011#0" expanded="true" />
+            <element signature="e#2066#2073#0" expanded="true" />
+            <element signature="e#2123#2130#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -837,8 +861,8 @@
         <state line="29" column="38" selection-start="773" selection-end="773" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="1326">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1456#1457#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -856,8 +880,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="31" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1936#1937#0" expanded="true" />
+            <element signature="e#1615#1616#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -865,7 +889,12 @@
     <entry file="file://$PROJECT_DIR$/src/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="24" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1999#2011#0" expanded="true" />
+            <element signature="e#2066#2073#0" expanded="true" />
+            <element signature="e#2123#2130#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -881,8 +910,8 @@
         <state line="77" column="52" selection-start="1676" selection-end="1676" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1456#1457#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -892,13 +921,6 @@
         <state line="6" column="19" selection-start="165" selection-end="165" vertical-scroll-proportion="0.14731368" vertical-offset="0" max-vertical-offset="680" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="34" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/VectorArithmetic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
@@ -906,26 +928,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene.java">
+    <entry file="file://$PROJECT_DIR$/src/IceBolt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="51" selection-start="747" selection-end="747" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="9" selection-start="1566" selection-end="1566" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1309">
-          <folding>
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1936#1937#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Projectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="36" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+        <state line="19" column="25" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
@@ -937,53 +942,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GenericBolt.java">
+    <entry file="file://$PROJECT_DIR$/src/PlayerMagicManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="26" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1139">
+        <state line="38" column="53" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1071">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#265#273#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="36" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Actor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="79" selection-start="2375" selection-end="2375" vertical-scroll-proportion="-16.846153" vertical-offset="820" max-vertical-offset="1581">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="14" column="11" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/Projectile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="32" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.0" vertical-offset="592" max-vertical-offset="1394">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1456#1457#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IceBolt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="25" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+        <state line="5" column="11" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MagicDart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="7" selection-start="164" selection-end="164" vertical-scroll-proportion="0.12518409" vertical-offset="0" max-vertical-offset="679">
+        <state line="9" column="7" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerMagicManager.java">
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="96" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.41714287" vertical-offset="320" max-vertical-offset="1037">
+        <state line="74" column="42" selection-start="1976" selection-end="1976" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1428">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#265#273#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GenericBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="20" selection-start="2232" selection-end="2232" vertical-scroll-proportion="0.0" vertical-offset="745" max-vertical-offset="1428">
+          <folding>
+            <element signature="e#2366#2367#0" expanded="true" />
+            <element signature="e#2408#2409#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="0" selection-start="2616" selection-end="2616" vertical-scroll-proportion="-51.0" vertical-offset="255" max-vertical-offset="2108">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1999#2011#0" expanded="true" />
+            <element signature="e#2066#2073#0" expanded="true" />
+            <element signature="e#2123#2130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Skeleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="55" selection-start="1182" selection-end="1182" vertical-scroll-proportion="0.75574714" vertical-offset="222" max-vertical-offset="969">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="78" selection-start="1838" selection-end="1838" vertical-scroll-proportion="0.0" vertical-offset="834" max-vertical-offset="1581">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="970" selection-end="970" vertical-scroll-proportion="0.48706895" vertical-offset="239" max-vertical-offset="1207">
+          <folding>
+            <element signature="e#1615#1616#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>

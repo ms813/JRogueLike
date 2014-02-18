@@ -45,10 +45,12 @@ public class PlayerMagicManager {
         index += wheelTicks;
 
 
-        if(index < 0) index = 0;
-        if(index > knownSpells.size()-1){
+        if(index < 0){
             index = knownSpells.size()-1;
+        } else if(index > knownSpells.size()-1){
+            index = 0;
         }
+
         System.out.println("index: " + index + ", size: " + knownSpells.size());
         currentSpell = knownSpells.get(index);
     }

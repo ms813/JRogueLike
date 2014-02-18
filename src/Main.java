@@ -5,6 +5,7 @@ import org.jsfml.system.Vector2f;
 import org.jsfml.system.Vector2i;
 import org.jsfml.window.Keyboard;
 import org.jsfml.window.Mouse;
+import org.jsfml.window.VideoMode;
 import org.jsfml.window.event.Event;
 
 
@@ -19,16 +20,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Game game = new Game("JRogueLike");
+        RenderWindow window = new RenderWindow();
+        window.create(new VideoMode(Game.screenW, Game.screenH), "JRogueLike");
+        Game game = new Game(window);
         Player player = game.getPlayer();
 
-        RenderWindow window = game.getWindow();
         window.setFramerateLimit(60);
         window.setVerticalSyncEnabled(true);
 
         Clock frameClock = new Clock();
-
-        int counter = 0;
 
         while (window.isOpen()) {
 

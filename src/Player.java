@@ -18,17 +18,12 @@ public class Player implements Actor {
 
     private Sprite playerSprite;
 
-    //used for movement
-    private float velX = 0;
-    private float velY = 0;
-    private float speed = 5f;
-    private float friction = 0.9f;
+    private float moveSpeed = 5f;
 
-    //list of the currently known spells
+    //manager that deals with spell learning, selection and casting
     private PlayerMagicManager magicManager = new PlayerMagicManager(this);
 
     public Player(){
-        playerSprite = new Sprite();
 
         Texture playerTexture = new Texture();
 
@@ -37,6 +32,9 @@ public class Player implements Actor {
 
             playerSprite = new Sprite(playerTexture);
             playerSprite.setScale(0.5f, 0.5f);
+
+            //set the origin to the center of the sprite rather than the top left
+            playerSprite.setOrigin(playerSprite.getLocalBounds().width/2, playerSprite.getLocalBounds().height/2);
 
         } catch(IOException e){
             e.printStackTrace();
@@ -50,7 +48,7 @@ public class Player implements Actor {
 
         Vector2f vel = new Vector2f(x,y);
 
-        playerSprite.move(Vector2f.mul(VectorArithmetic.normalize(vel), speed));
+        playerSprite.move(Vector2f.mul(VectorArithmetic.normalize(vel), moveSpeed));
     }
 
     public void castCurrentSpell(Vector2f mousePos){
@@ -62,7 +60,7 @@ public class Player implements Actor {
     }
 
     public Vector2f getCurrentPosition(){
-        //return the top left corner
+        //return the center of the sprite (see setOrigin() above)
         return playerSprite.getPosition();
     }
 
@@ -72,5 +70,9 @@ public class Player implements Actor {
 
     public void changeCurrentSpell(int wheelTicks){
         magicManager.changeCurrentSpell(wheelTicks);
+    }
+
+    public void onCollision(Actor collider){
+
     }
 }
