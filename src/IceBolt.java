@@ -1,5 +1,4 @@
 import org.jsfml.graphics.Texture;
-import org.jsfml.system.Vector2f;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,18 +9,18 @@ import java.nio.file.Paths;
  */
 public class IceBolt extends GenericBolt {
 
-    public IceBolt(Actor _belongsTo, Vector2f _target){
-        super(_belongsTo, _target);
+    public IceBolt(Actor _belongsTo){
 
-        speed = 0.1f;
+        super(_belongsTo);
+
+        speed = 10f;
         range = 600f;
-
+        coolDown = 5f;
 
         Texture texture = new Texture();
         try{
             texture.loadFromFile(Paths.get("resources" + File.separator + "iceBolt.png"));
-            super.buildSprite(texture);
-            boltSprite.setScale(0.3f, 0.3f);
+            buildSprite(texture);
         } catch(IOException e){
             e.printStackTrace();
         }

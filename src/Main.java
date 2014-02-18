@@ -23,6 +23,8 @@ public class Main {
         Player player = game.getPlayer();
 
         RenderWindow window = game.getWindow();
+        window.setFramerateLimit(60);
+        window.setVerticalSyncEnabled(true);
 
         Clock frameClock = new Clock();
 
@@ -50,26 +52,16 @@ public class Main {
                 player.move(deltaSeconds, 0);
             }
 
-
             //look for mouse input for firing projectiles
             if(Mouse.isButtonPressed(Mouse.Button.LEFT)){
-                if(counter % 10 == 0){
                     Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
-                    game.getCurrentScene().addActor(new MagicDart(player, worldPos));
-
-                }
+                    player.castCurrentSpell(worldPos);
             }
 
             if(Mouse.isButtonPressed(Mouse.Button.RIGHT)){
-                if(counter % 500 == 0){
                 Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
-                game.getCurrentScene().addActor(new IceBolt(player, worldPos));
-
-                }
+                System.out.println("Right mouse clicked: " + worldPos);
             }
-
-            counter++;
-            if (counter > 1000000) counter = 0;
 
             //event loop
             for (Event event : window.pollEvents()) {
@@ -77,6 +69,10 @@ public class Main {
                 //executed when the window is closed
                 if (event.type == Event.Type.CLOSED) {
                     window.close();
+                }
+
+                if(event.type == Event.Type.MOUSE_WHEEL_MOVED){
+                    player.changeCurrentSpell(event.asMouseWheelEvent().delta);
                 }
             }
 

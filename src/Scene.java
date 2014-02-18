@@ -26,7 +26,7 @@ public class Scene {
 
     public Scene(String _sceneName){
 
-        actors.add(new Player("player"));
+        actors.add(new Player());
         sceneName = _sceneName;
 
         try{

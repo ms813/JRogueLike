@@ -40,8 +40,9 @@ public class Game {
         window.setView(mainView);
 
         //Add scenes to the game
-        mSceneList.add(new Scene("map"));
-        currentScene = mSceneList.get(0);
+        currentScene = new Scene("map");
+
+        mSceneList.add(currentScene);
 
         player = getPlayer();
     }
@@ -74,7 +75,7 @@ public class Game {
         return currentScene.getPlayer();
     }
 
-    public Scene getCurrentScene(){
+    public static Scene getCurrentScene(){
         return currentScene;
     }
 }

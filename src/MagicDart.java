@@ -1,5 +1,4 @@
 import org.jsfml.graphics.Texture;
-import org.jsfml.system.Vector2f;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,17 +9,17 @@ import java.nio.file.Paths;
  */
 public class MagicDart extends GenericBolt {
 
-    public MagicDart(Actor _belongsTo, Vector2f _target){
-        super(_belongsTo, _target);
+    public MagicDart(Actor _belongsTo){
+        super(_belongsTo);
 
-        speed = 0.4f;
+        speed = 15f;
         range = 350f;
+        coolDown = 1f;
 
         Texture texture = new Texture();
         try{
             texture.loadFromFile(Paths.get("resources" + File.separator + "magicDart.png"));
-             super.buildSprite(texture);
-            boltSprite.setScale(0.5f, 0.5f);
+            buildSprite(texture);
         } catch(IOException e){
             e.printStackTrace();
         }
