@@ -26,6 +26,8 @@ public class Main {
 
         Clock frameClock = new Clock();
 
+        int counter = 0;
+
         while (window.isOpen()) {
 
 
@@ -51,14 +53,23 @@ public class Main {
 
             //look for mouse input for firing projectiles
             if(Mouse.isButtonPressed(Mouse.Button.LEFT)){
-                Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
-                game.getCurrentScene().addActor(new MagicDart(player, worldPos));
+                if(counter % 10 == 0){
+                    Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
+                    game.getCurrentScene().addActor(new MagicDart(player, worldPos));
+
+                }
             }
 
             if(Mouse.isButtonPressed(Mouse.Button.RIGHT)){
+                if(counter % 500 == 0){
                 Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
                 game.getCurrentScene().addActor(new IceBolt(player, worldPos));
+
+                }
             }
+
+            counter++;
+            if (counter > 1000000) counter = 0;
 
             //event loop
             for (Event event : window.pollEvents()) {
