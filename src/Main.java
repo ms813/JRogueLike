@@ -1,10 +1,11 @@
 import org.jsfml.graphics.RenderWindow;
+import org.jsfml.system.Clock;
+import org.jsfml.system.Time;
 import org.jsfml.system.Vector2f;
 import org.jsfml.system.Vector2i;
 import org.jsfml.window.Keyboard;
 import org.jsfml.window.Mouse;
 import org.jsfml.window.event.Event;
-import org.jsfml.window.event.KeyEvent;
 import org.jsfml.window.event.MouseButtonEvent;
 
 
@@ -24,8 +25,27 @@ public class Main {
 
         RenderWindow window = game.getWindow();
 
+        Clock frameClock = new Clock();
+
         while (window.isOpen()) {
+
+
             window.clear();
+            Time deltaTime = frameClock.restart();
+            float deltaSeconds = deltaTime.asSeconds();
+
+            if(Keyboard.isKeyPressed(Keyboard.Key.W)){
+                player.move(0, -deltaSeconds);
+            }
+            if(Keyboard.isKeyPressed(Keyboard.Key.S)){
+                player.move(0, deltaSeconds);
+            }
+            if(Keyboard.isKeyPressed(Keyboard.Key.A)){
+                player.move(-deltaSeconds, 0);
+            }
+            if(Keyboard.isKeyPressed(Keyboard.Key.D)){
+                player.move(deltaSeconds, 0);
+            }
 
             //event loop
             for (Event event : window.pollEvents()) {
@@ -34,40 +54,6 @@ public class Main {
                 if (event.type == Event.Type.CLOSED) {
                     window.close();
                 }
-                //look for WASD input for character movement
-                if (event.type == Event.Type.KEY_PRESSED) {
-                    KeyEvent keyEvent = event.asKeyEvent();
-
-                    if(keyEvent.key == Keyboard.Key.A){
-                        InputBooleans.left = true;
-                    }
-                    if(keyEvent.key == Keyboard.Key.D){
-                        InputBooleans.right = true;
-                    }
-                    if(keyEvent.key == Keyboard.Key.W){
-                        InputBooleans.up = true;
-                    }
-                    if(keyEvent.key == Keyboard.Key.S){
-                        InputBooleans.down = true;
-                    }
-                }
-
-                if (event.type == Event.Type.KEY_RELEASED) {
-                    KeyEvent keyEvent = event.asKeyEvent();
-
-                    if(keyEvent.key == Keyboard.Key.A){
-                        InputBooleans.left = false;
-                    }
-                    if(keyEvent.key == Keyboard.Key.D){
-                        InputBooleans.right = false;
-                    }
-                    if(keyEvent.key == Keyboard.Key.W){
-                        InputBooleans.up = false;
-                    }
-                    if(keyEvent.key == Keyboard.Key.S){
-                        InputBooleans.down = false;
-                    }
-                }
 
                 if(event.type == Event.Type.MOUSE_BUTTON_PRESSED){
                     MouseButtonEvent mbEvent = event.asMouseButtonEvent();
@@ -75,17 +61,14 @@ public class Main {
                     Vector2f mousePos = window.mapPixelToCoords(mbEvent.position);
 
                     if(mbEvent.button == Mouse.Button.LEFT){
-                        InputBooleans.lmb = true;
                         game.getCurrentScene().addActor(new MagicDart(player, mousePos));
                         //System.out.println("MousePos: " + mousePos);
                     }
                     if(mbEvent.button == Mouse.Button.RIGHT){
-                        InputBooleans.rmb = true;
                         game.getCurrentScene().addActor(new IceBolt(player, mousePos));
                     }
 
                     if(mbEvent.button == Mouse.Button.MIDDLE){
-                        InputBooleans.mmb = true;
                     }
                 }
 
@@ -93,20 +76,15 @@ public class Main {
                     MouseButtonEvent mbEvent = event.asMouseButtonEvent();
 
                     if(mbEvent.button == Mouse.Button.LEFT){
-                        InputBooleans.lmb = true;
                     }
                     if(mbEvent.button == Mouse.Button.RIGHT){
-                        InputBooleans.rmb = true;
                     }
-
                     if(mbEvent.button == Mouse.Button.MIDDLE){
-                        InputBooleans.mmb = true;
                     }
                 }
             }
 
             game.getCurrentScene().updateProjectiles();
-            player.move();
             game.setViewCenter(new Vector2i(player.getDrawable().getPosition()));
 
             game.drawScene(0);

@@ -20,7 +20,7 @@ public class Player implements Actor {
     //used for movement
     private float velX = 0;
     private float velY = 0;
-    private float speed = 0.05f;
+    private float speed = 0.2f;
     private float friction = 0.9f;
 
     public Player(String _playerName){
@@ -40,33 +40,11 @@ public class Player implements Actor {
         }
     }
 
-    public void move(){
+    public void move(float x, float y){
 
-        if(InputBooleans.up){
-            if(velY > -speed){
-                velY--;
-            }
-        }
-        if(InputBooleans.down){
-            if(velY < speed){
-                velY++;
-            }
-        }
-        if(InputBooleans.left){
-            if(velX > -speed){
-                velX--;
-            }
-        }
-        if(InputBooleans.right){
-            if(velX < speed){
-                velX++;
-            }
-        }
+        Vector2f vel = new Vector2f(x,y);
 
-        velY *= friction;
-        velX *= friction;
-
-        playerSprite.move(new Vector2f(velX, velY));
+        playerSprite.move(Vector2f.mul(VectorArithmetic.normalize(vel),speed));
     }
 
     public Sprite getDrawable(){
@@ -80,13 +58,5 @@ public class Player implements Actor {
     public Vector2f getCurrentPosition(){
         //return the top left corner
         return playerSprite.getPosition();
-    }
-
-    public float getSpeed(){
-        return VectorArithmetic.magnitude(new Vector2f(velX, velY));
-    }
-
-    public Vector2f getVelocity(){
-        return new Vector2f(velX, velY);
     }
 }
