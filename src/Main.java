@@ -6,7 +6,6 @@ import org.jsfml.system.Vector2i;
 import org.jsfml.window.Keyboard;
 import org.jsfml.window.Mouse;
 import org.jsfml.window.event.Event;
-import org.jsfml.window.event.MouseButtonEvent;
 
 
 /**
@@ -34,6 +33,8 @@ public class Main {
             Time deltaTime = frameClock.restart();
             float deltaSeconds = deltaTime.asSeconds();
 
+
+            //look for WASD input to control player movement
             if(Keyboard.isKeyPressed(Keyboard.Key.W)){
                 player.move(0, -deltaSeconds);
             }
@@ -47,40 +48,24 @@ public class Main {
                 player.move(deltaSeconds, 0);
             }
 
+
+            //look for mouse input for firing projectiles
+            if(Mouse.isButtonPressed(Mouse.Button.LEFT)){
+                Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
+                game.getCurrentScene().addActor(new MagicDart(player, worldPos));
+            }
+
+            if(Mouse.isButtonPressed(Mouse.Button.RIGHT)){
+                Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
+                game.getCurrentScene().addActor(new IceBolt(player, worldPos));
+            }
+
             //event loop
             for (Event event : window.pollEvents()) {
 
                 //executed when the window is closed
                 if (event.type == Event.Type.CLOSED) {
                     window.close();
-                }
-
-                if(event.type == Event.Type.MOUSE_BUTTON_PRESSED){
-                    MouseButtonEvent mbEvent = event.asMouseButtonEvent();
-
-                    Vector2f mousePos = window.mapPixelToCoords(mbEvent.position);
-
-                    if(mbEvent.button == Mouse.Button.LEFT){
-                        game.getCurrentScene().addActor(new MagicDart(player, mousePos));
-                        //System.out.println("MousePos: " + mousePos);
-                    }
-                    if(mbEvent.button == Mouse.Button.RIGHT){
-                        game.getCurrentScene().addActor(new IceBolt(player, mousePos));
-                    }
-
-                    if(mbEvent.button == Mouse.Button.MIDDLE){
-                    }
-                }
-
-                if(event.type == Event.Type.MOUSE_BUTTON_RELEASED){
-                    MouseButtonEvent mbEvent = event.asMouseButtonEvent();
-
-                    if(mbEvent.button == Mouse.Button.LEFT){
-                    }
-                    if(mbEvent.button == Mouse.Button.RIGHT){
-                    }
-                    if(mbEvent.button == Mouse.Button.MIDDLE){
-                    }
                 }
             }
 

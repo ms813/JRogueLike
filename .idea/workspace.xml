@@ -66,10 +66,19 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="GenericBolt.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/GenericBolt.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="69" column="30" selection-start="2097" selection-end="2097" vertical-scroll-proportion="1.0566666" vertical-offset="369" max-vertical-offset="1224">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="34" column="54" selection-start="888" selection-end="888" vertical-scroll-proportion="0.50734097" vertical-offset="131" max-vertical-offset="1581">
+                <state line="57" column="60" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.0" vertical-offset="713" max-vertical-offset="1343">
                   <folding />
                 </state>
               </provider>
@@ -160,15 +169,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Directions.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Directions.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="25" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-second>
     </splitter>
@@ -194,13 +194,13 @@
         <option value="$PROJECT_DIR$/src/BoltSpells/MagicDart.java" />
         <option value="$PROJECT_DIR$/src/IceBolt.java" />
         <option value="$PROJECT_DIR$/src/MagicDart.java" />
-        <option value="$PROJECT_DIR$/src/GenericBolt.java" />
         <option value="$PROJECT_DIR$/src/Actor.java" />
         <option value="$PROJECT_DIR$/src/VectorArithmetic.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Directions.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/GenericBolt.java" />
       </list>
     </option>
   </component>
@@ -810,13 +810,6 @@
         <state line="6" column="19" selection-start="165" selection-end="165" vertical-scroll-proportion="0.14731368" vertical-offset="0" max-vertical-offset="680" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GenericBolt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="5" selection-start="2231" selection-end="2231" vertical-scroll-proportion="1.2570978" vertical-offset="291" max-vertical-offset="1224">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="59" selection-start="1463" selection-end="1463" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1428">
@@ -866,13 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Directions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="25" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="0" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1003">
@@ -882,7 +868,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="54" selection-start="888" selection-end="888" vertical-scroll-proportion="0.50734097" vertical-offset="131" max-vertical-offset="1581">
+        <state line="57" column="60" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.0" vertical-offset="713" max-vertical-offset="1343">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GenericBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="30" selection-start="2097" selection-end="2097" vertical-scroll-proportion="1.0566666" vertical-offset="369" max-vertical-offset="1224">
           <folding />
         </state>
       </provider>
