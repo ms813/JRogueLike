@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class Game {
 
-
     public static int screenW = 1080;
     public static int screenH = 720;
 

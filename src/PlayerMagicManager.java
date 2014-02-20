@@ -2,6 +2,7 @@ import org.jsfml.system.Vector2f;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -11,48 +12,73 @@ public class PlayerMagicManager {
 
     private static Player player;
 
-    private static List<String> knownSpells = new ArrayList<String>();
-    private static String currentSpell;
+    private static HashMap cooldowns = new HashMap();
 
-    public PlayerMagicManager(Player _player){
+    private static List<SpellInfo> knownSpells = new ArrayList<SpellInfo>();
+    private static SpellInfo currentSpell;
+
+    public PlayerMagicManager(Player _player) {
         player = _player;
+
+        cooldowns.put("MagicDart", 0.10f);
+        cooldowns.put("IceBolt", 2.0f);
+
     }
 
-    public void learnSpell(String spell){
-        knownSpells.add(spell);
-        currentSpell = spell;
+    public void learnSpell(String spellName) {
+        SpellInfo sI = new SpellInfo(spellName);
+        Float cd = (Float) cooldowns.get(spellName);
+        sI.setCoolDown(cd);
+        sI.setCoolDownRemaining(0);
+        knownSpells.add(sI);
+        currentSpell = knownSpells.get(knownSpells.size()-1);
     }
 
-    public void castCurrentSpell(Vector2f target){
+    public void castCurrentSpell(Vector2f target) {
+        if (currentSpell.getCoolDownRemaining() <= 0) {
 
-        //use reflection to build an instance of the class from a string
-        try{
-            Class cl = Class.forName(currentSpell);
-            Constructor con = cl.getConstructor(Actor.class);
-            Object obj = con.newInstance(player);
-            MagicSpell spell = (MagicSpell) obj;
+            //use reflection to build an instance of the class from a string
+            try {
+                Class cl = Class.forName(currentSpell.getSpellName());
+                Constructor con = cl.getConstructor(Actor.class);
+                Object obj = con.newInstance(player);
+                MagicSpell spell = (MagicSpell) obj;
 
-            spell.castSpell(target);
-            Game.getCurrentScene().addActor(spell);
-        } catch(Exception e){
-            //there are like 5 errors to catch here, heedin for puttin them all in one at a time
-            e.printStackTrace();
+                currentSpell.setCoolDownRemaining(currentSpell.getCoolDown());
+
+                spell.castSpell(target);
+                Game.getCurrentScene().addActor(spell);
+            } catch (Exception e) {
+                //there are like 5 errors to catch here, heedin for puttin them all in one at a time
+                e.printStackTrace();
+            }
+        }  else{
+            //spell is on cooldown
         }
     }
 
-    public void changeCurrentSpell(int wheelTicks){
+    public void changeCurrentSpell(int wheelTicks) {
         int index = knownSpells.indexOf(currentSpell);
 
         index += wheelTicks;
 
-
-        if(index < 0){
-            index = knownSpells.size()-1;
-        } else if(index > knownSpells.size()-1){
+        if (index < 0) {
+            index = knownSpells.size() - 1;
+        } else if (index > knownSpells.size() - 1) {
             index = 0;
         }
-
-        System.out.println("index: " + index + ", size: " + knownSpells.size());
         currentSpell = knownSpells.get(index);
+    }
+
+    public static void reduceCoolDownsRemaining(float time) {
+        for (SpellInfo value : knownSpells) {
+            if (value.getCoolDownRemaining() > 0) {
+                value.reduceCoolDownRemaining(time);
+            }
+
+            if (value.getCoolDownRemaining() <= 0) {
+                value.setCoolDownRemaining(0);
+            }
+        }
     }
 }

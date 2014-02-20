@@ -78,6 +78,7 @@ public class Main {
 
             game.getCurrentScene().updateActors();
             game.setViewCenter(new Vector2i(player.getDrawable().getPosition()));
+            PlayerMagicManager.reduceCoolDownsRemaining(deltaSeconds);
 
             game.drawScene(0);
             window.display();
