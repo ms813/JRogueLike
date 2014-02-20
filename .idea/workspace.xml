@@ -66,10 +66,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.4828851">
       <split-first>
         <leaf>
-          <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="80" column="68" selection-start="2695" selection-end="2695" vertical-scroll-proportion="0.0" vertical-offset="786" max-vertical-offset="1462">
+                <state line="80" column="68" selection-start="2695" selection-end="2695" vertical-scroll-proportion="0.647929" vertical-offset="786" max-vertical-offset="1462">
                   <folding />
                 </state>
               </provider>
@@ -138,11 +138,14 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SpellInfo.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="SpellInfo.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/SpellInfo.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="15" column="34" selection-start="358" selection-end="358" vertical-scroll-proportion="0.3846154" vertical-offset="0" max-vertical-offset="663">
-                  <folding />
+                <state line="14" column="16" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+                  <folding>
+                    <element signature="e#528#529#0" expanded="true" />
+                    <element signature="e#560#561#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -205,12 +208,12 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PlayerMagicManager.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="PlayerMagicManager.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/PlayerMagicManager.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="34" selection-start="592" selection-end="592" vertical-scroll-proportion="0.47076923" vertical-offset="0" max-vertical-offset="1445">
+                <state line="14" column="42" selection-start="306" selection-end="306" vertical-scroll-proportion="0.23538461" vertical-offset="0" max-vertical-offset="1445">
                   <folding>
-                    <element signature="e#381#392#0" expanded="true" />
+                    <element signature="e#387#398#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -930,7 +933,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="19" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.0" vertical-offset="829" max-vertical-offset="1513">
+        <state line="50" column="30" selection-start="1401" selection-end="1401" vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1683">
           <folding />
         </state>
       </provider>
@@ -963,26 +966,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="68" selection-start="2695" selection-end="2695" vertical-scroll-proportion="0.0" vertical-offset="786" max-vertical-offset="1462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SpellInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="34" selection-start="358" selection-end="358" vertical-scroll-proportion="0.3846154" vertical-offset="0" max-vertical-offset="663">
-          <folding />
+        <state line="14" column="16" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <folding>
+            <element signature="e#528#529#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayerMagicManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="34" selection-start="592" selection-end="592" vertical-scroll-proportion="0.47076923" vertical-offset="0" max-vertical-offset="1445">
+        <state line="14" column="42" selection-start="306" selection-end="306" vertical-scroll-proportion="0.23538461" vertical-offset="0" max-vertical-offset="1445">
           <folding>
-            <element signature="e#381#392#0" expanded="true" />
+            <element signature="e#387#398#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="68" selection-start="2695" selection-end="2695" vertical-scroll-proportion="0.647929" vertical-offset="786" max-vertical-offset="1462">
+          <folding />
         </state>
       </provider>
     </entry>

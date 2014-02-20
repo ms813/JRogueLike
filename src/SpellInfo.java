@@ -8,8 +8,11 @@ public class SpellInfo {
     private float coolDownRemaining;
     private int level;
 
-    public SpellInfo(String spellName){
-        this.spellName = spellName;
+    public SpellInfo(String _spellName, float _cd, float _cdRemaining, int _level){
+        spellName = _spellName;
+        coolDown = _cd;
+        coolDownRemaining =_cdRemaining;
+        level = _level;
     }
 
     public void reduceCoolDownRemaining(float time){

@@ -12,7 +12,7 @@ public class PlayerMagicManager {
 
     private static Player player;
 
-    private static HashMap cooldowns = new HashMap();
+    private static HashMap coolDownLibrary = new HashMap();
 
     private static List<SpellInfo> knownSpells = new ArrayList<SpellInfo>();
     private static SpellInfo currentSpell;
@@ -20,17 +20,13 @@ public class PlayerMagicManager {
     public PlayerMagicManager(Player _player) {
         player = _player;
 
-        cooldowns.put("MagicDart", 0.10f);
-        cooldowns.put("IceBolt", 2.0f);
+        coolDownLibrary.put("MagicDart", 0.10f);
+        coolDownLibrary.put("IceBolt", 2.0f);
 
     }
 
     public void learnSpell(String spellName) {
-        SpellInfo sI = new SpellInfo(spellName);
-        Float cd = (Float) cooldowns.get(spellName);
-        sI.setCoolDown(cd);
-        sI.setCoolDownRemaining(0);
-        knownSpells.add(sI);
+        knownSpells.add(new SpellInfo(spellName, getSpellCoolDown(spellName), 0, 1));
         currentSpell = knownSpells.get(knownSpells.size()-1);
     }
 
@@ -80,5 +76,9 @@ public class PlayerMagicManager {
                 value.setCoolDownRemaining(0);
             }
         }
+    }
+
+    private float getSpellCoolDown(String spellName){
+        return (Float) coolDownLibrary.get(spellName);
     }
 }
