@@ -9,12 +9,15 @@ import java.nio.file.Paths;
  */
 public class MagicDart extends GenericBolt {
 
+    public MagicDart(){}
+
     public MagicDart(Actor _belongsTo){
         super(_belongsTo);
 
         speed = 15f;
         range = 350f;
         coolDown = 1f;
+        damage = 1f;
 
         Texture texture = new Texture();
         try{
@@ -26,5 +29,11 @@ public class MagicDart extends GenericBolt {
         //System.out.println("Target: " + targetPosition + ", Start: " + startPosition);
     }
 
+    public float getDamage(){
+        return damage;
+    }
 
+    public void onCollision(Actor collider){
+        readyForDestruction = true;
+    }
 }

@@ -16,8 +16,9 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     protected Vector2f travelVector;
     protected boolean readyForDestruction = false;
     protected float coolDown;
+    protected float damage;
 
-    //protected GenericBolt(){;}
+    protected GenericBolt(){}
 
     protected GenericBolt(Actor _belongsTo){
         //this should never be implemented as a generic class
@@ -60,7 +61,6 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
         if(collider instanceof Projectile){
             Projectile projectile = (Projectile) collider;
         }
-
     }
 
     public Sprite getDrawable(){
@@ -75,8 +75,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
         return readyForDestruction;
     }
 
-    public void onCollision(Actor collider){
-        readyForDestruction = true;
-    }
+    public abstract void onCollision(Actor collider);
 
+    public abstract float getDamage();
 }

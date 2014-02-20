@@ -15,4 +15,8 @@ public interface Actor{
     public Vector2f getCurrentPosition();
 
     public void onCollision(Actor collider);
+
+    public boolean isReadyForDestruction();
+
+    public void updatePosition();
 }

@@ -76,7 +76,7 @@ public class Main {
                 }
             }
 
-            game.getCurrentScene().updateProjectiles();
+            game.getCurrentScene().updateActors();
             game.setViewCenter(new Vector2i(player.getDrawable().getPosition()));
 
             game.drawScene(0);

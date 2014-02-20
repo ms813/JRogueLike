@@ -15,13 +15,20 @@ import java.nio.file.Paths;
  */
 public class Player implements Actor {
 
-
     private Sprite playerSprite;
+
+    private int maxHP;
+    private int currentHP;
+    private int XP;
+
+    private boolean readyForDestruction = false;
 
     private float moveSpeed = 5f;
 
     //manager that deals with spell learning, selection and casting
     private PlayerMagicManager magicManager = new PlayerMagicManager(this);
+
+    private PlayerXPManager xpManager = new PlayerXPManager(this);
 
     public Player(){
 
@@ -73,6 +80,14 @@ public class Player implements Actor {
     }
 
     public void onCollision(Actor collider){
+
+    }
+
+    public boolean isReadyForDestruction(){
+        return readyForDestruction;
+    }
+
+    public void updatePosition(){
 
     }
 }

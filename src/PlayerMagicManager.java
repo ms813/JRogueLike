@@ -2,16 +2,17 @@ import org.jsfml.system.Vector2f;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Matthew on 18/02/14.
  */
 public class PlayerMagicManager {
 
-    private Player player;
+    private static Player player;
 
-    private ArrayList<String> knownSpells = new ArrayList<String>();
-    private String currentSpell;
+    private static List<String> knownSpells = new ArrayList<String>();
+    private static String currentSpell;
 
     public PlayerMagicManager(Player _player){
         player = _player;

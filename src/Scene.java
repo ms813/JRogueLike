@@ -6,8 +6,8 @@ import org.jsfml.system.Vector2f;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,7 +16,7 @@ import java.util.List;
  * Time: 12:56
  * To change this template use File | Settings | File Templates.
  */
-public class Scene{
+public class Scene {
 
     //by convention, the player should always be actors.get(0);
     private List<Actor> actors = new ArrayList<Actor>();
@@ -25,54 +25,60 @@ public class Scene{
     private Texture bgTexture = new Texture();
     private Sprite bgSprite;
 
-    public Scene(String _sceneName){
+    public Scene(String _sceneName) {
 
         actors.add(new Player());
-        Skeleton skeleton = new Skeleton();
-        skeleton.setPosition(500,500);
-        actors.add(skeleton);
 
         sceneName = _sceneName;
 
-        try{
+        try {
             bgTexture.loadFromFile(Paths.get("resources/" + _sceneName + ".png"));
 
 
             bgSprite = new Sprite(bgTexture);
             bgSprite.setOrigin(new Vector2f(Game.screenW, Game.screenH));
-            
-        } catch(IOException e){
+
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        Random random = new Random();
+        int noOfEnemies = random.nextInt(50);
+
+        for (int i = 0; i < noOfEnemies; i++) {
+            Skeleton skeleton = new Skeleton();
+            skeleton.setPosition(random.nextFloat() * bgSprite.getGlobalBounds().width, random.nextFloat() * bgSprite.getGlobalBounds().width);
+            System.out.println("Skeleton added at " + skeleton.getCurrentPosition());
+            actors.add(skeleton);
         }
     }
 
-    public Sprite getBackground(){
+    public Sprite getBackground() {
         return bgSprite;
 
     }
 
-    public List<Actor> getActors(){
+    public List<Actor> getActors() {
         return actors;
     }
 
-    public Player getPlayer(){
+    public Player getPlayer() {
         Player player = null;
 
-        for(Iterator<Actor> i = actors.iterator(); i.hasNext();){
-            Actor actor = i.next();
-            if(actor instanceof Player){
+        for (Actor actor : actors) {
+            if (actor instanceof Player) {
                 player = (Player) actor;
             }
         }
 
-        if(player == null){
+        if (player == null) {
             System.err.println("Player is undefined!");
         }
 
         return player;
     }
 
-    public void updateProjectiles(){
+    public void updateActors() {
 
         //build 2 lists, one of projectiles and one of collidables
         //TODO this will need refined as enemy projectiles need to be blocked with shields etc
@@ -81,23 +87,20 @@ public class Scene{
         List<Actor> tempCollidables = new ArrayList<Actor>();
         List<Actor> tempActors = new ArrayList<Actor>(actors);
 
-        for(Actor actor : tempActors){
-            if(actor instanceof Projectile){
 
-                if(!((Projectile) actor).isReadyForDestruction()){
-                    ((Projectile) actor).updatePosition();
-                } else{
-                    actors.remove(actor);
-                }
-
+        //build list of projectiles and non-projectiles here
+        //this ensures projectiles are not colliding against themselves
+        for (Actor actor : tempActors) {
+            if (actor instanceof Projectile) {
                 tempProjectiles.add((Projectile) actor);
-            } else if(!(actor instanceof  Player)) {
+            } else if (!(actor instanceof Player)) {
                 tempCollidables.add(actor);
             }
         }
 
-        for(Projectile projectile : tempProjectiles){
-            for(Actor collidable : tempCollidables){
+        //check for collisions between projectiles and non-projectiles
+        for (Projectile projectile : tempProjectiles) {
+            for (Actor collidable : tempCollidables) {
 
                 Sprite projSprite = (Sprite) projectile.getDrawable();
                 FloatRect projBounds = projSprite.getGlobalBounds();
@@ -105,7 +108,7 @@ public class Scene{
                 Sprite collidableSprite = (Sprite) collidable.getDrawable();
                 FloatRect collidableBounds = collidableSprite.getGlobalBounds();
 
-                if(projBounds.intersection(collidableBounds) != null){
+                if (projBounds.intersection(collidableBounds) != null) {
 
                     projectile.onCollision(collidable);
                     collidable.onCollision(projectile);
@@ -113,11 +116,19 @@ public class Scene{
             }
         }
 
+        //finally update the projectile positions
+        //doing this after detecting collisions prevents 2 collisions being detected
+        for (Actor actor : tempActors) {
+
+            if (!actor.isReadyForDestruction()) {
+                actor.updatePosition();
+            } else {
+                actors.remove(actor);
+            }
+        }
     }
 
-    public void addActor(Actor actor){
+    public void addActor(Actor actor) {
         actors.add(actor);
     }
-
-
 }
