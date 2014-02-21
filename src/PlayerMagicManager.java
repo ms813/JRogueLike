@@ -10,19 +10,30 @@ import java.util.List;
  */
 public class PlayerMagicManager {
 
-    private static Player player;
+    private Player player;
 
-    private static HashMap coolDownLibrary = new HashMap();
+    private HashMap coolDownLibrary = new HashMap();
 
-    private static List<SpellInfo> knownSpells = new ArrayList<SpellInfo>();
-    private static SpellInfo currentSpell;
+    private List<SpellInfo> knownSpells = new ArrayList<SpellInfo>();
+    private SpellInfo currentSpell;
 
-    public PlayerMagicManager(Player _player) {
-        player = _player;
+    private static PlayerMagicManager instance = null;
 
+    public static PlayerMagicManager getInstance(){
+        if(instance == null){
+            instance = new PlayerMagicManager();
+        }
+
+        return instance;
+    }
+
+    protected PlayerMagicManager(){
         coolDownLibrary.put("MagicDart", 0.10f);
         coolDownLibrary.put("IceBolt", 2.0f);
+    }
 
+    public void setPlayer(Player _player){
+        player = _player;
     }
 
     public void learnSpell(String spellName) {
@@ -42,8 +53,7 @@ public class PlayerMagicManager {
 
                 currentSpell.setCoolDownRemaining(currentSpell.getCoolDown());
 
-                spell.castSpell(target);
-                Game.getCurrentScene().addActor(spell);
+                spell.castSpell(target, currentSpell.getLevel());
             } catch (Exception e) {
                 //there are like 5 errors to catch here, heedin for puttin them all in one at a time
                 e.printStackTrace();
@@ -66,7 +76,7 @@ public class PlayerMagicManager {
         currentSpell = knownSpells.get(index);
     }
 
-    public static void reduceCoolDownsRemaining(float time) {
+    public void reduceCoolDownsRemaining(float time) {
         for (SpellInfo value : knownSpells) {
             if (value.getCoolDownRemaining() > 0) {
                 value.reduceCoolDownRemaining(time);

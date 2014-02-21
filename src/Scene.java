@@ -78,32 +78,29 @@ public class Scene {
         return player;
     }
 
-    public void updateActors() {
-
-        //build 2 lists, one of projectiles and one of collidables
-        //TODO this will need refined as enemy projectiles need to be blocked with shields etc
-
+    public void checkProjectileCollisions() {
+       //
+        List<Actor> tempActors = new ArrayList<Actor>(actors);
         List<Projectile> tempProjectiles = new ArrayList<Projectile>();
         List<Actor> tempCollidables = new ArrayList<Actor>();
-        List<Actor> tempActors = new ArrayList<Actor>(actors);
-
 
         //build list of projectiles and non-projectiles here
         //this ensures projectiles are not colliding against themselves
         for (Actor actor : tempActors) {
             if (actor instanceof Projectile) {
                 tempProjectiles.add((Projectile) actor);
-            } else if (!(actor instanceof Player)) {
+            } else {
                 tempCollidables.add(actor);
             }
         }
 
         //check for collisions between projectiles and non-projectiles
         for (Projectile projectile : tempProjectiles) {
-            for (Actor collidable : tempCollidables) {
 
-                Sprite projSprite = (Sprite) projectile.getDrawable();
-                FloatRect projBounds = projSprite.getGlobalBounds();
+            Sprite projSprite = (Sprite) projectile.getDrawable();
+            FloatRect projBounds = projSprite.getGlobalBounds();
+
+            for (Actor collidable : tempCollidables) {
 
                 Sprite collidableSprite = (Sprite) collidable.getDrawable();
                 FloatRect collidableBounds = collidableSprite.getGlobalBounds();
@@ -115,13 +112,18 @@ public class Scene {
                 }
             }
         }
+    }
+
+
+    public void updateActors() {
+
+        List<Actor> tempActors = new ArrayList<Actor>(actors);
 
         //finally update the projectile positions
         //doing this after detecting collisions prevents 2 collisions being detected
         for (Actor actor : tempActors) {
-
             if (!actor.isReadyForDestruction()) {
-                actor.updatePosition();
+                actor.update();
             } else {
                 actors.remove(actor);
             }

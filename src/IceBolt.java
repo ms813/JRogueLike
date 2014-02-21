@@ -9,8 +9,6 @@ import java.nio.file.Paths;
  */
 public class IceBolt extends GenericBolt {
 
-    public IceBolt(){}
-
     public IceBolt(Actor _belongsTo) {
 
         super(_belongsTo);
@@ -18,7 +16,7 @@ public class IceBolt extends GenericBolt {
         speed = 10f;
         range = 600f;
         coolDown = 5f;
-        damage = 2f;
+        damage = 20f;
 
         Texture texture = new Texture();
         try {
@@ -35,6 +33,6 @@ public class IceBolt extends GenericBolt {
     }
 
     public void onCollision(Actor collider){
-       readyForDestruction = true;
+        super.onCollision(collider);
     }
 }

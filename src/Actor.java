@@ -18,5 +18,5 @@ public interface Actor{
 
     public boolean isReadyForDestruction();
 
-    public void updatePosition();
+    public void update();
 }

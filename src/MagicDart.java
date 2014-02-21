@@ -9,8 +9,6 @@ import java.nio.file.Paths;
  */
 public class MagicDart extends GenericBolt {
 
-    public MagicDart(){}
-
     public MagicDart(Actor _belongsTo){
         super(_belongsTo);
 
@@ -34,6 +32,6 @@ public class MagicDart extends GenericBolt {
     }
 
     public void onCollision(Actor collider){
-        readyForDestruction = true;
+       super.onCollision(collider);
     }
 }

@@ -12,7 +12,7 @@ public class Skeleton extends Monster {
 
     public Skeleton() {
 
-        maxHP = 200f;
+        maxHP = 20f;
         currentHP = maxHP;
         XP = 10f;
 
@@ -28,24 +28,31 @@ public class Skeleton extends Monster {
         }
     }
 
+    int counter = 0;
+    public void update(){
+        if(currentHP <= 0){
+            onDeath();
+        }
+
+        if(counter % 180 == 0){
+         IceBolt iceBolt = new IceBolt(this);
+            iceBolt.castSpell(PlayerXPManager.getInstance().getPlayer().getCurrentPosition(), 1);
+        }
+
+        counter++;
+    }
+
     @Override
     public void onCollision(Actor collider) {
-        if (collider instanceof Projectile) {
-            Projectile projectile = (Projectile) collider;
+    }
 
-            currentHP -= projectile.getDamage();
-
-            System.out.println("Skeleton HP: " + currentHP);
-
-            if(currentHP <= 0){
-                onDeath();
-            }
-        }
+    public void reduceHP(float damage){
+        currentHP -= damage;
     }
 
     protected void onDeath(){
         System.out.println("Skeleton died!");
         readyForDestruction = true;
-        PlayerXPManager.gainXP(XP);
+        PlayerXPManager.getInstance().gainXP(XP);
     }
 }

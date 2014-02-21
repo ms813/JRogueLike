@@ -26,9 +26,9 @@ public class Player implements Actor {
     private float moveSpeed = 5f;
 
     //manager that deals with spell learning, selection and casting
-    private PlayerMagicManager magicManager = new PlayerMagicManager(this);
+    private PlayerMagicManager magicManager = PlayerMagicManager.getInstance();
 
-    private PlayerXPManager xpManager = new PlayerXPManager(this);
+    private PlayerXPManager xpManager = PlayerXPManager.getInstance();
 
     public Player(){
 
@@ -47,8 +47,14 @@ public class Player implements Actor {
             e.printStackTrace();
         }
 
+        magicManager.setPlayer(this);
+        xpManager.setPlayer(this);
+
         learnSpell("MagicDart");
         learnSpell("IceBolt");
+
+        maxHP = 200;
+        currentHP = maxHP;
     }
 
     public void move(float x, float y){
@@ -79,7 +85,20 @@ public class Player implements Actor {
         magicManager.changeCurrentSpell(wheelTicks);
     }
 
+    public void reduceHP(float damage){
+        currentHP -= damage;
+    }
+
     public void onCollision(Actor collider){
+//        if(collider instanceof Projectile){
+//            Projectile proj = (Projectile) collider;
+//            if(proj.belongsTo(this)){
+//                //projectile belongs to me so do nothing
+//            } else{
+//                //projectile hit me so do something!
+//                System.out.println("Player current hp: " + currentHP);
+//            }
+//        }
 
     }
 
@@ -87,7 +106,14 @@ public class Player implements Actor {
         return readyForDestruction;
     }
 
-    public void updatePosition(){
+    public void update(){
+        if(currentHP <= 0){
+            onDeath();
+        }
+    }
 
+    public void onDeath(){
+        System.out.println("Oh no, you died!");
+        System.exit(0);
     }
 }

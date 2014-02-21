@@ -7,20 +7,39 @@ public class PlayerXPManager {
 
     private int currentLevel;
 
-    private static float currentXP;
+    private float currentXP;
+    private float xpToNextLevel;
 
-    public PlayerXPManager(Player _player){
-        player = _player;
+    private static PlayerXPManager instance = null;
 
-        //might have to move this, but seems sensible that only 1 should be created per game
+    public static PlayerXPManager getInstance(){
+        if(instance == null){
+            instance = new PlayerXPManager();
+        }
+
+        return instance;
+    }
+
+    protected PlayerXPManager(){
         currentLevel = 1;
         currentXP = 0;
     }
 
+    private void levelUp(){
 
-    public static void gainXP(float xp){
+    }
+
+
+    public void gainXP(float xp){
         currentXP += xp;
         System.out.println("Player xp increased to: " + currentXP);
+    }
 
+    public void setPlayer(Player _player){
+        player = _player;
+    }
+
+    public Player getPlayer(){
+        return player;
     }
 }

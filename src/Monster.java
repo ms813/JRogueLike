@@ -36,9 +36,9 @@ public abstract class Monster implements Actor{
         return readyForDestruction;
     }
 
-    public void updatePosition(){
-
-    }
+    public abstract void update();
 
     protected abstract void onDeath();
+
+    protected abstract void reduceHP(float damage);
 }
