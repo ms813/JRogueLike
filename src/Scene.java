@@ -78,8 +78,34 @@ public class Scene {
         return player;
     }
 
-    public void checkProjectileCollisions() {
-       //
+    public void checkCollisions() {
+
+        List<Actor> aList = new ArrayList<Actor>(actors);
+
+        for (int i = 0; i < aList.size(); i++) {
+
+            Actor a = aList.get(i);
+            Sprite aSprite = (Sprite) a.getDrawable();
+            FloatRect aRect = aSprite.getGlobalBounds();
+
+            for (int j = i + 1; j < aList.size(); j++) {
+                Actor b = aList.get(j);
+                Sprite bSprite = (Sprite) b.getDrawable();
+                FloatRect bRect = bSprite.getGlobalBounds();
+
+                if (aRect.intersection(bRect) != null) {
+                    a.onCollision(b);
+                    b.onCollision(a);
+                }
+            }
+        }
+
+
+        /***********************************************
+         *  Legacy code - builds separate list of projectiles
+         *  and checks against everything else
+         ***********************************************
+
         List<Actor> tempActors = new ArrayList<Actor>(actors);
         List<Projectile> tempProjectiles = new ArrayList<Projectile>();
         List<Actor> tempCollidables = new ArrayList<Actor>();
@@ -112,6 +138,7 @@ public class Scene {
                 }
             }
         }
+         ***********************************************************/
     }
 
 

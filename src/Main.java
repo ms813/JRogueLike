@@ -78,7 +78,7 @@ public class Main {
                 }
             }
 
-            Game.getCurrentScene().checkProjectileCollisions();
+            Game.getCurrentScene().checkCollisions();
             Game.getCurrentScene().updateActors();
             game.setViewCenter(new Vector2i(player.getDrawable().getPosition()));
             PlayerMagicManager.getInstance().reduceCoolDownsRemaining(deltaSeconds);
