@@ -43,14 +43,12 @@ public class Game {
         return window;
     }
 
-    public void drawScene(int index){
+    public void draw(RenderWindow window){
+        currentScene.draw(window);
+    }
 
-        Scene scene = mSceneList.get(index);
-        window.draw(scene.getBackground());
-
-        for(Actor actor : scene.getActors()){
-            window.draw(actor.getDrawable());
-        }
+    public void update(){
+        currentScene.update();
     }
 
     public void moveView(float x, float y){

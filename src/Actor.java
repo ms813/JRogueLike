@@ -1,4 +1,5 @@
 import org.jsfml.graphics.Drawable;
+import org.jsfml.graphics.RenderWindow;
 import org.jsfml.system.Vector2f;
 
 /**
@@ -14,7 +15,6 @@ public interface Actor{
 
     public Vector2f getCurrentPosition();
 
-
     //NOTE projectiles should always use their onCollision method to check for hits on monsters.
     //Monsters/players should use theirs for checking collisions with walls etc
     public void onCollision(Actor collider);
@@ -22,4 +22,6 @@ public interface Actor{
     public boolean isReadyForDestruction();
 
     public void update();
+
+    public void draw(RenderWindow window);
 }

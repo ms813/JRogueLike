@@ -1,8 +1,9 @@
 import org.jsfml.graphics.FloatRect;
+import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
-import org.jsfml.system.Vector2f;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -22,8 +23,9 @@ public class Scene {
     private List<Actor> actors = new ArrayList<Actor>();
     private String sceneName;
 
+    Sprite tileMap;
+
     private Texture bgTexture = new Texture();
-    private Sprite bgSprite;
 
     public Scene(String _sceneName) {
 
@@ -32,12 +34,8 @@ public class Scene {
         sceneName = _sceneName;
 
         try {
-            bgTexture.loadFromFile(Paths.get("resources/" + _sceneName + ".png"));
-
-
-            bgSprite = new Sprite(bgTexture);
-            bgSprite.setOrigin(new Vector2f(Game.screenW, Game.screenH));
-
+            bgTexture.loadFromFile(Paths.get("resources" + File.separatorChar + "map.png"));
+            tileMap = new Sprite(bgTexture);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,15 +45,14 @@ public class Scene {
 
         for (int i = 0; i < noOfEnemies; i++) {
             Skeleton skeleton = new Skeleton();
-            skeleton.setPosition(random.nextFloat() * bgSprite.getGlobalBounds().width, random.nextFloat() * bgSprite.getGlobalBounds().width);
+            skeleton.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
             System.out.println("Skeleton added at " + skeleton.getCurrentPosition());
             actors.add(skeleton);
         }
     }
 
-    public Sprite getBackground() {
-        return bgSprite;
-
+    public Sprite getMap(){
+        return tileMap;
     }
 
     public List<Actor> getActors() {
@@ -106,44 +103,42 @@ public class Scene {
          *  and checks against everything else
          ***********************************************
 
-        List<Actor> tempActors = new ArrayList<Actor>(actors);
-        List<Projectile> tempProjectiles = new ArrayList<Projectile>();
-        List<Actor> tempCollidables = new ArrayList<Actor>();
+         List<Actor> tempActors = new ArrayList<Actor>(actors);
+         List<Projectile> tempProjectiles = new ArrayList<Projectile>();
+         List<Actor> tempCollidables = new ArrayList<Actor>();
 
-        //build list of projectiles and non-projectiles here
-        //this ensures projectiles are not colliding against themselves
-        for (Actor actor : tempActors) {
-            if (actor instanceof Projectile) {
-                tempProjectiles.add((Projectile) actor);
-            } else {
-                tempCollidables.add(actor);
-            }
-        }
+         //build list of projectiles and non-projectiles here
+         //this ensures projectiles are not colliding against themselves
+         for (Actor actor : tempActors) {
+         if (actor instanceof Projectile) {
+         tempProjectiles.add((Projectile) actor);
+         } else {
+         tempCollidables.add(actor);
+         }
+         }
 
-        //check for collisions between projectiles and non-projectiles
-        for (Projectile projectile : tempProjectiles) {
+         //check for collisions between projectiles and non-projectiles
+         for (Projectile projectile : tempProjectiles) {
 
-            Sprite projSprite = (Sprite) projectile.getDrawable();
-            FloatRect projBounds = projSprite.getGlobalBounds();
+         Sprite projSprite = (Sprite) projectile.getDrawable();
+         FloatRect projBounds = projSprite.getGlobalBounds();
 
-            for (Actor collidable : tempCollidables) {
+         for (Actor collidable : tempCollidables) {
 
-                Sprite collidableSprite = (Sprite) collidable.getDrawable();
-                FloatRect collidableBounds = collidableSprite.getGlobalBounds();
+         Sprite collidableSprite = (Sprite) collidable.getDrawable();
+         FloatRect collidableBounds = collidableSprite.getGlobalBounds();
 
-                if (projBounds.intersection(collidableBounds) != null) {
+         if (projBounds.intersection(collidableBounds) != null) {
 
-                    projectile.onCollision(collidable);
-                    collidable.onCollision(projectile);
-                }
-            }
-        }
+         projectile.onCollision(collidable);
+         collidable.onCollision(projectile);
+         }
+         }
+         }
          ***********************************************************/
     }
 
-
-    public void updateActors() {
-
+    public void update(){
         List<Actor> tempActors = new ArrayList<Actor>(actors);
 
         //finally update the projectile positions
@@ -159,5 +154,14 @@ public class Scene {
 
     public void addActor(Actor actor) {
         actors.add(actor);
+    }
+
+    public void draw(RenderWindow window){
+
+        window.draw(tileMap);
+
+        for(Actor actor : actors){
+            actor.draw(window);
+        }
     }
 }

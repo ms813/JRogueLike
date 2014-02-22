@@ -1,3 +1,4 @@
+import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
@@ -90,15 +91,6 @@ public class Player implements Actor {
     }
 
     public void onCollision(Actor collider){
-//        if(collider instanceof Projectile){
-//            Projectile proj = (Projectile) collider;
-//            if(proj.belongsTo(this)){
-//                //projectile belongs to me so do nothing
-//            } else{
-//                //projectile hit me so do something!
-//                System.out.println("Player current hp: " + currentHP);
-//            }
-//        }
 
     }
 
@@ -115,5 +107,9 @@ public class Player implements Actor {
     public void onDeath(){
         System.out.println("Oh no, you died!");
         System.exit(0);
+    }
+
+    public void draw(RenderWindow window){
+        window.draw(playerSprite);
     }
 }

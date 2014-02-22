@@ -1,3 +1,4 @@
+import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
 
@@ -41,4 +42,8 @@ public abstract class Monster implements Actor{
     protected abstract void onDeath();
 
     protected abstract void reduceHP(float damage);
+
+    public void draw(RenderWindow window){
+        window.draw(sprite);
+    }
 }

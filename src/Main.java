@@ -61,8 +61,6 @@ public class Main {
             if(Mouse.isButtonPressed(Mouse.Button.RIGHT)){
                 Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
                 System.out.println("Right mouse clicked: " + worldPos);
-                System.out.println(Game.getCurrentScene().getActors());
-                System.out.println(player.getDrawable().getGlobalBounds());
             }
 
             //event loop
@@ -79,11 +77,13 @@ public class Main {
             }
 
             Game.getCurrentScene().checkCollisions();
-            Game.getCurrentScene().updateActors();
+
+            game.update();
+
             game.setViewCenter(new Vector2i(player.getDrawable().getPosition()));
             PlayerMagicManager.getInstance().reduceCoolDownsRemaining(deltaSeconds);
 
-            game.drawScene(0);
+            game.draw(window);
             window.display();
         }
 

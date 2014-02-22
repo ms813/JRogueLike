@@ -29,7 +29,6 @@ public class PlayerXPManager {
 
     }
 
-
     public void gainXP(float xp){
         currentXP += xp;
         System.out.println("Player xp increased to: " + currentXP);
