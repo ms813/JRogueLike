@@ -12,13 +12,14 @@ public abstract class Monster implements Actor{
     protected float maxHP;
     protected float currentHP;
     protected float XP;
+    protected float moveSpeed;
 
     protected MonsterHPBar hpBar;
 
     protected boolean readyForDestruction = false;
 
     public void onCollision(Actor collider){
-        hpBar.update();
+
     }
 
     public Sprite getDrawable(){
@@ -45,6 +46,8 @@ public abstract class Monster implements Actor{
         if(currentHP <= 0){
             onDeath();
         }
+
+        hpBar.update();
     }
 
     protected abstract void onDeath();

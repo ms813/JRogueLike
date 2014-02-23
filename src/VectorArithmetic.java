@@ -1,6 +1,8 @@
 import org.jsfml.system.Vector2f;
 import org.jsfml.system.Vector2i;
 
+import java.util.Random;
+
 /**
  * Created by Matthew on 16/02/14.
  */
@@ -30,4 +32,11 @@ public class VectorArithmetic {
     strictfp static float AngleBetweenVectorsDegrees(Vector2f a, Vector2f b){
         return new Float(AngleBetweenVectorsRadians(a,b)  * 180/Math.PI);
     }
+
+    strictfp static Vector2f RandomOnUnitCircle(){
+        Random rnd = new Random();
+
+        return normalize(new Vector2f(rnd.nextFloat(), rnd.nextFloat()));
+    }
+
 }

@@ -96,16 +96,16 @@
           <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="67" column="13" selection-start="1819" selection-end="1819" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2023">
+                <state line="67" column="13" selection-start="1819" selection-end="1819" vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="2023">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="VectorArithmetic.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="VectorArithmetic.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/VectorArithmetic.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="0" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+                <state line="38" column="72" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.89205396" vertical-offset="0" max-vertical-offset="765">
                   <folding />
                 </state>
               </provider>
@@ -129,10 +129,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MonsterHPBar.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="MonsterHPBar.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/MonsterHPBar.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="46" selection-start="588" selection-end="588" vertical-scroll-proportion="0.46153846" vertical-offset="51" max-vertical-offset="765">
+                <state line="21" column="46" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="765">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -144,22 +144,22 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Skeleton.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="Skeleton.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Skeleton.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="34" column="23" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1020">
+                <state line="55" column="41" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.79851854" vertical-offset="277" max-vertical-offset="1156">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Monster.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="Monster.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Monster.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="59" column="50" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.75609756" vertical-offset="408" max-vertical-offset="1105">
+                <state line="25" column="36" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1156">
                   <folding>
-                    <element signature="e#508#509#0" expanded="true" />
-                    <element signature="e#537#538#0" expanded="true" />
+                    <element signature="e#516#517#0" expanded="true" />
+                    <element signature="e#545#546#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -204,7 +204,6 @@
         <option value="$PROJECT_DIR$/src/ProjectileHandler.java" />
         <option value="$PROJECT_DIR$/src/BoltSpells/GenericBolt.java" />
         <option value="$PROJECT_DIR$/src/BoltSpells/MagicDart.java" />
-        <option value="$PROJECT_DIR$/src/VectorArithmetic.java" />
         <option value="$PROJECT_DIR$/src/Directions.java" />
         <option value="$PROJECT_DIR$/src/Enemy.java" />
         <option value="$PROJECT_DIR$/src/CollisionListener.java" />
@@ -224,11 +223,12 @@
         <option value="$PROJECT_DIR$/src/GenericBolt.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Scene.java" />
-        <option value="$PROJECT_DIR$/src/Skeleton.java" />
-        <option value="$PROJECT_DIR$/src/Monster.java" />
         <option value="$PROJECT_DIR$/src/HPBar.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/MonsterHPBar.java" />
+        <option value="$PROJECT_DIR$/src/Monster.java" />
+        <option value="$PROJECT_DIR$/src/VectorArithmetic.java" />
+        <option value="$PROJECT_DIR$/src/Skeleton.java" />
       </list>
     </option>
   </component>
@@ -554,7 +554,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12886049" sideWeight="0.67070484" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2275641" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23717949" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -921,34 +921,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene.java">
+    <entry file="file://$PROJECT_DIR$/src/MonsterHPBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="13" selection-start="1819" selection-end="1819" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2023">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Skeleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="23" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="50" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.75609756" vertical-offset="408" max-vertical-offset="1105">
+        <state line="21" column="46" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="765">
           <folding>
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/VectorArithmetic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -959,12 +937,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MonsterHPBar.java">
+    <entry file="file://$PROJECT_DIR$/src/Monster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="46" selection-start="588" selection-end="588" vertical-scroll-proportion="0.46153846" vertical-offset="51" max-vertical-offset="765">
+        <state line="25" column="36" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1156">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="13" selection-start="1819" selection-end="1819" vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="2023">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VectorArithmetic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="72" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.89205396" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Skeleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="41" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.79851854" vertical-offset="277" max-vertical-offset="1156">
+          <folding />
         </state>
       </provider>
     </entry>

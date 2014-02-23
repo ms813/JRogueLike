@@ -1,5 +1,7 @@
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
+import org.jsfml.system.Vector2f;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +17,7 @@ public class Skeleton extends Monster {
         maxHP = 20f;
         currentHP = maxHP;
         XP = 10f;
+        moveSpeed = 2f;
 
         try {
             Texture texture = new Texture();
@@ -40,11 +43,18 @@ public class Skeleton extends Monster {
         }
 
         counter++;
+        Vector2f dir = VectorArithmetic.normalize(Vector2f.sub(PlayerXPManager.getInstance().getPlayer().getCurrentPosition(), sprite.getPosition()));
+        sprite.move(Vector2f.mul(dir, moveSpeed));
     }
 
     @Override
     public void onCollision(Actor collider) {
         super.onCollision(collider);
+
+        if(collider instanceof Monster){
+            FloatRect colRect = sprite.getGlobalBounds().intersection(((Sprite) collider.getDrawable()).getGlobalBounds());
+            System.out.println(colRect);
+        }
     }
 
     public void reduceHP(float damage){
