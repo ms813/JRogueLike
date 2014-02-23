@@ -96,46 +96,6 @@ public class Scene {
                 }
             }
         }
-
-
-        /***********************************************
-         *  Legacy code - builds separate list of projectiles
-         *  and checks against everything else
-         ***********************************************
-
-         List<Actor> tempActors = new ArrayList<Actor>(actors);
-         List<Projectile> tempProjectiles = new ArrayList<Projectile>();
-         List<Actor> tempCollidables = new ArrayList<Actor>();
-
-         //build list of projectiles and non-projectiles here
-         //this ensures projectiles are not colliding against themselves
-         for (Actor actor : tempActors) {
-         if (actor instanceof Projectile) {
-         tempProjectiles.add((Projectile) actor);
-         } else {
-         tempCollidables.add(actor);
-         }
-         }
-
-         //check for collisions between projectiles and non-projectiles
-         for (Projectile projectile : tempProjectiles) {
-
-         Sprite projSprite = (Sprite) projectile.getDrawable();
-         FloatRect projBounds = projSprite.getGlobalBounds();
-
-         for (Actor collidable : tempCollidables) {
-
-         Sprite collidableSprite = (Sprite) collidable.getDrawable();
-         FloatRect collidableBounds = collidableSprite.getGlobalBounds();
-
-         if (projBounds.intersection(collidableBounds) != null) {
-
-         projectile.onCollision(collidable);
-         collidable.onCollision(projectile);
-         }
-         }
-         }
-         ***********************************************************/
     }
 
     public void update(){

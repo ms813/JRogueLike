@@ -86,6 +86,5 @@ public class Main {
             game.draw(window);
             window.display();
         }
-
     }
 }

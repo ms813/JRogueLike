@@ -26,13 +26,13 @@ public class Skeleton extends Monster {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        hpBar = buildHPBar();
     }
 
     int counter = 0;
     public void update(){
-        if(currentHP <= 0){
-            onDeath();
-        }
+        super.update();
 
         if(counter % 180 == 0){
          IceBolt iceBolt = new IceBolt(this);
@@ -44,6 +44,7 @@ public class Skeleton extends Monster {
 
     @Override
     public void onCollision(Actor collider) {
+        super.onCollision(collider);
     }
 
     public void reduceHP(float damage){

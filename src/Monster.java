@@ -13,9 +13,13 @@ public abstract class Monster implements Actor{
     protected float currentHP;
     protected float XP;
 
+    protected MonsterHPBar hpBar;
+
     protected boolean readyForDestruction = false;
 
-    public abstract void onCollision(Actor collider);
+    public void onCollision(Actor collider){
+        hpBar.update();
+    }
 
     public Sprite getDrawable(){
         return sprite;
@@ -37,7 +41,11 @@ public abstract class Monster implements Actor{
         return readyForDestruction;
     }
 
-    public abstract void update();
+    public void update(){
+        if(currentHP <= 0){
+            onDeath();
+        }
+    }
 
     protected abstract void onDeath();
 
@@ -45,5 +53,12 @@ public abstract class Monster implements Actor{
 
     public void draw(RenderWindow window){
         window.draw(sprite);
+        hpBar.draw(window);
+    }
+
+    public MonsterHPBar buildHPBar(){
+        MonsterHPBar bar = new MonsterHPBar(this);
+
+        return bar;
     }
 }
