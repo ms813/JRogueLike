@@ -58,7 +58,6 @@ public abstract class Monster implements Actor{
 
     public MonsterHPBar buildHPBar(){
         MonsterHPBar bar = new MonsterHPBar(this);
-
         return bar;
     }
 }

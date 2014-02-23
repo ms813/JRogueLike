@@ -17,7 +17,9 @@ public class MonsterHPBar {
         parent= _parent;
         maxLen = parent.sprite.getLocalBounds().width/2;
 
+
         bar.setSize(new Vector2f(maxLen, thickness));
+        bar.setOrigin(new Vector2f(maxLen/2, 0));
         bar.setFillColor(color);
     }
 
@@ -26,7 +28,7 @@ public class MonsterHPBar {
         bar.setSize(new Vector2f(len, thickness));
 
 
-        Vector2f pos = Vector2f.add(parent.sprite.getPosition(), new Vector2f(-parent.sprite.getLocalBounds().width/4, parent.sprite.getLocalBounds().height/4));
+        Vector2f pos = Vector2f.add(parent.sprite.getPosition(), new Vector2f(0, parent.sprite.getLocalBounds().height/4));
         bar.setPosition(pos);
     }
 
