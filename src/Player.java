@@ -105,8 +105,8 @@ public class Player implements Actor {
     }
 
     public void onDeath(){
-        System.out.println("Oh no, you died!");
-        System.exit(0);
+        //System.out.println("Oh no, you died!");
+        //System.exit(0);
     }
 
     public void draw(RenderWindow window){

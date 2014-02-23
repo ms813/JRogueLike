@@ -1,3 +1,4 @@
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
@@ -19,7 +20,33 @@ public abstract class Monster implements Actor{
     protected boolean readyForDestruction = false;
 
     public void onCollision(Actor collider){
+        if (collider instanceof Monster) {
 
+            Sprite col = (Sprite) collider.getDrawable();
+            FloatRect colRect = sprite.getGlobalBounds().intersection(col.getGlobalBounds());
+
+            if (colRect != null) {
+                System.out.println(colRect);
+                if (colRect.width > (sprite.getLocalBounds().width / 10)) {
+
+                    if (sprite.getPosition().x < col.getPosition().x) {
+                        sprite.move(-colRect.width / 10, 0);
+                    } else {
+                        sprite.move(colRect.width / 10, 0);
+                    }
+                }
+
+                if (colRect.height > (sprite.getLocalBounds().height / 10)) {
+                    if (sprite.getPosition().y < col.getPosition().y) {
+                        sprite.move(0, -colRect.width / 10);
+                    } else {
+                        sprite.move(0, colRect.width / 10);
+                    }
+
+
+                }
+            }
+        }
     }
 
     public Sprite getDrawable(){

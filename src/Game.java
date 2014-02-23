@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class Game {
 
-    public static int screenW = 1080;
-    public static int screenH = 720;
+    public static int screenW = 1500;
+    public static int screenH = 900;
 
     private List<Scene> mSceneList = new ArrayList<Scene>();
     private static Scene currentScene;

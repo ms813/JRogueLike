@@ -1,4 +1,3 @@
-import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
@@ -34,11 +33,12 @@ public class Skeleton extends Monster {
     }
 
     int counter = 0;
-    public void update(){
+
+    public void update() {
         super.update();
 
-        if(counter % 180 == 0){
-         IceBolt iceBolt = new IceBolt(this);
+        if (counter % 180 == 0) {
+            IceBolt iceBolt = new IceBolt(this);
             iceBolt.castSpell(PlayerXPManager.getInstance().getPlayer().getCurrentPosition(), 1);
         }
 
@@ -50,18 +50,13 @@ public class Skeleton extends Monster {
     @Override
     public void onCollision(Actor collider) {
         super.onCollision(collider);
-
-        if(collider instanceof Monster){
-            FloatRect colRect = sprite.getGlobalBounds().intersection(((Sprite) collider.getDrawable()).getGlobalBounds());
-            System.out.println(colRect);
-        }
     }
 
-    public void reduceHP(float damage){
+    public void reduceHP(float damage) {
         currentHP -= damage;
     }
 
-    protected void onDeath(){
+    protected void onDeath() {
         System.out.println("Skeleton died!");
         readyForDestruction = true;
         PlayerXPManager.getInstance().gainXP(XP);
