@@ -7,6 +7,7 @@ import org.jsfml.window.Keyboard;
 import org.jsfml.window.Mouse;
 import org.jsfml.window.VideoMode;
 import org.jsfml.window.event.Event;
+import org.jsfml.window.event.MouseButtonEvent;
 
 
 /**
@@ -39,28 +40,28 @@ public class Main {
 
 
             //look for WASD input to control player movement
-            if(Keyboard.isKeyPressed(Keyboard.Key.W)){
+            if (Keyboard.isKeyPressed(Keyboard.Key.W)) {
                 player.move(0, -deltaSeconds);
             }
-            if(Keyboard.isKeyPressed(Keyboard.Key.S)){
+            if (Keyboard.isKeyPressed(Keyboard.Key.S)) {
                 player.move(0, deltaSeconds);
             }
-            if(Keyboard.isKeyPressed(Keyboard.Key.A)){
+            if (Keyboard.isKeyPressed(Keyboard.Key.A)) {
                 player.move(-deltaSeconds, 0);
             }
-            if(Keyboard.isKeyPressed(Keyboard.Key.D)){
+            if (Keyboard.isKeyPressed(Keyboard.Key.D)) {
                 player.move(deltaSeconds, 0);
             }
 
             //look for mouse input for firing projectiles
-            if(Mouse.isButtonPressed(Mouse.Button.LEFT)){
-                    Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
-                    player.castCurrentSpell(worldPos);
+            if (Mouse.isButtonPressed(Mouse.Button.LEFT)) {
+                //if left mouse held down
+                Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
+                player.castCurrentSpell(worldPos);
             }
 
-            if(Mouse.isButtonPressed(Mouse.Button.RIGHT)){
-                Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
-                System.out.println("Right mouse clicked: " + worldPos);
+            if (Mouse.isButtonPressed(Mouse.Button.RIGHT)) {
+                //if right mouse held down
             }
 
             //event loop
@@ -71,8 +72,18 @@ public class Main {
                     window.close();
                 }
 
-                if(event.type == Event.Type.MOUSE_WHEEL_MOVED){
+                if (event.type == Event.Type.MOUSE_WHEEL_MOVED) {
                     player.changeCurrentSpell(event.asMouseWheelEvent().delta);
+                }
+
+                if (event.type == Event.Type.MOUSE_BUTTON_PRESSED) {
+                    MouseButtonEvent mouseEvt = event.asMouseButtonEvent();
+
+                    if (mouseEvt.button == Mouse.Button.RIGHT) {
+                        //if right button pressed
+                        Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
+                        player.meleeAttack(worldPos);
+                    }
                 }
             }
 

@@ -40,7 +40,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
         targetPosition = _target;
         travelVector = Vector2f.sub(targetPosition, startPosition);
         //define rotation relative to the up axis of the start position
-        float rot = VectorArithmetic.AngleBetweenVectorsDegrees(new Vector2f(0, -1), travelVector);
+        float rot = VectorArithmetic.AngleBetweenVectorsDegrees(VectorArithmetic.UP, travelVector);
         if (travelVector.x < 0) {
             rot *= -1;
         }

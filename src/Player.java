@@ -26,10 +26,9 @@ public class Player implements Actor {
 
     private float moveSpeed = 5f;
 
-    //manager that deals with spell learning, selection and casting
     private PlayerMagicManager magicManager = PlayerMagicManager.getInstance();
-
     private PlayerXPManager xpManager = PlayerXPManager.getInstance();
+    private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
 
     public Player(){
 
@@ -50,6 +49,7 @@ public class Player implements Actor {
 
         magicManager.setPlayer(this);
         xpManager.setPlayer(this);
+        meleeManager.setPlayer(this);
 
         learnSpell("MagicDart");
         learnSpell("IceBolt");
@@ -102,14 +102,19 @@ public class Player implements Actor {
         if(currentHP <= 0){
             onDeath();
         }
+        meleeManager.update();
     }
 
     public void onDeath(){
-        //System.out.println("Oh no, you died!");
-        //System.exit(0);
+        System.out.println("Oh no, you died!");
+        System.exit(0);
     }
 
     public void draw(RenderWindow window){
         window.draw(playerSprite);
+    }
+
+    public void meleeAttack(Vector2f pos){
+        meleeManager.attack(pos);
     }
 }

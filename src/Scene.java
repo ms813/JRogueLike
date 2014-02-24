@@ -43,7 +43,7 @@ public class Scene {
         Random random = new Random();
         int noOfEnemies = random.nextInt(50)+20;
 
-        for (int i = 20; i < noOfEnemies; i++) {
+        for (int i = 0; i < noOfEnemies; i++) {
             Skeleton skeleton = new Skeleton();
             skeleton.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
             System.out.println("Skeleton added at " + skeleton.getCurrentPosition());
@@ -114,6 +114,10 @@ public class Scene {
 
     public void addActor(Actor actor) {
         actors.add(actor);
+    }
+
+    public void removeActor(Actor actor){
+        actors.remove(actor);
     }
 
     public void draw(RenderWindow window){

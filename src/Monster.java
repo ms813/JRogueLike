@@ -26,7 +26,6 @@ public abstract class Monster implements Actor{
             FloatRect colRect = sprite.getGlobalBounds().intersection(col.getGlobalBounds());
 
             if (colRect != null) {
-                System.out.println(colRect);
                 if (colRect.width > (sprite.getLocalBounds().width / 10)) {
 
                     if (sprite.getPosition().x < col.getPosition().x) {
@@ -42,8 +41,6 @@ public abstract class Monster implements Actor{
                     } else {
                         sprite.move(0, colRect.width / 10);
                     }
-
-
                 }
             }
         }

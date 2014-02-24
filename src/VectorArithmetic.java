@@ -8,6 +8,11 @@ import java.util.Random;
  */
 public class VectorArithmetic {
 
+    public static final Vector2f UP = new Vector2f(0,-1);
+    public static final Vector2f DOWN = new Vector2f(0,1);
+    public static final Vector2f LEFT = new Vector2f(-1,0);
+    public static final Vector2f RIGHT = new Vector2f(1,0);
+
     //add any functions in here that the basic Vector2 classes dont include.
 
     strictfp public static float magnitude(Vector2f vector){
@@ -38,5 +43,4 @@ public class VectorArithmetic {
 
         return normalize(new Vector2f(rnd.nextFloat(), rnd.nextFloat()));
     }
-
 }
