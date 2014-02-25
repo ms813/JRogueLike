@@ -21,8 +21,6 @@ public abstract class Monster implements Actor {
 
     protected MonsterHPBar hpBar;
 
-    protected boolean readyForDestruction = false;
-
     public void onCollision(Actor collider) {
         if (collider instanceof Monster) {
 
@@ -64,10 +62,6 @@ public abstract class Monster implements Actor {
 
     public void setPosition(float x, float y) {
         sprite.setPosition(x, y);
-    }
-
-    public boolean isReadyForDestruction() {
-        return readyForDestruction;
     }
 
     public void update() {

@@ -1,4 +1,4 @@
-package Weapons;
+package MeleeCombat;
 
 /**
  * Created by Matthew on 24/02/14.

@@ -21,8 +21,6 @@ public interface Actor{
     //Monsters/players should use theirs for checking collisions with walls etc
     public void onCollision(Actor collider);
 
-    public boolean isReadyForDestruction();
-
     public void update();
 
     public void draw(RenderWindow window);

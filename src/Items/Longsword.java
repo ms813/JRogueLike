@@ -1,9 +1,11 @@
-package Weapons;
+package Items;
 
 import Game.Game;
 import Generic.Actor;
 import Monsters.Monster;
 import Player.PlayerManagers.PlayerMeleeManager;
+import MeleeCombat.MeleeWeapon;
+import MeleeCombat.MeleeWeaponAttackType;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
@@ -12,6 +14,7 @@ import org.jsfml.system.Vector2f;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Random;
 
 /**
  * Created by Matthew on 24/02/14.
@@ -53,6 +56,7 @@ public class Longsword extends MeleeWeapon implements Actor {
         attacking = true;
     }
 
+    @Override
     public float getDamage(){
         return damage;
     }
@@ -83,6 +87,7 @@ public class Longsword extends MeleeWeapon implements Actor {
     public void onCollision(Actor actor){
         if(actor instanceof Monster){
             Monster monster = (Monster) actor;
+
             monster.reduceHP(damage);
         }
     }
@@ -94,4 +99,12 @@ public class Longsword extends MeleeWeapon implements Actor {
     public boolean isReadyForDestruction(){
         return readyForDestruction;
     }
+
+    public void pickUp(Actor actor){
+    }
+
+    public Sprite getIcon(){
+        return sprite;
+    }
+
 }

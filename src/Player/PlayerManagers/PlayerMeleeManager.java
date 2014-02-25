@@ -2,9 +2,9 @@ package Player.PlayerManagers;
 
 import Generic.VectorArithmetic;
 import Player.Player;
-import Weapons.Longsword;
-import Weapons.MeleeWeapon;
-import Weapons.MeleeWeaponAttackType;
+import Items.Longsword;
+import MeleeCombat.MeleeWeapon;
+import MeleeCombat.MeleeWeaponAttackType;
 import org.jsfml.system.Vector2f;
 
 /**

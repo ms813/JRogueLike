@@ -22,7 +22,6 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     protected Vector2f targetPosition;
     protected Vector2f startPosition;
     protected Vector2f travelVector;
-    protected boolean readyForDestruction = false;
     protected float coolDown;
     protected float damage;
 
@@ -60,7 +59,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
         float distanceTravelled = VectorArithmetic.magnitude(Vector2f.sub(startPosition, getCurrentPosition()));
         if (distanceTravelled >= range) {
             //System.out.println("Target reached: " + getCurrentPosition());
-            readyForDestruction = true;
+            Game.getCurrentScene().removeActor(this);
         } else {
             Vector2f direction = VectorArithmetic.normalize(travelVector);
             boltSprite.move(Vector2f.mul(direction, speed));
@@ -77,14 +76,14 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
                 if (!(belongsTo instanceof Monster)) {
                     //if not, do some damage!
                     ((Monster) collider).reduceHP(damage);
-                    readyForDestruction = true;
+                    Game.getCurrentScene().removeActor(this);
                 }
             }
 
             //have I hit a player?
             if (collider instanceof Player) {
                 ((Player) collider).reduceHP(damage);
-                readyForDestruction = true;
+                Game.getCurrentScene().removeActor(this);
             }
 
         }
@@ -97,11 +96,6 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     public Vector2f getCurrentPosition() {
         return boltSprite.getPosition();
     }
-
-    public boolean isReadyForDestruction() {
-        return readyForDestruction;
-    }
-
     public abstract float getDamage();
 
     public boolean belongsTo(Actor actor) {

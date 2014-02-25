@@ -2,6 +2,7 @@ package Game;
 
 import Game.Game;
 import Player.Player;
+import Player.PlayerManagers.PlayerInventoryManager;
 import Player.PlayerManagers.PlayerMagicManager;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.system.Clock;
@@ -89,7 +90,13 @@ public class Main {
                         Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
                         player.meleeAttack(worldPos);
                     }
+
+                    if (mouseEvt.button == Mouse.Button.MIDDLE) {
+                        System.out.println(PlayerInventoryManager.getInstance().getCarriedItems());
+                    }
                 }
+
+
             }
 
             Game.getCurrentScene().checkCollisions();

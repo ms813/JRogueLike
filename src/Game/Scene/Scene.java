@@ -1,6 +1,9 @@
-package Game;
+package Game.Scene;
 
+import Game.Game;
 import Generic.Actor;
+import Items.HealthPotion;
+import Monsters.Skeleton;
 import Player.Player;
 import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
@@ -48,10 +51,19 @@ public class Scene {
         int noOfEnemies = random.nextInt(50)+20;
 
         for (int i = 0; i < noOfEnemies; i++) {
-            Monsters.Skeleton skeleton = new Monsters.Skeleton();
+            Skeleton skeleton = new Skeleton();
             skeleton.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
             System.out.println("Skeleton added at " + skeleton.getCurrentPosition());
             actors.add(skeleton);
+        }
+
+        int noOfPots = random.nextInt(10)+5;
+
+        for(int i = 0; i < noOfPots; i++){
+            HealthPotion pot = new HealthPotion();
+            pot.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
+            actors.add(pot);
+            System.out.println("Pot added at " + pot.getCurrentPosition());
         }
     }
 
@@ -81,7 +93,8 @@ public class Scene {
 
     public void checkCollisions() {
 
-        List<Actor> aList = new ArrayList<Actor>(actors);
+        List<Actor> aList = actors = new ArrayList<Actor>(actors);
+
 
         for (int i = 0; i < aList.size(); i++) {
 
@@ -108,11 +121,8 @@ public class Scene {
         //finally update the projectile positions
         //doing this after detecting collisions prevents 2 collisions being detected
         for (Actor actor : tempActors) {
-            if (!actor.isReadyForDestruction()) {
                 actor.update();
-            } else {
-                actors.remove(actor);
-            }
+
         }
     }
 

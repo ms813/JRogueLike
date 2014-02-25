@@ -1,5 +1,6 @@
 package Monsters;
 
+import Game.Game;
 import Generic.Actor;
 import Generic.VectorArithmetic;
 import MagicSpells.IceBolt;
@@ -64,7 +65,7 @@ public class Skeleton extends Monster {
 
     protected void onDeath() {
         System.out.println("Skeleton died!");
-        readyForDestruction = true;
+        Game.getCurrentScene().removeActor(this);
         PlayerXPManager.getInstance().gainXP(XP);
     }
 }

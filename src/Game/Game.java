@@ -1,5 +1,6 @@
 package Game;
 
+import Game.Scene.Scene;
 import Player.Player;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.View;
