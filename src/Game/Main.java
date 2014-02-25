@@ -1,3 +1,8 @@
+package Game;
+
+import Game.Game;
+import Player.Player;
+import Player.PlayerManagers.PlayerMagicManager;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.system.Clock;
 import org.jsfml.system.Time;

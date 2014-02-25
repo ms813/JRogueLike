@@ -1,3 +1,11 @@
+package Player;
+
+import Generic.Actor;
+import Generic.VectorArithmetic;
+import Player.PlayerManagers.PlayerHPManager;
+import Player.PlayerManagers.PlayerMagicManager;
+import Player.PlayerManagers.PlayerMeleeManager;
+import Player.PlayerManagers.PlayerXPManager;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
@@ -18,17 +26,16 @@ public class Player implements Actor {
 
     private Sprite playerSprite;
 
-    private int maxHP;
-    private int currentHP;
-    private int XP;
-
     private boolean readyForDestruction = false;
 
     private float moveSpeed = 5f;
 
+
+    //set up the various skill managers
     private PlayerMagicManager magicManager = PlayerMagicManager.getInstance();
     private PlayerXPManager xpManager = PlayerXPManager.getInstance();
     private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
+    private PlayerHPManager hpManager = PlayerHPManager.getInstance();
 
     public Player(){
 
@@ -50,12 +57,10 @@ public class Player implements Actor {
         magicManager.setPlayer(this);
         xpManager.setPlayer(this);
         meleeManager.setPlayer(this);
+        hpManager.setPlayer(this);
 
         learnSpell("MagicDart");
         learnSpell("IceBolt");
-
-        maxHP = 200;
-        currentHP = maxHP;
     }
 
     public void move(float x, float y){
@@ -87,7 +92,7 @@ public class Player implements Actor {
     }
 
     public void reduceHP(float damage){
-        currentHP -= damage;
+        hpManager.reduceHP(damage);
     }
 
     public void onCollision(Actor collider){
@@ -99,19 +104,14 @@ public class Player implements Actor {
     }
 
     public void update(){
-        if(currentHP <= 0){
-            onDeath();
-        }
-        meleeManager.update();
-    }
 
-    public void onDeath(){
-        System.out.println("Oh no, you died!");
-        System.exit(0);
+        meleeManager.update();
+        hpManager.update();
     }
 
     public void draw(RenderWindow window){
         window.draw(playerSprite);
+        hpManager.draw(window);
     }
 
     public void meleeAttack(Vector2f pos){

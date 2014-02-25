@@ -1,3 +1,6 @@
+package Game;
+
+import Player.Player;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.View;
 import org.jsfml.system.Vector2f;

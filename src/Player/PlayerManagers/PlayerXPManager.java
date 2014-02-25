@@ -1,3 +1,7 @@
+package Player.PlayerManagers;
+
+import Player.Player;
+
 /**
  * Created by Matthew on 19/02/14.
  */

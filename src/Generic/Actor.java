@@ -1,3 +1,5 @@
+package Generic;
+
 import org.jsfml.graphics.Drawable;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.system.Vector2f;

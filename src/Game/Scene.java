@@ -1,3 +1,7 @@
+package Game;
+
+import Generic.Actor;
+import Player.Player;
 import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
@@ -44,7 +48,7 @@ public class Scene {
         int noOfEnemies = random.nextInt(50)+20;
 
         for (int i = 0; i < noOfEnemies; i++) {
-            Skeleton skeleton = new Skeleton();
+            Monsters.Skeleton skeleton = new Monsters.Skeleton();
             skeleton.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
             System.out.println("Skeleton added at " + skeleton.getCurrentPosition());
             actors.add(skeleton);

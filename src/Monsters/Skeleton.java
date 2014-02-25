@@ -1,3 +1,9 @@
+package Monsters;
+
+import Generic.Actor;
+import Generic.VectorArithmetic;
+import MagicSpells.IceBolt;
+import Player.PlayerManagers.PlayerXPManager;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;

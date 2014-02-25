@@ -1,3 +1,6 @@
+package MagicSpells;
+
+import Generic.Actor;
 import org.jsfml.system.Vector2f;
 
 /**

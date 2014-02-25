@@ -1,3 +1,10 @@
+package MagicSpells;
+
+import Generic.Actor;
+import Generic.VectorArithmetic;
+import Game.Game;
+import Monsters.Monster;
+import Player.Player;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;

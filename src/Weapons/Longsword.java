@@ -1,3 +1,9 @@
+package Weapons;
+
+import Game.Game;
+import Generic.Actor;
+import Monsters.Monster;
+import Player.PlayerManagers.PlayerMeleeManager;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;

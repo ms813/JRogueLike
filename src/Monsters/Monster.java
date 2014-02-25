@@ -1,3 +1,7 @@
+package Monsters;
+
+import Generic.Actor;
+import Generic.MonsterHPBar;
 import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
@@ -6,7 +10,7 @@ import org.jsfml.system.Vector2f;
 /**
  * Created by Matthew on 18/02/14.
  */
-public abstract class Monster implements Actor{
+public abstract class Monster implements Actor {
 
     protected Sprite sprite;
 
@@ -19,7 +23,7 @@ public abstract class Monster implements Actor{
 
     protected boolean readyForDestruction = false;
 
-    public void onCollision(Actor collider){
+    public void onCollision(Actor collider) {
         if (collider instanceof Monster) {
 
             Sprite col = (Sprite) collider.getDrawable();
@@ -46,7 +50,7 @@ public abstract class Monster implements Actor{
         }
     }
 
-    public Sprite getDrawable(){
+    public Sprite getDrawable() {
         return sprite;
     }
 
@@ -62,12 +66,12 @@ public abstract class Monster implements Actor{
         sprite.setPosition(x, y);
     }
 
-    public boolean isReadyForDestruction(){
+    public boolean isReadyForDestruction() {
         return readyForDestruction;
     }
 
-    public void update(){
-        if(currentHP <= 0){
+    public void update() {
+        if (currentHP <= 0) {
             onDeath();
         }
 
@@ -76,15 +80,24 @@ public abstract class Monster implements Actor{
 
     protected abstract void onDeath();
 
-    protected abstract void reduceHP(float damage);
+    public abstract void reduceHP(float damage);
 
-    public void draw(RenderWindow window){
+    public void draw(RenderWindow window) {
         window.draw(sprite);
         hpBar.draw(window);
     }
 
-    public MonsterHPBar buildHPBar(){
+    public MonsterHPBar buildHPBar() {
         MonsterHPBar bar = new MonsterHPBar(this);
         return bar;
     }
+
+    public float getCurrentHP() {
+        return currentHP;
+    }
+
+    public float getMaxHP() {
+        return maxHP;
+    }
+
 }

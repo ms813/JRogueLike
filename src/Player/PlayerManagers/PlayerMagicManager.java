@@ -1,3 +1,9 @@
+package Player.PlayerManagers;
+
+import MagicSpells.MagicSpell;
+import MagicSpells.SpellInfo;
+import MagicSpells.*;
+import Player.Player;
 import org.jsfml.system.Vector2f;
 
 import java.lang.reflect.Constructor;
@@ -46,8 +52,9 @@ public class PlayerMagicManager {
 
             //use reflection to build an instance of the class from a string
             try {
-                Class cl = Class.forName(currentSpell.getSpellName());
-                Constructor con = cl.getConstructor(Actor.class);
+                //the Class.forName method must specify the full package address
+                Class cl = Class.forName("MagicSpells." + currentSpell.getSpellName());
+                Constructor con = cl.getConstructor(Generic.Actor.class);
                 Object obj = con.newInstance(player);
                 MagicSpell spell = (MagicSpell) obj;
 

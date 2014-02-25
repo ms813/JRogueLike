@@ -1,3 +1,6 @@
+package MagicSpells;
+
+import Generic.Actor;
 import org.jsfml.graphics.Texture;
 
 import java.io.File;

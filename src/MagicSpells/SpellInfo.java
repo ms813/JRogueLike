@@ -1,3 +1,5 @@
+package MagicSpells;
+
 /**
  * Created by Matthew on 20/02/14.
  */
