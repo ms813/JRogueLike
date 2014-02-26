@@ -10,7 +10,7 @@ public class UIManager implements UIElement {
 
     private static UIManager instance = null;
 
-    private UIInventory uiInventory = UIInventory.getInstance();
+    private InventoryUI inventoryUI = InventoryUI.getInstance();
 
     protected UIManager() {
     }
@@ -23,7 +23,7 @@ public class UIManager implements UIElement {
     }
 
     public void draw(RenderWindow window) {
-        uiInventory.draw(window);
+        inventoryUI.draw(window);
     }
 
     public void update() {
@@ -31,19 +31,19 @@ public class UIManager implements UIElement {
     }
 
     public void setInventoryPosition(float x, float y) {
-        uiInventory.setPosition(x, y);
+        inventoryUI.setPosition(x, y);
     }
 
     public void setInventoryPosition(Vector2f pos){
-        uiInventory.setPosition(pos);
+        inventoryUI.setPosition(pos);
     }
 
     public Vector2f getInventorySize(){
-      return uiInventory.getSize();
+      return inventoryUI.getSize();
     }
 
     public void init(RenderWindow window){
-        uiInventory.init(window);
+        inventoryUI.init(window);
     }
 
 

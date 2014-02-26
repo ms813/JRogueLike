@@ -1,7 +1,6 @@
 package Game;
 
 import Game.Scene.Scene;
-import Game.UI.UIInventory;
 import Game.UI.UIManager;
 import Player.Player;
 import org.jsfml.graphics.FloatRect;

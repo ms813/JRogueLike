@@ -33,7 +33,6 @@ public abstract class Potion implements Consumeable {
     public void pickUp(Actor actor) {
         if (actor instanceof Player) {
             PlayerInventoryManager.getInstance().addItem(this,1);
-            System.out.println("Picked up " + this.getClass());
         }
         Game.getCurrentScene().removeActor(this);
     }

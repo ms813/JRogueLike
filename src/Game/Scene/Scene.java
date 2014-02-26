@@ -1,15 +1,13 @@
 package Game.Scene;
 
 import Game.Game;
+import Game.UI.FontLibrary;
 import Game.UI.UIManager;
 import Generic.Actor;
 import Items.HealthPotion;
 import Monsters.Skeleton;
 import Player.Player;
-import org.jsfml.graphics.FloatRect;
-import org.jsfml.graphics.RenderWindow;
-import org.jsfml.graphics.Sprite;
-import org.jsfml.graphics.Texture;
+import org.jsfml.graphics.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,12 +28,18 @@ public class Scene {
     //by convention, the player should always be actors.get(0);
     private List<Actor> actors = new ArrayList<Actor>();
     private String sceneName;
+    private Text t;
 
     Sprite tileMap;
 
     private Texture bgTexture = new Texture();
 
     public Scene(String _sceneName) {
+
+        t = new Text("OMG JRogueLike", FontLibrary.getFont("arial"), 32);
+        t.setPosition(0,0);
+        t.setColor(Color.GREEN);
+        System.out.println(t.getFont());
 
         actors.add(new Player());
 
@@ -142,5 +146,6 @@ public class Scene {
         for (Actor actor : actors) {
             actor.draw(window);
         }
+        window.draw(t);
     }
 }

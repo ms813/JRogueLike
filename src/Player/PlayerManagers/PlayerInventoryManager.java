@@ -1,10 +1,9 @@
 package Player.PlayerManagers;
 
 import Game.UI.InventoryItemInfo;
-import Game.UI.UIInventory;
+import Game.UI.InventoryUI;
 import Items.Item;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class PlayerInventoryManager {
 
     private List<InventoryItemInfo> carriedItems = new ArrayList<InventoryItemInfo>();
 
-    private UIInventory uiInventory = UIInventory.getInstance();
+    private InventoryUI inventoryUI = InventoryUI.getInstance();
 
     private static PlayerInventoryManager instance = null;
 
@@ -37,7 +36,8 @@ public class PlayerInventoryManager {
                 if (carriedItem.getItem().getClass() == item.getClass()) {
                     carriedItem.incrementQuantity(quantity);
                     alreadyCarrying = true;
-                    System.out.println("stacked " + carriedItem.getQuantity() + " " + item.getName());
+                    System.out.println("[PlayerInventoryManager.addItem()] Stacked " + carriedItem.getQuantity() + " " + item.getName());
+                    System.out.println("[PlayerInventoryManager.addItem()] quantityText : " + carriedItem.getQuantityText());
                 }
             }
         }
@@ -45,9 +45,10 @@ public class PlayerInventoryManager {
         if (!alreadyCarrying) {
             InventoryItemInfo itemInfo = new InventoryItemInfo(item, quantity);
             carriedItems.add(itemInfo);
+            System.out.println("[PlayerInventoryManager.addItem()] Added new " + item.getName() +" to inventory");
         }
 
-        uiInventory.update();
+        inventoryUI.update();
     }
 
     public List<InventoryItemInfo> getCarriedItems() {
