@@ -1,10 +1,10 @@
 package Game.Scene;
 
-import Game.Game;
-import Game.UI.FontLibrary;
-import Game.UI.UIManager;
+import Game.UI.TextureLibrary;
 import Generic.Actor;
-import Items.HealthPotion;
+import Items.Consumeables.Potions.HealthPotion;
+import Items.Consumeables.Potions.SpeedPotion;
+import Items.Longsword;
 import Monsters.Skeleton;
 import Player.Player;
 import org.jsfml.graphics.*;
@@ -28,29 +28,20 @@ public class Scene {
     //by convention, the player should always be actors.get(0);
     private List<Actor> actors = new ArrayList<Actor>();
     private String sceneName;
-    private Text t;
 
     Sprite tileMap;
 
-    private Texture bgTexture = new Texture();
+    private Texture bgTexture;
 
     public Scene(String _sceneName) {
-
-        t = new Text("OMG JRogueLike", FontLibrary.getFont("arial"), 32);
-        t.setPosition(0,0);
-        t.setColor(Color.GREEN);
-        System.out.println(t.getFont());
 
         actors.add(new Player());
 
         sceneName = _sceneName;
 
-        try {
-            bgTexture.loadFromFile(Paths.get("resources" + File.separatorChar + "map.png"));
-            tileMap = new Sprite(bgTexture);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        bgTexture = TextureLibrary.getTexture("map");
+        tileMap = new Sprite(bgTexture);
+
 
         Random random = new Random();
         int noOfEnemies = random.nextInt(50) + 20;
@@ -58,17 +49,21 @@ public class Scene {
         for (int i = 0; i < noOfEnemies; i++) {
             Skeleton skeleton = new Skeleton();
             skeleton.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
-            System.out.println("Skeleton added at " + skeleton.getCurrentPosition());
             actors.add(skeleton);
         }
 
         int noOfPots = random.nextInt(10) + 5;
 
         for (int i = 0; i < noOfPots; i++) {
-            HealthPotion pot = new HealthPotion();
-            pot.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
-            actors.add(pot);
-            System.out.println("Pot added at " + pot.getCurrentPosition());
+            if (random.nextInt(2) == 0) {
+                HealthPotion pot = new HealthPotion();
+                pot.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
+                actors.add(pot);
+            } else {
+                SpeedPotion pot = new SpeedPotion();
+                pot.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
+                actors.add(pot);
+            }
         }
     }
 
@@ -146,6 +141,5 @@ public class Scene {
         for (Actor actor : actors) {
             actor.draw(window);
         }
-        window.draw(t);
     }
 }

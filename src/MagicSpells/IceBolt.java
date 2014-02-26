@@ -1,5 +1,6 @@
 package MagicSpells;
 
+import Game.UI.TextureLibrary;
 import Generic.Actor;
 import org.jsfml.graphics.Texture;
 
@@ -21,21 +22,16 @@ public class IceBolt extends GenericBolt {
         coolDown = 5f;
         damage = 20f;
 
-        Texture texture = new Texture();
-        try {
-            texture.loadFromFile(Paths.get("resources" + File.separator + "iceBolt.png"));
-            buildSprite(texture);
-            boltSprite.setScale(0.3f,0.3f);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        buildSprite(TextureLibrary.getTexture("iceBolt"));
+        boltSprite.setScale(0.3f, 0.3f);
+
     }
 
     public float getDamage() {
         return damage;
     }
 
-    public void onCollision(Actor collider){
+    public void onCollision(Actor collider) {
         super.onCollision(collider);
     }
 }

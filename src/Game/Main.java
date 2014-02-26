@@ -73,7 +73,7 @@ public class Main {
                         if (mouseEvt.button == Mouse.Button.RIGHT) {
                             //if right button pressed
                             Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
-                            player.meleeAttack(worldPos);
+                            //player.meleeAttack(worldPos);
                         }
 
                         if (mouseEvt.button == Mouse.Button.MIDDLE) {

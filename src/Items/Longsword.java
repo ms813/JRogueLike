@@ -1,6 +1,7 @@
 package Items;
 
 import Game.Game;
+import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Monsters.Monster;
 import Player.PlayerManagers.PlayerMeleeManager;
@@ -38,12 +39,7 @@ public class Longsword extends MeleeWeapon implements Actor {
         swingArc = 120;
         name = "Longsword";
 
-        Texture texture = new Texture();
-        try{
-            texture.loadFromFile(Paths.get("resources" + File.separatorChar + "sword.png"));
-        } catch(IOException e){
-            e.printStackTrace();
-        }
+        Texture texture = TextureLibrary.getTexture("longsword");
 
         sprite = new Sprite(texture);
         sprite.setOrigin(sprite.getLocalBounds().width/2, sprite.getLocalBounds().height);
@@ -63,8 +59,8 @@ public class Longsword extends MeleeWeapon implements Actor {
     }
 
     public void update(){
-        Vector2f pos = PlayerMeleeManager.getInstance().getPlayer().getCurrentPosition();
-        sprite.setPosition(pos);
+//        Vector2f pos = PlayerMeleeManager.getInstance().getPlayer().getCurrentPosition();
+        //sprite.setPosition(pos);
 
         if(attacking){
             sprite.rotate(3);
@@ -106,5 +102,9 @@ public class Longsword extends MeleeWeapon implements Actor {
 
     public Sprite getIcon(){
         return sprite;
+    }
+
+    public void setPosition(float x, float y){
+        sprite.setPosition(x, y);
     }
 }

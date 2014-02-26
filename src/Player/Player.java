@@ -1,5 +1,6 @@
 package Player;
 
+import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Generic.VectorArithmetic;
 import Player.PlayerManagers.PlayerHPManager;
@@ -34,87 +35,81 @@ public class Player implements Actor {
     //set up the various skill managers
     private PlayerMagicManager magicManager = PlayerMagicManager.getInstance();
     private PlayerXPManager xpManager = PlayerXPManager.getInstance();
-    private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
+    //private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
     private PlayerHPManager hpManager = PlayerHPManager.getInstance();
 
-    public Player(){
+    public Player() {
 
-        Texture playerTexture = new Texture();
+        playerSprite = new Sprite(TextureLibrary.getTexture("player"));
+        playerSprite.setScale(0.5f, 0.5f);
 
-        try{
-            playerTexture.loadFromFile(Paths.get("resources"+ File.separatorChar + "player.png"));
+        //set the origin to the center of the sprite rather than the top left
+        playerSprite.setOrigin(playerSprite.getLocalBounds().width / 2, playerSprite.getLocalBounds().height / 2);
 
-            playerSprite = new Sprite(playerTexture);
-            playerSprite.setScale(0.5f, 0.5f);
-
-            //set the origin to the center of the sprite rather than the top left
-            playerSprite.setOrigin(playerSprite.getLocalBounds().width/2, playerSprite.getLocalBounds().height/2);
-
-        } catch(IOException e){
-            e.printStackTrace();
-        }
 
         magicManager.setPlayer(this);
         xpManager.setPlayer(this);
-        meleeManager.setPlayer(this);
+        //meleeManager.setPlayer(this);
         hpManager.setPlayer(this);
 
         learnSpell("MagicDart");
         learnSpell("IceBolt");
     }
 
-    public void move(float x, float y){
+    public void move(float x, float y) {
 
-        Vector2f vel = new Vector2f(x,y);
+        Vector2f vel = new Vector2f(x, y);
 
         playerSprite.move(Vector2f.mul(VectorArithmetic.normalize(vel), moveSpeed));
     }
 
-    public void castCurrentSpell(Vector2f mousePos){
+    public void castCurrentSpell(Vector2f mousePos) {
         magicManager.castCurrentSpell(mousePos);
     }
 
-    public Sprite getDrawable(){
+    public Sprite getDrawable() {
         return playerSprite;
     }
 
-    public Vector2f getCurrentPosition(){
+    public Vector2f getCurrentPosition() {
         //return the center of the sprite (see setOrigin() above)
         return playerSprite.getPosition();
     }
 
-    public void learnSpell(String spell){
+    public void learnSpell(String spell) {
         magicManager.learnSpell(spell);
     }
 
-    public void changeCurrentSpell(int wheelTicks){
+    public void changeCurrentSpell(int wheelTicks) {
         magicManager.changeCurrentSpell(wheelTicks);
     }
 
-    public void reduceHP(float damage){
+    public void reduceHP(float damage) {
         hpManager.reduceHP(damage);
     }
 
-    public void onCollision(Actor collider){
+    public void onCollision(Actor collider) {
 
     }
 
-    public boolean isReadyForDestruction(){
+    public boolean isReadyForDestruction() {
         return readyForDestruction;
     }
 
-    public void update(){
+    public void update() {
 
-        meleeManager.update();
+        //meleeManager.update();
         hpManager.update();
     }
 
-    public void draw(RenderWindow window){
+    public void draw(RenderWindow window) {
         window.draw(playerSprite);
         hpManager.draw(window);
     }
 
+    /*
     public void meleeAttack(Vector2f pos){
-        meleeManager.attack(pos);
+       meleeManager.attack(pos);
     }
+    */
 }

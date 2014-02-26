@@ -1,6 +1,7 @@
-package Items;
+package Items.Consumeables.Potions;
 
-import Game.Game;
+import Game.UI.TextureLibrary;
+import org.jsfml.graphics.Color;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
@@ -10,31 +11,29 @@ import java.io.IOException;
 import java.nio.file.Paths;
 
 /**
- * Created by Matthew on 25/02/14.
+ * Created by Matthew on 26/02/14.
  */
-public class HealthPotion extends Potion {
+public class SpeedPotion extends Potion {
 
-    public HealthPotion(){
-        try{
-            Texture texture = new Texture();
-            texture.loadFromFile(Paths.get("resources" + File.separatorChar + "healthPotion.png"));
-            sprite = new Sprite(texture);
+    public SpeedPotion(){
+
+
+
+            sprite = new Sprite(TextureLibrary.getTexture("healthPotion"));
             sprite.setScale(0.4f, 0.4f);
+            sprite.setColor(Color.CYAN);
 
-            icon = new Sprite(texture);
+            icon = new Sprite(TextureLibrary.getTexture("healthPotion"));
             icon.setScale(0.2f, 0.2f);
+            icon.setColor(Color.CYAN);
 
             coolDown = 20f;
-            name = "Health Potion";
+            name = "Speed Potion";
 
-
-        }   catch(IOException e){
-            e.printStackTrace();
-        }
     }
 
     public void quaff(){
-        System.out.println("Quaffed hp potion");
+        System.out.println("Quaffed speed potion");
     }
 
     public Sprite getDrawable(){

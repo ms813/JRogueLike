@@ -37,7 +37,6 @@ public class PlayerInventoryManager {
                     carriedItem.incrementQuantity(quantity);
                     alreadyCarrying = true;
                     System.out.println("[PlayerInventoryManager.addItem()] Stacked " + carriedItem.getQuantity() + " " + item.getName());
-                    System.out.println("[PlayerInventoryManager.addItem()] quantityText : " + carriedItem.getQuantityText());
                 }
             }
         }

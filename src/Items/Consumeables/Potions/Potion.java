@@ -1,7 +1,8 @@
-package Items;
+package Items.Consumeables.Potions;
 
 import Game.Game;
 import Generic.Actor;
+import Items.Consumeables.Consumeable;
 import Player.PlayerManagers.PlayerInventoryManager;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;

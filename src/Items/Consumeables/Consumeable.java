@@ -1,4 +1,6 @@
-package Items;
+package Items.Consumeables;
+
+import Items.Item;
 
 /**
  * Created by Matthew on 26/02/14.

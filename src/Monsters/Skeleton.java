@@ -1,6 +1,7 @@
 package Monsters;
 
 import Game.Game;
+import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Generic.VectorArithmetic;
 import MagicSpells.IceBolt;
@@ -25,16 +26,11 @@ public class Skeleton extends Monster {
         XP = 10f;
         moveSpeed = 2f;
 
-        try {
-            Texture texture = new Texture();
-            texture.loadFromFile(Paths.get("resources" + File.separatorChar + "skeleton.png"));
-            sprite = new Sprite(texture);
-            sprite.setScale(0.5f, 0.5f);
-            //set the origin to the center of the sprite rather than the top left
-            sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        sprite = new Sprite(TextureLibrary.getTexture("skeleton"));
+        sprite.setScale(0.5f, 0.5f);
+        //set the origin to the center of the sprite rather than the top left
+        sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
+
 
         hpBar = buildHPBar();
     }
@@ -64,7 +60,7 @@ public class Skeleton extends Monster {
     }
 
     protected void onDeath() {
-        System.out.println("Skeleton died!");
+        System.out.println("[Skeleton.onDeath()] Skeleton died!");
         Game.getCurrentScene().removeActor(this);
         PlayerXPManager.getInstance().gainXP(XP);
     }

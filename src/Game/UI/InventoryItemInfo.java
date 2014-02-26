@@ -1,6 +1,6 @@
 package Game.UI;
 
-import Items.Consumeable;
+import Items.Consumeables.Consumeable;
 import Items.Item;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
@@ -24,6 +24,7 @@ public class InventoryItemInfo {
         if (item instanceof Consumeable) {
             coolDown = ((Consumeable) item).getCoolDown();
         } else {
+            //item cannot be used/consumed so set cooldown to a dummy value
             coolDown = -1f;
         }
         coolDownRemaining = 0;

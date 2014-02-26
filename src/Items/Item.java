@@ -18,4 +18,6 @@ public interface Item extends Actor {
 
     public String getName();
 
+    public void setPosition(float x, float y);
+
 }

@@ -48,7 +48,7 @@ public class InventoryUI implements UIElement {
         float increment = 0;
         for (InventoryItemInfo itemInfo : inventoryManager.getCarriedItems()) {
             itemInfo.setIconPosition(Vector2f.add(bg.getPosition(), new Vector2f(increment, 0)));
-            increment += itemInfo.getIcon().getLocalBounds().width;
+            increment += itemInfo.getIcon().getLocalBounds().width * itemInfo.getIcon().getScale().x;
         }
     }
 

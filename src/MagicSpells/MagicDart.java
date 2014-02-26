@@ -1,8 +1,10 @@
 package MagicSpells;
 
+import Game.UI.TextureLibrary;
 import Generic.Actor;
 import org.jsfml.graphics.Texture;
 
+import javax.xml.soap.Text;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -12,7 +14,7 @@ import java.nio.file.Paths;
  */
 public class MagicDart extends GenericBolt {
 
-    public MagicDart(Actor _belongsTo){
+    public MagicDart(Actor _belongsTo) {
         super(_belongsTo);
 
         speed = 15f;
@@ -20,21 +22,16 @@ public class MagicDart extends GenericBolt {
         coolDown = 1f;
         damage = 1f;
 
-        Texture texture = new Texture();
-        try{
-            texture.loadFromFile(Paths.get("resources" + File.separator + "magicDart.png"));
-            buildSprite(texture);
-        } catch(IOException e){
-            e.printStackTrace();
-        }
+        buildSprite(TextureLibrary.getTexture("magicDart"));
+
         //System.out.println("Target: " + targetPosition + ", Start: " + startPosition);
     }
 
-    public float getDamage(){
+    public float getDamage() {
         return damage;
     }
 
-    public void onCollision(Actor collider){
-       super.onCollision(collider);
+    public void onCollision(Actor collider) {
+        super.onCollision(collider);
     }
 }
