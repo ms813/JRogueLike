@@ -1,7 +1,10 @@
 package Game;
 
 import Game.Scene.Scene;
+import Game.UI.UIInventory;
+import Game.UI.UIManager;
 import Player.Player;
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.View;
 import org.jsfml.system.Vector2f;
@@ -28,47 +31,62 @@ public class Game {
     private static RenderWindow window;
 
     private static View mainView;
+    private View defaultView;
 
-    public Game(RenderWindow _window){
+    private UIManager uiManager = UIManager.getInstance();
+
+    public Game(RenderWindow _window) {
 
         window = _window;
 
         //Create the main game view
-        mainView = new View(new Vector2f(screenW/2, screenH/2), new Vector2f(screenW, screenH));
+        mainView = new View(new Vector2f(screenW / 2, screenH / 2), new Vector2f(screenW, screenH));
         window.setView(mainView);
+        defaultView = new View(new FloatRect(0, 0, window.getSize().x, window.getSize().y));
 
         //Add scenes to the game
         currentScene = new Scene("map");
 
         mSceneList.add(currentScene);
+
+        uiManager.init(window);
+
     }
 
-    public RenderWindow getWindow(){
+    public static RenderWindow getWindow() {
         return window;
     }
 
-    public void draw(RenderWindow window){
+    public void draw(RenderWindow window) {
+        //draw the scene
         currentScene.draw(window);
+
+        //switch to the default view (relative to the window, not the world)
+        //meaning we dont have to scale
+        window.setView(defaultView);
+        uiManager.draw(window);
+        window.setView(mainView);
     }
 
-    public void update(){
+    public void update() {
         currentScene.update();
+        uiManager.update();
     }
 
-    public void moveView(float x, float y){
+    public void moveView(float x, float y) {
         mainView.move(x, y);
     }
 
-    public void setViewCenter(Vector2i pos){
+    public void setViewCenter(Vector2i pos) {
         mainView.setCenter(new Vector2f(pos));
         window.setView(mainView);
     }
 
-    public Player getPlayer(){
+    public Player getPlayer() {
         return currentScene.getPlayer();
     }
 
-    public static Scene getCurrentScene(){
+    public static Scene getCurrentScene() {
         return currentScene;
     }
 }

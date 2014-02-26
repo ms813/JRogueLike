@@ -1,6 +1,7 @@
 package Game.Scene;
 
 import Game.Game;
+import Game.UI.UIManager;
 import Generic.Actor;
 import Items.HealthPotion;
 import Monsters.Skeleton;
@@ -48,7 +49,7 @@ public class Scene {
         }
 
         Random random = new Random();
-        int noOfEnemies = random.nextInt(50)+20;
+        int noOfEnemies = random.nextInt(50) + 20;
 
         for (int i = 0; i < noOfEnemies; i++) {
             Skeleton skeleton = new Skeleton();
@@ -57,9 +58,9 @@ public class Scene {
             actors.add(skeleton);
         }
 
-        int noOfPots = random.nextInt(10)+5;
+        int noOfPots = random.nextInt(10) + 5;
 
-        for(int i = 0; i < noOfPots; i++){
+        for (int i = 0; i < noOfPots; i++) {
             HealthPotion pot = new HealthPotion();
             pot.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
             actors.add(pot);
@@ -67,7 +68,7 @@ public class Scene {
         }
     }
 
-    public Sprite getMap(){
+    public Sprite getMap() {
         return tileMap;
     }
 
@@ -115,13 +116,13 @@ public class Scene {
         }
     }
 
-    public void update(){
+    public void update() {
         List<Actor> tempActors = new ArrayList<Actor>(actors);
 
         //finally update the projectile positions
         //doing this after detecting collisions prevents 2 collisions being detected
         for (Actor actor : tempActors) {
-                actor.update();
+            actor.update();
 
         }
     }
@@ -130,15 +131,15 @@ public class Scene {
         actors.add(actor);
     }
 
-    public void removeActor(Actor actor){
+    public void removeActor(Actor actor) {
         actors.remove(actor);
     }
 
-    public void draw(RenderWindow window){
+    public void draw(RenderWindow window) {
 
         window.draw(tileMap);
 
-        for(Actor actor : actors){
+        for (Actor actor : actors) {
             actor.draw(window);
         }
     }
