@@ -21,6 +21,13 @@ public class HealthPotion extends Potion {
             sprite = new Sprite(texture);
             sprite.setScale(0.4f, 0.4f);
 
+            icon = new Sprite(texture);
+            icon.setScale(0.2f, 0.2f);
+
+            coolDown = 20f;
+            name = "Health Potion";
+
+
         }   catch(IOException e){
             e.printStackTrace();
         }
@@ -36,5 +43,9 @@ public class HealthPotion extends Potion {
 
     public Vector2f getCurrentPosition(){
         return sprite.getPosition();
+    }
+
+    public float getCoolDown(){
+        return coolDown;
     }
 }

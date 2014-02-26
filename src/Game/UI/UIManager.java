@@ -27,7 +27,7 @@ public class UIManager implements UIElement {
     }
 
     public void update() {
-        uiInventory.update();
+
     }
 
     public void setInventoryPosition(float x, float y) {

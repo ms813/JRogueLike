@@ -1,12 +1,10 @@
 package Game.UI;
 
+import Items.Item;
 import Player.PlayerManagers.PlayerInventoryManager;
 import Game.Game;
 import com.sun.java.swing.plaf.windows.resources.windows;
-import org.jsfml.graphics.FloatRect;
-import org.jsfml.graphics.RectangleShape;
-import org.jsfml.graphics.RenderWindow;
-import org.jsfml.graphics.View;
+import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
 
 
@@ -17,9 +15,10 @@ public class UIInventory implements UIElement {
 
     private static UIInventory instance = null;
 
-    private PlayerInventoryManager inventoryManager = PlayerInventoryManager.getInstance();
+    private static PlayerInventoryManager inventoryManager = PlayerInventoryManager.getInstance();
 
     private RectangleShape outline;
+    private Sprite icons;
 
     protected UIInventory() {
 
@@ -42,10 +41,16 @@ public class UIInventory implements UIElement {
 
     public void draw(RenderWindow window) {
         window.draw(outline);
+        if(icons != null){
+        window.draw(icons);
+        }
     }
 
     public void update() {
-
+        for(InventoryItemInfo itemInfo : inventoryManager.getCarriedItems()){
+            icons = itemInfo.getIcon();
+            icons.setPosition(outline.getPosition());
+        }
     }
 
     public Vector2f getPosition() {

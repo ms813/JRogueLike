@@ -36,6 +36,7 @@ public class Longsword extends MeleeWeapon implements Actor {
 
         attackType = MeleeWeaponAttackType.SLASH;
         swingArc = 120;
+        name = "Longsword";
 
         Texture texture = new Texture();
         try{
@@ -106,5 +107,4 @@ public class Longsword extends MeleeWeapon implements Actor {
     public Sprite getIcon(){
         return sprite;
     }
-
 }

@@ -9,6 +9,13 @@ import org.jsfml.graphics.Sprite;
 public interface Item extends Actor {
 
     public void pickUp(Actor byActor);
-    //public Sprite getIcon();
+
+    //the icon is a sprite used for displaying on the GUI
+    //c.f. "sprite" being used to display in the game world
+    public Sprite getIcon();
+
+    public boolean isStackable();
+
+    public String getName();
 
 }

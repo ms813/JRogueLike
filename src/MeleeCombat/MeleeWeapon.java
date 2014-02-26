@@ -6,6 +6,9 @@ package MeleeCombat;
 public abstract class MeleeWeapon implements Weapon {
 
     protected float damage;
+    protected String name;
+
+    protected boolean stackable = false;
 
     protected MeleeWeaponAttackType attackType;
 
@@ -16,4 +19,12 @@ public abstract class MeleeWeapon implements Weapon {
     }
 
     public abstract void attack(float rot);
+
+    public boolean isStackable(){
+        return stackable;
+    }
+
+    public String getName(){
+        return name;
+    }
 }

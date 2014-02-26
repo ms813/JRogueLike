@@ -59,12 +59,15 @@ public class Game {
 
     public void draw(RenderWindow window) {
         //draw the scene
+        window.setView(mainView);
         currentScene.draw(window);
 
         //switch to the default view (relative to the window, not the world)
-        //meaning we dont have to scale
+        //meaning we dont have to move the UI every frame
         window.setView(defaultView);
         uiManager.draw(window);
+
+        //return the view to the one that follows the character
         window.setView(mainView);
     }
 
@@ -79,7 +82,6 @@ public class Game {
 
     public void setViewCenter(Vector2i pos) {
         mainView.setCenter(new Vector2f(pos));
-        window.setView(mainView);
     }
 
     public Player getPlayer() {

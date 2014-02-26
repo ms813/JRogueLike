@@ -77,10 +77,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Game/Game.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="51" column="29" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.61538464" vertical-offset="272" max-vertical-offset="1411">
+                <state line="35" column="58" selection-start="862" selection-end="862" vertical-scroll-proportion="-0.65384614" vertical-offset="391" max-vertical-offset="1445">
                   <folding />
                 </state>
               </provider>
@@ -104,14 +104,45 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="SpellInfo.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/MagicSpells/SpellInfo.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="41" column="5" selection-start="589" selection-end="941" vertical-scroll-proportion="0.0" vertical-offset="55" max-vertical-offset="731">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InventoryItemInfo.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Game/UI/InventoryItemInfo.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="6" column="0" selection-start="98" selection-end="98" vertical-scroll-proportion="0.15088758" vertical-offset="0" max-vertical-offset="1360">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1326#1327#0" expanded="true" />
+                    <element signature="e#1357#1358#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
+          <file leaf-file-name="Item.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Items/Item.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="18" column="21" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="UIManager.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Game/UI/UIManager.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="45" column="31" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="952">
+                <state line="29" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="952">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -119,10 +150,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UIInventory.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="UIInventory.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Game/UI/UIInventory.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="59" column="85" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.74852073" vertical-offset="497" max-vertical-offset="1173">
+                <state line="51" column="53" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.0" vertical-offset="586" max-vertical-offset="1258">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -130,11 +161,75 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PlayerInventoryManager.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="Longsword.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Items/Longsword.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="38" column="27" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1598">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Consumeable.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Items/Consumeable.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="5" column="43" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MeleeWeapon.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/MeleeCombat/MeleeWeapon.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="14" column="31" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+                  <folding>
+                    <element signature="e#468#469#0" expanded="true" />
+                    <element signature="e#500#501#0" expanded="true" />
+                    <element signature="e#530#531#0" expanded="true" />
+                    <element signature="e#557#558#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PlayerInventoryManager.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerInventoryManager.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="30" column="20" selection-start="654" selection-end="654" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-                  <folding />
+                <state line="33" column="45" selection-start="814" selection-end="814" vertical-scroll-proportion="0.3188623" vertical-offset="246" max-vertical-offset="969">
+                  <folding>
+                    <element signature="e#340#359#0" expanded="true" />
+                    <element signature="e#1493#1494#0" expanded="true" />
+                    <element signature="e#1528#1529#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HealthPotion.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Items/HealthPotion.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="27" column="35" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+                  <folding>
+                    <element signature="e#1062#1063#0" expanded="true" />
+                    <element signature="e#1093#1094#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Potion.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Items/Potion.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="62" column="43" selection-start="1392" selection-end="1392" vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1156">
+                  <folding>
+                    <element signature="e#1255#1256#0" expanded="true" />
+                    <element signature="e#1282#1283#0" expanded="true" />
+                    <element signature="e#1359#1360#0" expanded="true" />
+                    <element signature="e#1391#1392#0" expanded="true" />
+                    <element signature="e#1421#1422#0" expanded="true" />
+                    <element signature="e#1448#1449#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -151,9 +246,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Skeleton.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
-        <option value="$PROJECT_DIR$/src/MeleeWeaponAttackType.java" />
         <option value="$PROJECT_DIR$/src/GenericBolt.java" />
         <option value="$PROJECT_DIR$/src/Weapon.java" />
         <option value="$PROJECT_DIR$/src/MeleeWeapon.java" />
@@ -188,20 +280,23 @@
         <option value="$PROJECT_DIR$/src/Items/Weapons/Item.java" />
         <option value="$PROJECT_DIR$/src/MagicSpells/Item.java" />
         <option value="$PROJECT_DIR$/src/MeleeCombat/Weapon.java" />
-        <option value="$PROJECT_DIR$/src/MeleeCombat/MeleeWeapon.java" />
-        <option value="$PROJECT_DIR$/src/Items/Item.java" />
-        <option value="$PROJECT_DIR$/src/Items/Longsword.java" />
-        <option value="$PROJECT_DIR$/src/Items/HealthPotion.java" />
-        <option value="$PROJECT_DIR$/src/Player/PlayerManagers/PlayerInventoryManager.java" />
-        <option value="$PROJECT_DIR$/src/Items/Potion.java" />
         <option value="$PROJECT_DIR$/src/Game/UIManager.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/UIElement.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/Inventory.java" />
         <option value="$PROJECT_DIR$/src/Game/Scene/Scene.java" />
         <option value="$PROJECT_DIR$/src/Game/Main.java" />
-        <option value="$PROJECT_DIR$/src/Game/Game.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/UIManager.java" />
+        <option value="$PROJECT_DIR$/src/Game/Game.java" />
+        <option value="$PROJECT_DIR$/src/Game/UI/InventoryInfo.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/UIInventory.java" />
+        <option value="$PROJECT_DIR$/src/Items/Consumeable.java" />
+        <option value="$PROJECT_DIR$/src/Game/UI/InventoryItemInfo.java" />
+        <option value="$PROJECT_DIR$/src/Items/Potion.java" />
+        <option value="$PROJECT_DIR$/src/Items/HealthPotion.java" />
+        <option value="$PROJECT_DIR$/src/Items/Item.java" />
+        <option value="$PROJECT_DIR$/src/Items/Longsword.java" />
+        <option value="$PROJECT_DIR$/src/MeleeCombat/MeleeWeapon.java" />
+        <option value="$PROJECT_DIR$/src/Player/PlayerManagers/PlayerInventoryManager.java" />
       </list>
     </option>
   </component>
@@ -766,20 +861,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MagicSpells/MagicDart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="84" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1547">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Generic/VectorArithmetic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="42" selection-start="256" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="37" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
@@ -909,13 +990,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="17" selection-start="44" selection-end="44" vertical-scroll-proportion="0.12212644" vertical-offset="0" max-vertical-offset="696" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MagicSpells/SpellInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="16" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MagicSpells/Projectile.java">
@@ -1067,37 +1141,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MeleeCombat/MeleeWeapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="68" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="15" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Generic/Actor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="41" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/Longsword.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="34" selection-start="2479" selection-end="2479" vertical-scroll-proportion="0.0" vertical-offset="722" max-vertical-offset="1632">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/HealthPotion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="42" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0" vertical-offset="77" max-vertical-offset="782">
           <folding />
         </state>
       </provider>
@@ -1109,13 +1155,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#503#514#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/Potion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="28" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1142,34 +1181,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="29" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.61538464" vertical-offset="272" max-vertical-offset="1411">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/UI/UIManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="31" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="952">
+        <state line="29" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="952">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerInventoryManager.java">
+    <entry file="file://$PROJECT_DIR$/src/Game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="20" selection-start="654" selection-end="654" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+        <state line="35" column="58" selection-start="862" selection-end="862" vertical-scroll-proportion="-0.65384614" vertical-offset="391" max-vertical-offset="1445">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MagicSpells/SpellInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="5" selection-start="589" selection-end="941" vertical-scroll-proportion="0.0" vertical-offset="55" max-vertical-offset="731">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/UI/UIInventory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="85" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.74852073" vertical-offset="497" max-vertical-offset="1173">
+        <state line="51" column="53" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.0" vertical-offset="586" max-vertical-offset="1258">
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Consumeable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="43" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="21" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Longsword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="27" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MeleeCombat/MeleeWeapon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="31" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+          <folding>
+            <element signature="e#468#469#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#530#531#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/HealthPotion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="35" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <folding>
+            <element signature="e#1062#1063#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Potion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="43" selection-start="1392" selection-end="1392" vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1156">
+          <folding>
+            <element signature="e#1255#1256#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+            <element signature="e#1359#1360#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="true" />
+            <element signature="e#1448#1449#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/UI/InventoryItemInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="98" selection-end="98" vertical-scroll-proportion="0.15088758" vertical-offset="0" max-vertical-offset="1360">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1326#1327#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerInventoryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="45" selection-start="814" selection-end="814" vertical-scroll-proportion="0.3188623" vertical-offset="246" max-vertical-offset="969">
+          <folding>
+            <element signature="e#340#359#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1528#1529#0" expanded="true" />
           </folding>
         </state>
       </provider>
