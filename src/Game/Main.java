@@ -1,6 +1,7 @@
 package Game;
 
 import Game.Game;
+import Game.UI.UIManager;
 import Player.Player;
 import Player.PlayerManagers.PlayerInventoryManager;
 import Player.PlayerManagers.PlayerMagicManager;
@@ -13,8 +14,8 @@ import org.jsfml.window.Keyboard;
 import org.jsfml.window.Mouse;
 import org.jsfml.window.VideoMode;
 import org.jsfml.window.event.Event;
+import org.jsfml.window.event.KeyEvent;
 import org.jsfml.window.event.MouseButtonEvent;
-
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,6 +26,12 @@ import org.jsfml.window.event.MouseButtonEvent;
  */
 public class Main {
 
+    private static Clock frameClock = new Clock();
+    private static Time deltaTime;
+    private static float deltaSeconds;
+
+    private static boolean paused = false;
+
     public static void main(String[] args) {
 
         RenderWindow window = new RenderWindow();
@@ -32,83 +39,29 @@ public class Main {
         Game game = new Game(window);
         Player player = game.getPlayer();
 
-        Boolean paused = false;
+        InputManager inputManager = InputManager.getInstance();
+        inputManager.setPlayer(player);
+        inputManager.setWindow(window);
 
         window.setFramerateLimit(60);
         window.setVerticalSyncEnabled(true);
 
-        Clock frameClock = new Clock();
 
         while (window.isOpen()) {
 
 
             window.clear();
-            Time deltaTime = frameClock.restart();
-            float deltaSeconds = deltaTime.asSeconds();
+            deltaTime = frameClock.restart();
+            deltaSeconds = deltaTime.asSeconds();
 
             //event loop
             for (Event event : window.pollEvents()) {
-
-                //executed when the window is closed
-                if (event.type == Event.Type.CLOSED) {
-                    window.close();
-                }
-
-                if (event.type == Event.Type.KEY_PRESSED) {
-                    if (event.asKeyEvent().key == Keyboard.Key.SPACE) {
-                        System.out.println("Game paused " + paused);
-                        paused = !paused;
-                    }
-                }
-
-                if (!paused) {
-
-                    if (event.type == Event.Type.MOUSE_WHEEL_MOVED) {
-                        player.changeCurrentSpell(event.asMouseWheelEvent().delta);
-                    }
-
-                    if (event.type == Event.Type.MOUSE_BUTTON_PRESSED) {
-                        MouseButtonEvent mouseEvt = event.asMouseButtonEvent();
-
-                        if (mouseEvt.button == Mouse.Button.RIGHT) {
-                            //if right button pressed
-                            Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
-                            //player.meleeAttack(worldPos);
-                        }
-
-                        if (mouseEvt.button == Mouse.Button.MIDDLE) {
-                            System.out.println(PlayerInventoryManager.getInstance().getCarriedItems());
-                        }
-                    }
-                }
+                inputManager.processEvent(event);
             }
 
+            inputManager.checkKeyboard();
+
             if (!paused) {
-
-                //look for WASD input to control player movement
-                if (Keyboard.isKeyPressed(Keyboard.Key.W)) {
-                    player.move(0, -deltaSeconds);
-                }
-                if (Keyboard.isKeyPressed(Keyboard.Key.S)) {
-                    player.move(0, deltaSeconds);
-                }
-                if (Keyboard.isKeyPressed(Keyboard.Key.A)) {
-                    player.move(-deltaSeconds, 0);
-                }
-                if (Keyboard.isKeyPressed(Keyboard.Key.D)) {
-                    player.move(deltaSeconds, 0);
-                }
-
-                //look for mouse input for firing projectiles
-                if (Mouse.isButtonPressed(Mouse.Button.LEFT)) {
-                    //if left mouse held down
-                    Vector2f worldPos = window.mapPixelToCoords(Mouse.getPosition(window));
-                    player.castCurrentSpell(worldPos);
-                }
-
-                if (Mouse.isButtonPressed(Mouse.Button.RIGHT)) {
-                    //if right mouse held down
-                }
 
                 Game.getCurrentScene().checkCollisions();
 
@@ -116,11 +69,27 @@ public class Main {
 
                 game.setViewCenter(new Vector2i(player.getDrawable().getPosition()));
                 PlayerMagicManager.getInstance().reduceCoolDownsRemaining(deltaSeconds);
-
-
             }
+
             game.draw(window);
             window.display();
         }
+    }
+
+    public static float getDeltaSeconds() {
+        return deltaSeconds;
+    }
+
+    public static void setPaused(boolean _paused) {
+        paused = _paused;
+        if (paused) {
+            System.out.println("[Main.setPaused()] Game paused");
+        } else {
+            System.out.println("[Main.setPaused()] Game unpaused");
+        }
+    }
+
+    public static boolean isPaused() {
+        return paused;
     }
 }

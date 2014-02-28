@@ -20,14 +20,14 @@ public class IceBolt extends GenericBolt {
         speed = 10f;
         range = 600f;
         coolDown = 5f;
-        damage = 20f;
+        damage = "5d4";
 
         buildSprite(TextureLibrary.getTexture("iceBolt"));
         boltSprite.setScale(0.3f, 0.3f);
 
     }
 
-    public float getDamage() {
+    public String getDamage() {
         return damage;
     }
 

@@ -1,6 +1,7 @@
 package MagicSpells;
 
 import Generic.Actor;
+import Generic.Dice;
 import Generic.VectorArithmetic;
 import Game.Game;
 import Monsters.Monster;
@@ -23,7 +24,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     protected Vector2f startPosition;
     protected Vector2f travelVector;
     protected float coolDown;
-    protected float damage;
+    protected String damage;
 
     protected GenericBolt() {
     }
@@ -75,14 +76,14 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
                 //was I cast by another monster?
                 if (!(belongsTo instanceof Monster)) {
                     //if not, do some damage!
-                    ((Monster) collider).reduceHP(damage);
+                    ((Monster) collider).reduceHP(Dice.roll(damage));
                     Game.getCurrentScene().removeActor(this);
                 }
             }
 
             //have I hit a player?
             if (collider instanceof Player) {
-                ((Player) collider).reduceHP(damage);
+                ((Player) collider).reduceHP(Dice.roll(damage));
                 Game.getCurrentScene().removeActor(this);
             }
 
@@ -96,7 +97,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     public Vector2f getCurrentPosition() {
         return boltSprite.getPosition();
     }
-    public abstract float getDamage();
+    public abstract String getDamage();
 
     public boolean belongsTo(Actor actor) {
         return actor == belongsTo;

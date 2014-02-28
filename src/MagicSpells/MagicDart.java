@@ -20,14 +20,14 @@ public class MagicDart extends GenericBolt {
         speed = 15f;
         range = 350f;
         coolDown = 1f;
-        damage = 1f;
+        damage = "1d6";
 
         buildSprite(TextureLibrary.getTexture("magicDart"));
 
         //System.out.println("Target: " + targetPosition + ", Start: " + startPosition);
     }
 
-    public float getDamage() {
+    public String getDamage() {
         return damage;
     }
 

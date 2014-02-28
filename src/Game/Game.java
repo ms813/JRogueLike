@@ -48,8 +48,7 @@ public class Game {
 
         mSceneList.add(currentScene);
 
-        uiManager.init(window);
-
+        UIManager.getInstance().init();
     }
 
     public static RenderWindow getWindow() {

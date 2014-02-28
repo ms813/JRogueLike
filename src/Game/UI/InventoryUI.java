@@ -1,5 +1,6 @@
 package Game.UI;
 
+import Game.Game;
 import Player.PlayerManagers.PlayerInventoryManager;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
@@ -15,6 +16,8 @@ public class InventoryUI implements UIElement {
     private static PlayerInventoryManager inventoryManager = PlayerInventoryManager.getInstance();
 
     private RectangleShape bg;
+
+    private boolean visible = false;
 
     protected InventoryUI() {
 
@@ -36,10 +39,12 @@ public class InventoryUI implements UIElement {
     }
 
     public void draw(RenderWindow window) {
-        window.draw(bg);
+        if (visible) {
+            window.draw(bg);
 
-        for (InventoryItemInfo itemInfo : inventoryManager.getCarriedItems()) {
-            itemInfo.draw(window);
+            for (InventoryItemInfo itemInfo : inventoryManager.getCarriedItems()) {
+                itemInfo.draw(window);
+            }
         }
 
     }
@@ -60,10 +65,18 @@ public class InventoryUI implements UIElement {
         return bg.getSize();
     }
 
-    public void init(RenderWindow window) {
-        bg = new RectangleShape(Vector2f.mul(new Vector2f(window.getSize()), 0.1f));
+    public void init() {
+        bg = new RectangleShape(new Vector2f(Game.screenW * 0.7f, Game.screenH * 0.7f));
         bg.setOutlineColor(Color.BLUE);
         bg.setOutlineThickness(5f);
-        bg.setPosition(window.getSize().x - bg.getSize().x, window.getSize().y - bg.getSize().y);
+        bg.setPosition(Game.screenW * 0.15f, Game.screenH*0.15f);
+    }
+
+    public void toggleVisible() {
+        visible = !visible;
+    }
+
+    public void setVisible(boolean val){
+        visible = val;
     }
 }

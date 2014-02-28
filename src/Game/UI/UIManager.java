@@ -11,6 +11,7 @@ public class UIManager implements UIElement {
     private static UIManager instance = null;
 
     private InventoryUI inventoryUI = InventoryUI.getInstance();
+    private Hotbar hotbar = Hotbar.getInstance();
 
     protected UIManager() {
     }
@@ -24,6 +25,7 @@ public class UIManager implements UIElement {
 
     public void draw(RenderWindow window) {
         inventoryUI.draw(window);
+        hotbar.draw(window);
     }
 
     public void update() {
@@ -42,9 +44,16 @@ public class UIManager implements UIElement {
       return inventoryUI.getSize();
     }
 
-    public void init(RenderWindow window){
-        inventoryUI.init(window);
+    public void init(){
+        inventoryUI.init();
+        hotbar.init();
     }
 
+    public void toggleInventory(){
+        inventoryUI.toggleVisible();
+    }
 
+    public void hideAll(){
+        inventoryUI.setVisible(false);
+    }
 }
