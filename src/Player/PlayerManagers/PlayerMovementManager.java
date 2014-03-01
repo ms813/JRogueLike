@@ -4,6 +4,9 @@ import Generic.VectorArithmetic;
 import Player.Player;
 import org.jsfml.system.Vector2f;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Created by Matthew on 01/03/14.
  */
@@ -34,5 +37,9 @@ public class PlayerMovementManager implements PlayerManager {
 
         player.getDrawable().move(Vector2f.mul(VectorArithmetic.normalize(vel), moveSpeed));
 
+    }
+
+    public void buffMoveSpeed(float speedChange, int length){
+        moveSpeed += speedChange;
     }
 }

@@ -1,6 +1,7 @@
 package Items.Consumeables.Potions;
 
 import Game.UI.TextureLibrary;
+import Player.PlayerManagers.PlayerMovementManager;
 import org.jsfml.graphics.Color;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
@@ -17,8 +18,6 @@ public class SpeedPotion extends Potion {
 
     public SpeedPotion(){
 
-
-
             sprite = new Sprite(TextureLibrary.getTexture("healthPotion"));
             sprite.setScale(0.4f, 0.4f);
             sprite.setColor(Color.CYAN);
@@ -29,7 +28,6 @@ public class SpeedPotion extends Potion {
 
             coolDown = 20f;
             name = "Speed Potion";
-
     }
 
     public void quaff(){
@@ -48,6 +46,8 @@ public class SpeedPotion extends Potion {
         return coolDown;
     }
 
-    public void use(){}
+    public void use(){
+        PlayerMovementManager.getInstance().buffMoveSpeed(5f, 10);
+    }
 
 }

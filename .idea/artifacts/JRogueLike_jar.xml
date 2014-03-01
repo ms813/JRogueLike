@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JRogueLike:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JRogueLike_jar</output-path>
+    <root id="archive" name="JRogueLike.jar">
+      <element id="module-output" name="JRogueLike" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jsfml-test-Dec02_2013/jsfml.jar" path-in-jar="/" />
+      <element id="dir-copy" path="$PROJECT_DIR$/resources" />
+    </root>
+  </artifact>
+</component>

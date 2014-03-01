@@ -59,13 +59,11 @@ public class InputManager {
 
             if (evt.key == Keyboard.Key.I) {
 
-                if(!Main.isPaused()){
+                if (!Main.isPaused()) {
                     Main.setPaused(true);
-                }
-
-                if (Main.isPaused()) {
                     currentFocus = CurrentFocus.INVENTORY;
-                } else {
+                }else{
+                    Main.setPaused(false);
                     currentFocus = CurrentFocus.GAME;
                 }
                 System.out.println("[InputManager.processEvent()] Current focus = " + currentFocus);
@@ -105,7 +103,7 @@ public class InputManager {
                         Sprite icon = itemInfo.getIcon();
 
                         if (icon.getGlobalBounds().contains(mousePos)) {
-                            System.out.println("[InputManager.processEvent()] "+itemInfo.getItemName() + " was left clicked!");
+                            System.out.println("[InputManager.processEvent()] " + itemInfo.getItemName() + " was left clicked!");
                             itemInfo.use();
                         }
                     }
