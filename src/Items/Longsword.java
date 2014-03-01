@@ -1,3 +1,4 @@
+/*
 package Items;
 
 import Game.Game;
@@ -17,9 +18,11 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Random;
 
+*/
 /**
  * Created by Matthew on 24/02/14.
- */
+ *//*
+
 public class Longsword extends MeleeWeapon implements Actor {
 
     private Sprite sprite;
@@ -108,3 +111,4 @@ public class Longsword extends MeleeWeapon implements Actor {
         sprite.setPosition(x, y);
     }
 }
+*/

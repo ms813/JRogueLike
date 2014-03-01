@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Matthew on 18/02/14.
  */
-public class PlayerMagicManager {
+public class PlayerMagicManager implements PlayerManager {
 
     private Player player;
 

@@ -70,6 +70,7 @@ public class Game {
     }
 
     public void update() {
+        setViewCenter(new Vector2i(getPlayer().getDrawable().getPosition()));
         currentScene.update();
         uiManager.update();
     }

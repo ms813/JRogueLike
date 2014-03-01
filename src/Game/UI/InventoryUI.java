@@ -19,9 +19,7 @@ public class InventoryUI implements UIElement {
 
     private boolean visible = false;
 
-    protected InventoryUI() {
-
-    }
+    protected InventoryUI() {}
 
     public static InventoryUI getInstance() {
         if (instance == null) {
@@ -78,5 +76,9 @@ public class InventoryUI implements UIElement {
 
     public void setVisible(boolean val){
         visible = val;
+    }
+
+    public void highlight(InventoryItemInfo item, boolean mouseOver){
+        item.setMouseOver(mouseOver);
     }
 }

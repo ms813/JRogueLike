@@ -3,6 +3,7 @@ package Player.PlayerManagers;
 import Game.UI.InventoryItemInfo;
 import Game.UI.InventoryUI;
 import Items.Item;
+import Player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +11,15 @@ import java.util.List;
 /**
  * Created by Matthew on 25/02/14.
  */
-public class PlayerInventoryManager {
+public class PlayerInventoryManager implements PlayerManager {
 
     private List<InventoryItemInfo> carriedItems = new ArrayList<InventoryItemInfo>();
 
     private InventoryUI inventoryUI = InventoryUI.getInstance();
 
     private static PlayerInventoryManager instance = null;
+
+    private Player player;
 
     protected PlayerInventoryManager() {
     }
@@ -50,8 +53,36 @@ public class PlayerInventoryManager {
         inventoryUI.update();
     }
 
+    public void removeItem(InventoryItemInfo itemInfo, int quantity){
+
+        //if item already exists in the list, decrement its quantity
+        if(itemInfo.getItem().isStackable()){
+            carriedItems.get(carriedItems.indexOf(itemInfo)).decrementQuantity(quantity);
+            if(carriedItems.get(carriedItems.indexOf(itemInfo)).getQuantity() <= 0){
+                itemInfo.setReadyForRemoval();
+            }
+        } else{
+            itemInfo.setReadyForRemoval();
+        }
+
+        //if only 1 item is left, remove it completely
+    }
+
+    public void tidy(){
+        List<InventoryItemInfo> tempItems = new ArrayList<InventoryItemInfo>(carriedItems);
+        for(InventoryItemInfo itemInfo : tempItems){
+            if(itemInfo.isReadyForRemoval()){
+                carriedItems.remove(itemInfo);
+            }
+        }
+    }
+
     public List<InventoryItemInfo> getCarriedItems() {
         return carriedItems;
+    }
+
+    public void setPlayer(Player _player){
+        player = _player;
     }
 
 }

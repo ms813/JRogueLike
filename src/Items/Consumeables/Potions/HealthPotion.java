@@ -1,6 +1,9 @@
 package Items.Consumeables.Potions;
 
 import Game.UI.TextureLibrary;
+import Generic.Dice;
+import Player.PlayerManagers.PlayerHPManager;
+import Player.PlayerManagers.PlayerInventoryManager;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
@@ -20,14 +23,15 @@ public class HealthPotion extends Potion {
             sprite.setScale(0.4f, 0.4f);
 
             icon = new Sprite(TextureLibrary.getTexture("healthPotion"));
-            icon.setScale(0.2f, 0.2f);
+            icon.setScale(0.4f, 0.4f);
 
             coolDown = 20f;
             name = "Health Potion";
     }
 
-    public void quaff(){
+    public void use(){
         System.out.println("Quaffed hp potion");
+        PlayerHPManager.getInstance().increaseHP(Dice.roll("6d10"));
     }
 
     public Sprite getDrawable(){

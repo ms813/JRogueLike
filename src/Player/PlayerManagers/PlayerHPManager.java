@@ -7,19 +7,17 @@ import Player.Player;
 /**
  * Created by Matthew on 25/02/14.
  */
-public class PlayerHPManager {
+public class PlayerHPManager implements PlayerManager  {
 
     private Player player;
 
-    private float maxHP;
-    private float currentHP;
+    private int maxHP;
+    private int currentHP;
     private PlayerHPBar hpBar;
 
     private static PlayerHPManager instance = null;
 
-    protected PlayerHPManager() {
-
-    }
+    protected PlayerHPManager() {}
 
     public static PlayerHPManager getInstance() {
         if (instance == null) {
@@ -30,7 +28,7 @@ public class PlayerHPManager {
 
     public void setPlayer(Player _player){
         player = _player;
-        maxHP = 200f;
+        maxHP = 200;
         currentHP = maxHP;
         hpBar = new PlayerHPBar(player);
     }
@@ -46,8 +44,21 @@ public class PlayerHPManager {
         hpBar.draw(window);
     }
 
-    public void reduceHP(float damage){
+    public void reduceHP(int damage){
         currentHP -= damage;
+        System.out.println("Player received " + damage + " points of damage!");
+    }
+
+    public void increaseHP(int amount){
+
+        int before = currentHP;
+
+        currentHP += amount;
+        if(currentHP > maxHP){
+            currentHP = maxHP;
+        }
+        int after = currentHP;
+        System.out.println("Player healed " + (after - before) + " hit points!");
     }
 
     private void onDeath(){

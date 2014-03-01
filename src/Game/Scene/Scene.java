@@ -4,7 +4,6 @@ import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Items.Consumeables.Potions.HealthPotion;
 import Items.Consumeables.Potions.SpeedPotion;
-import Items.Longsword;
 import Monsters.Skeleton;
 import Player.Player;
 import org.jsfml.graphics.*;

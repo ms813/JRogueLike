@@ -5,11 +5,10 @@ import Generic.Actor;
 import Generic.VectorArithmetic;
 import Player.PlayerManagers.PlayerHPManager;
 import Player.PlayerManagers.PlayerMagicManager;
-import Player.PlayerManagers.PlayerMeleeManager;
+import Player.PlayerManagers.PlayerMovementManager;
 import Player.PlayerManagers.PlayerXPManager;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
-import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
 
 import java.io.File;
@@ -29,14 +28,12 @@ public class Player implements Actor {
 
     private boolean readyForDestruction = false;
 
-    private float moveSpeed = 5f;
-
-
     //set up the various skill managers
     private PlayerMagicManager magicManager = PlayerMagicManager.getInstance();
     private PlayerXPManager xpManager = PlayerXPManager.getInstance();
     //private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
     private PlayerHPManager hpManager = PlayerHPManager.getInstance();
+    private PlayerMovementManager movementManager = PlayerMovementManager.getInstance();
 
     public Player() {
 
@@ -46,21 +43,22 @@ public class Player implements Actor {
         //set the origin to the center of the sprite rather than the top left
         playerSprite.setOrigin(playerSprite.getLocalBounds().width / 2, playerSprite.getLocalBounds().height / 2);
 
-
-        magicManager.setPlayer(this);
-        xpManager.setPlayer(this);
-        //meleeManager.setPlayer(this);
-        hpManager.setPlayer(this);
+        managerSetup();
 
         learnSpell("MagicDart");
         learnSpell("IceBolt");
     }
 
+    private void managerSetup(){
+        magicManager.setPlayer(this);
+        xpManager.setPlayer(this);
+        //meleeManager.setPlayer(this);
+        hpManager.setPlayer(this);
+        movementManager.setPlayer(this);
+    }
+
     public void move(float x, float y) {
-
-        Vector2f vel = new Vector2f(x, y);
-
-        playerSprite.move(Vector2f.mul(VectorArithmetic.normalize(vel), moveSpeed));
+        movementManager.move(x, y);
     }
 
     public void castCurrentSpell(Vector2f mousePos) {
@@ -84,16 +82,12 @@ public class Player implements Actor {
         magicManager.changeCurrentSpell(wheelTicks);
     }
 
-    public void reduceHP(float damage) {
+    public void reduceHP(int damage) {
         hpManager.reduceHP(damage);
     }
 
     public void onCollision(Actor collider) {
 
-    }
-
-    public boolean isReadyForDestruction() {
-        return readyForDestruction;
     }
 
     public void update() {

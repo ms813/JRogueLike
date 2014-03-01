@@ -2,6 +2,7 @@ package Game.UI;
 
 import Items.Consumeables.Consumeable;
 import Items.Item;
+import Player.PlayerManagers.PlayerInventoryManager;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
 
@@ -17,6 +18,9 @@ public class InventoryItemInfo {
     boolean stackable;
     private int quantity;
     private Text quantityText;
+    private RectangleShape highlightRect;
+    private boolean mouseOver = false;
+    private boolean readyForRemoval = false;
 
 
     public InventoryItemInfo(Item _item, int _quantity) {
@@ -38,6 +42,11 @@ public class InventoryItemInfo {
         if (quantity > 1) {
             quantityText.setString(Integer.toString(quantity));
         }
+
+        highlightRect = new RectangleShape();
+        highlightRect.setSize(Vector2f.componentwiseMul(item.getIcon().getScale(), new Vector2f(item.getIcon().getLocalBounds().width, item.getIcon().getLocalBounds().height)));
+        highlightRect.setOutlineThickness(5f);
+        highlightRect.setOutlineColor(Color.RED);
     }
 
     public Item getItem() {
@@ -102,12 +111,35 @@ public class InventoryItemInfo {
 
     public void setIconPosition(Vector2f pos) {
         item.getIcon().setPosition(pos);
+        highlightRect.setPosition(item.getIcon().getPosition());
         quantityText.setPosition(pos);
     }
 
     public void draw(RenderWindow window) {
+        if (mouseOver) {
+            window.draw(highlightRect);
+        }
         window.draw(item.getIcon());
         window.draw(quantityText);
+    }
+
+    public void setMouseOver(boolean _mouseOver) {
+        mouseOver = _mouseOver;
+    }
+
+    public void use() {
+        item.use();
+        if (item instanceof Consumeable) {
+            PlayerInventoryManager.getInstance().removeItem(this, 1);
+        }
+    }
+
+    public void setReadyForRemoval() {
+        readyForRemoval = true;
+    }
+
+    public boolean isReadyForRemoval() {
+        return readyForRemoval;
     }
 
 }

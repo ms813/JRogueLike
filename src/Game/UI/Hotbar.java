@@ -38,7 +38,7 @@ public class Hotbar implements UIElement {
     }
 
     public void init(){
-        bg = new RectangleShape(new Vector2f(Game.screenW*0.9f, Game.screenH * 0.1f));
+        bg = new RectangleShape(new Vector2f(Game.screenW*0.95f, Game.screenH * 0.05f));
         bg.setOutlineColor(Color.RED);
         bg.setOutlineThickness(2.5f);
         bg.setPosition(2.5f, Game.screenH - bg.getSize().y-2.5f);

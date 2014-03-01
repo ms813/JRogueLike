@@ -1,21 +1,13 @@
 package Game;
 
-import Game.Game;
-import Game.UI.UIManager;
 import Player.Player;
-import Player.PlayerManagers.PlayerInventoryManager;
 import Player.PlayerManagers.PlayerMagicManager;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.system.Clock;
 import org.jsfml.system.Time;
-import org.jsfml.system.Vector2f;
 import org.jsfml.system.Vector2i;
-import org.jsfml.window.Keyboard;
-import org.jsfml.window.Mouse;
 import org.jsfml.window.VideoMode;
 import org.jsfml.window.event.Event;
-import org.jsfml.window.event.KeyEvent;
-import org.jsfml.window.event.MouseButtonEvent;
 
 /**
  * Created with IntelliJ IDEA.
@@ -49,7 +41,6 @@ public class Main {
 
         while (window.isOpen()) {
 
-
             window.clear();
             deltaTime = frameClock.restart();
             deltaSeconds = deltaTime.asSeconds();
@@ -59,7 +50,7 @@ public class Main {
                 inputManager.processEvent(event);
             }
 
-            inputManager.checkKeyboard();
+            inputManager.checkForContinuousInput();
 
             if (!paused) {
 
@@ -67,7 +58,6 @@ public class Main {
 
                 game.update();
 
-                game.setViewCenter(new Vector2i(player.getDrawable().getPosition()));
                 PlayerMagicManager.getInstance().reduceCoolDownsRemaining(deltaSeconds);
             }
 

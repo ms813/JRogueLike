@@ -24,7 +24,7 @@ public class SpeedPotion extends Potion {
             sprite.setColor(Color.CYAN);
 
             icon = new Sprite(TextureLibrary.getTexture("healthPotion"));
-            icon.setScale(0.2f, 0.2f);
+            icon.setScale(0.4f, 0.4f);
             icon.setColor(Color.CYAN);
 
             coolDown = 20f;
@@ -47,4 +47,7 @@ public class SpeedPotion extends Potion {
     public float getCoolDown(){
         return coolDown;
     }
+
+    public void use(){}
+
 }

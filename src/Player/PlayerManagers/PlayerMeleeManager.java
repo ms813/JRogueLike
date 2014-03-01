@@ -1,3 +1,4 @@
+/*
 package Player.PlayerManagers;
 
 import Generic.VectorArithmetic;
@@ -7,9 +8,11 @@ import MeleeCombat.MeleeWeapon;
 import MeleeCombat.MeleeWeaponAttackType;
 import org.jsfml.system.Vector2f;
 
+*/
 /**
  * Created by Matthew on 24/02/14.
- */
+ *//*
+
 public class PlayerMeleeManager {
 
     private Player player;
@@ -61,3 +64,4 @@ public class PlayerMeleeManager {
     }
 
 }
+*/

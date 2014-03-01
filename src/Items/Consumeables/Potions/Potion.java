@@ -21,8 +21,6 @@ public abstract class Potion implements Consumeable {
 
     protected float coolDown;
 
-    public abstract void quaff();
-
     public void update() {
 
     }
@@ -65,4 +63,6 @@ public abstract class Potion implements Consumeable {
     public String getName(){
         return name;
     }
+
+    public abstract void use();
 }

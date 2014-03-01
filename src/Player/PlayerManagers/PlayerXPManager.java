@@ -5,7 +5,7 @@ import Player.Player;
 /**
  * Created by Matthew on 19/02/14.
  */
-public class PlayerXPManager {
+public class PlayerXPManager implements PlayerManager {
 
     private Player player;
 
