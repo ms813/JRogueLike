@@ -10,6 +10,7 @@ import org.jsfml.system.Vector2f;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.TimerTask;
 
 /**
  * Created by Matthew on 26/02/14.
@@ -47,7 +48,7 @@ public class SpeedPotion extends Potion {
     }
 
     public void use(){
-        PlayerMovementManager.getInstance().buffMoveSpeed(5f, 10);
+        PlayerMovementManager.getInstance().buffMoveSpeed(5f, 10000);
     }
 
 }

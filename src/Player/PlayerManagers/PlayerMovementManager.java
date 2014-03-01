@@ -39,7 +39,24 @@ public class PlayerMovementManager implements PlayerManager {
 
     }
 
-    public void buffMoveSpeed(float speedChange, int length){
+    public void buffMoveSpeed(float speedChange, int timeMillis){
         moveSpeed += speedChange;
+
+        class ReduceSpeed extends TimerTask{
+            float amount;
+
+            public ReduceSpeed(float amount){
+                this.amount = amount;
+            }
+
+            @Override
+            public void run(){
+                moveSpeed -= amount;
+                System.out.println("timer run reached");
+            }
+        }
+
+        Timer timer = new Timer();
+        timer.schedule(new ReduceSpeed(speedChange), timeMillis);
     }
 }
