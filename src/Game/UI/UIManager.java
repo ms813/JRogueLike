@@ -1,5 +1,6 @@
 package Game.UI;
 
+import Player.PlayerManagers.PlayerInventoryManager;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.system.Vector2f;
 
@@ -51,7 +52,7 @@ public class UIManager implements UIElement {
 
     public void toggleInventory(){
         inventoryUI.toggleVisible();
-    }
+           }
 
     public void hideAll(){
         inventoryUI.setVisible(false);

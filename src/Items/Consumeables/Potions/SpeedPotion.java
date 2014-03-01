@@ -1,6 +1,7 @@
 package Items.Consumeables.Potions;
 
 import Game.UI.TextureLibrary;
+import Player.PlayerManagers.PlayerInventoryManager;
 import Player.PlayerManagers.PlayerMovementManager;
 import org.jsfml.graphics.Color;
 import org.jsfml.graphics.Sprite;

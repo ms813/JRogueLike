@@ -81,4 +81,8 @@ public class InventoryUI implements UIElement {
     public void highlight(InventoryItemInfo item, boolean mouseOver){
         item.setMouseOver(mouseOver);
     }
+
+    public boolean isVisible(){
+        return visible;
+    }
 }

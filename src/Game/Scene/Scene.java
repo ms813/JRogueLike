@@ -56,11 +56,11 @@ public class Scene {
         for (int i = 0; i < noOfPots; i++) {
             if (random.nextInt(2) == 0) {
                 HealthPotion pot = new HealthPotion();
-                pot.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
+                pot.setPosition(i*random.nextInt(100), i*random.nextInt(100));
                 actors.add(pot);
             } else {
                 SpeedPotion pot = new SpeedPotion();
-                pot.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
+                pot.setPosition(i*random.nextInt(100), i*random.nextInt(100));
                 actors.add(pot);
             }
         }
