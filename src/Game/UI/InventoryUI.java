@@ -44,7 +44,6 @@ public class InventoryUI implements UIElement {
                 itemInfo.draw(window);
             }
         }
-
     }
 
     public void update() {

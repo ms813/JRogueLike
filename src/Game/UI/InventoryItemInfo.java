@@ -142,4 +142,7 @@ public class InventoryItemInfo {
         return readyForRemoval;
     }
 
+    public void displayContextMenu(){
+
+    }
 }

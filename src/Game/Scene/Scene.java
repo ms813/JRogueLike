@@ -1,6 +1,5 @@
 package Game.Scene;
 
-import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Items.Consumeables.Potions.HealthPotion;
 import Items.Consumeables.Potions.SpeedPotion;
@@ -8,9 +7,6 @@ import Monsters.Skeleton;
 import Player.Player;
 import org.jsfml.graphics.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -28,9 +24,7 @@ public class Scene {
     private List<Actor> actors = new ArrayList<Actor>();
     private String sceneName;
 
-    Sprite tileMap;
-
-    private Texture bgTexture;
+    private Map map = new Map();
 
     public Scene(String _sceneName) {
 
@@ -38,16 +32,14 @@ public class Scene {
 
         sceneName = _sceneName;
 
-        bgTexture = TextureLibrary.getTexture("map");
-        tileMap = new Sprite(bgTexture);
-
+        map.generate("MapTiles", 50, 50);
 
         Random random = new Random();
         int noOfEnemies = random.nextInt(50) + 20;
 
         for (int i = 0; i < noOfEnemies; i++) {
             Skeleton skeleton = new Skeleton();
-            skeleton.setPosition(tileMap.getGlobalBounds().width * random.nextFloat(), tileMap.getGlobalBounds().height * random.nextFloat());
+            skeleton.setPosition(map.getLocalBounds().width * random.nextFloat(), map.getLocalBounds().height * random.nextFloat());
             actors.add(skeleton);
         }
 
@@ -64,10 +56,6 @@ public class Scene {
                 actors.add(pot);
             }
         }
-    }
-
-    public Sprite getMap() {
-        return tileMap;
     }
 
     public List<Actor> getActors() {
@@ -117,7 +105,7 @@ public class Scene {
     public void update() {
         List<Actor> tempActors = new ArrayList<Actor>(actors);
 
-        //finally update the projectile positions
+        //update actor positions
         //doing this after detecting collisions prevents 2 collisions being detected
         for (Actor actor : tempActors) {
             actor.update();
@@ -135,10 +123,13 @@ public class Scene {
 
     public void draw(RenderWindow window) {
 
-        window.draw(tileMap);
+        //window.draw(tileMap);
+        window.draw(map);
 
         for (Actor actor : actors) {
             actor.draw(window);
         }
     }
+
+
 }

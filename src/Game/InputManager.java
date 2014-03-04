@@ -94,6 +94,9 @@ public class InputManager {
                 }
             }
         } else if (currentFocus == CurrentFocus.INVENTORY) {
+
+            //get inputs when we are looking at the inventory
+
             if (event.type == Event.Type.MOUSE_BUTTON_PRESSED) {
                 MouseButtonEvent mouseEvt = event.asMouseButtonEvent();
 
@@ -113,15 +116,18 @@ public class InputManager {
                 }
 
                 if (mouseEvt.button == Mouse.Button.RIGHT) {
-                    //if right button pressed
+                    //if right button pressed get the mouse position
                     Vector2f mousePos = new Vector2f(Mouse.getPosition(window));
 
-                    for (InventoryItemInfo item : PlayerInventoryManager.getInstance().getCarriedItems()) {
-                        Sprite icon = item.getIcon();
+                    //for each item in the inventory...
+                    for (InventoryItemInfo itemInfo : PlayerInventoryManager.getInstance().getCarriedItems()) {
+                        Sprite icon = itemInfo.getIcon();
 
+                        //...check if the mouse pos is over the icon
                         if (icon.getGlobalBounds().contains(mousePos)) {
-                            System.out.println("[InputManager.processEvent()] " + item.getItemName() + " was right clicked!");
+                            System.out.println("[InputManager.processEvent()] " + itemInfo.getItemName() + " was right clicked!");
                             //TODO display a context menu?
+                            itemInfo.displayContextMenu();
                         }
                     }
                 }
