@@ -15,7 +15,6 @@ public class HPBar {
     float maxLen;
     float thickness = 5f;
 
-
     public void draw(RenderWindow window){
         window.draw(bar);
     }

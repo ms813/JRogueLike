@@ -1,6 +1,7 @@
 package Monsters;
 
 import Generic.Actor;
+import Generic.DynamicActor;
 import Generic.MonsterHPBar;
 import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
@@ -10,7 +11,7 @@ import org.jsfml.system.Vector2f;
 /**
  * Created by Matthew on 18/02/14.
  */
-public abstract class Monster implements Actor {
+public abstract class Monster implements DynamicActor {
 
     protected Sprite sprite;
 

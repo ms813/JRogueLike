@@ -7,12 +7,7 @@ import Generic.VectorArithmetic;
 import MagicSpells.IceBolt;
 import Player.PlayerManagers.PlayerXPManager;
 import org.jsfml.graphics.Sprite;
-import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Paths;
 
 /**
  * Created by Matthew on 18/02/14.
@@ -61,7 +56,7 @@ public class Skeleton extends Monster {
 
     protected void onDeath() {
         System.out.println("[Skeleton.onDeath()] Skeleton died!");
-        Game.getCurrentScene().removeActor(this);
+        Game.getCurrentScene().removeDynamicActor(this);
         PlayerXPManager.getInstance().gainXP(XP);
     }
 }

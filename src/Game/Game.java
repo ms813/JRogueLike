@@ -45,6 +45,7 @@ public class Game {
 
         //Add scenes to the game
         currentScene = new Scene("map");
+        currentScene.generateMap("MapTiles");
 
         mSceneList.add(currentScene);
 

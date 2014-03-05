@@ -1,5 +1,6 @@
 package Game.Scene;
 
+import Game.Game;
 import Game.UI.TextureLibrary;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
@@ -10,7 +11,11 @@ import org.jsfml.system.Vector2f;
  */
 public class Map extends BasicTransformable implements Drawable {
 
+    //array of vertices used to actually draw the map (vertex arrays have low performance overhead)
     private VertexArray vertexArray = new VertexArray(PrimitiveType.QUADS);
+
+    //array of MapTiles detailing the corners of each tile and a MapTileReference object
+    private MapTile[][] mapTiles;
 
     private Texture texture = new Texture();
 
@@ -24,6 +29,8 @@ public class Map extends BasicTransformable implements Drawable {
 
         texture = TextureLibrary.getTexture(tileSet);
 
+        mapTiles = new MapTile[noOfTilesX][noOfTilesY];
+
         for (int i = 0; i < noOfTilesX; i++) {
             for (int j = 0; j < noOfTilesY; j++) {
                 Vector2f[] corners = new Vector2f[4];
@@ -32,8 +39,27 @@ public class Map extends BasicTransformable implements Drawable {
                 corners[2] = new Vector2f((j + 1) * tilePixels, (i + 1) * tilePixels);
                 corners[3] = new Vector2f(j * tilePixels, (i + 1) * tilePixels);
 
+
+                //TODO update this to pick other tiles
+
+                if (i % 5 == 0) {
+                    mapTiles[i][j] = new MapTile(MapTileReference.WALL, corners);
+                } else {
+                    mapTiles[i][j] = new MapTile(MapTileReference.GRASS, corners);
+                }
+
                 for (int k = 0; k < corners.length; k++) {
-                    vertexArray.add(new Vertex(corners[k], MapTileLibrary.GRASS.getTextCoords()[k]));
+                    vertexArray.add(mapTiles[i][j].getVertex(k));
+                }
+
+
+                //add unpassable tiles to the static actors list for collision checking
+                if (!mapTiles[i][j].isPassable()) {
+                    if (Game.getCurrentScene() != null) {
+                        Game.getCurrentScene().addStaticActor(mapTiles[i][j]);
+                    } else {
+                        throw new NullPointerException("Scene hasn't been made yet!");
+                    }
                 }
             }
         }

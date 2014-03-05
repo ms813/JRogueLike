@@ -1,12 +1,13 @@
 package Items;
 
 import Generic.Actor;
+import Generic.StaticActor;
 import org.jsfml.graphics.Sprite;
 
 /**
  * Created by Matthew on 25/02/14.
  */
-public interface Item extends Actor {
+public interface Item extends StaticActor {
 
     public void pickUp(Actor byActor);
 

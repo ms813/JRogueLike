@@ -2,6 +2,8 @@ package Player;
 
 import Game.UI.TextureLibrary;
 import Generic.Actor;
+import Generic.DynamicActor;
+import Generic.StaticActor;
 import Generic.VectorArithmetic;
 import Player.PlayerManagers.PlayerHPManager;
 import Player.PlayerManagers.PlayerMagicManager;
@@ -22,7 +24,7 @@ import java.nio.file.Paths;
  * Time: 14:15
  * To change this template use File | Settings | File Templates.
  */
-public class Player implements Actor {
+public class Player implements DynamicActor {
 
     private Sprite playerSprite;
 

@@ -21,10 +21,6 @@ public abstract class Potion implements Consumeable {
 
     protected float coolDown;
 
-    public void update() {
-
-    }
-
     public void draw(RenderWindow window) {
         window.draw(sprite);
     }
@@ -33,7 +29,7 @@ public abstract class Potion implements Consumeable {
         if (actor instanceof Player) {
             PlayerInventoryManager.getInstance().addItem(this,1);
         }
-        Game.getCurrentScene().removeActor(this);
+        Game.getCurrentScene().removeStaticActor(this);
     }
 
     public void onCollision(Actor actor) {

@@ -23,7 +23,7 @@ import java.util.Random;
  * Created by Matthew on 24/02/14.
  *//*
 
-public class Longsword extends MeleeWeapon implements Actor {
+public class Longsword extends MeleeWeapon implements StaticActor {
 
     private Sprite sprite;
 
@@ -51,7 +51,7 @@ public class Longsword extends MeleeWeapon implements Actor {
 
     public void attack(float _startRot){
         startRot = _startRot;
-        Game.getCurrentScene().addActor(this);
+        Game.getCurrentScene().addDynamicActor(this);
         sprite.setRotation(startRot - swingArc/2);
         attacking = true;
     }
@@ -70,7 +70,7 @@ public class Longsword extends MeleeWeapon implements Actor {
         }
         if(sprite.getRotation() >= startRot + swingArc/2){
             attacking = false;
-            Game.getCurrentScene().removeActor(this);
+            Game.getCurrentScene().removeDynamicActor(this);
         }
     }
 

@@ -1,6 +1,8 @@
 package Game.Scene;
 
 import Generic.Actor;
+import Generic.DynamicActor;
+import Generic.StaticActor;
 import Items.Consumeables.Potions.HealthPotion;
 import Items.Consumeables.Potions.SpeedPotion;
 import Monsters.Skeleton;
@@ -20,19 +22,25 @@ import java.util.Random;
  */
 public class Scene {
 
-    //by convention, the player should always be actors.get(0);
-    private List<Actor> actors = new ArrayList<Actor>();
+    //a list of all mobile actors in the scene
+    private List<DynamicActor> dynamicActors = new ArrayList<DynamicActor>();
+
+    //a list of all immobile actors in the scene
+    private List<StaticActor> staticActors = new ArrayList<StaticActor>();
+
     private String sceneName;
 
     private Map map = new Map();
 
     public Scene(String _sceneName) {
 
-        actors.add(new Player());
+        dynamicActors.add(new Player());
 
         sceneName = _sceneName;
+    }
 
-        map.generate("MapTiles", 50, 50);
+    public void generateMap(String tileMap) {
+        map.generate(tileMap, 100, 100);
 
         Random random = new Random();
         int noOfEnemies = random.nextInt(50) + 20;
@@ -40,7 +48,7 @@ public class Scene {
         for (int i = 0; i < noOfEnemies; i++) {
             Skeleton skeleton = new Skeleton();
             skeleton.setPosition(map.getLocalBounds().width * random.nextFloat(), map.getLocalBounds().height * random.nextFloat());
-            actors.add(skeleton);
+            dynamicActors.add(skeleton);
         }
 
         int noOfPots = random.nextInt(10) + 5;
@@ -48,31 +56,35 @@ public class Scene {
         for (int i = 0; i < noOfPots; i++) {
             if (random.nextInt(2) == 0) {
                 HealthPotion pot = new HealthPotion();
-                pot.setPosition(i*random.nextInt(100), i*random.nextInt(100));
-                actors.add(pot);
+                pot.setPosition(i * random.nextInt(100), i * random.nextInt(100));
+                staticActors.add(pot);
             } else {
                 SpeedPotion pot = new SpeedPotion();
-                pot.setPosition(i*random.nextInt(100), i*random.nextInt(100));
-                actors.add(pot);
+                pot.setPosition(i * random.nextInt(100), i * random.nextInt(100));
+                staticActors.add(pot);
             }
         }
     }
 
-    public List<Actor> getActors() {
-        return actors;
+    public List<DynamicActor> getDynamicActors() {
+        return dynamicActors;
+    }
+
+    public List<StaticActor> getStaticActors() {
+        return staticActors;
     }
 
     public Player getPlayer() {
         Player player = null;
 
-        for (Actor actor : actors) {
+        for (Actor actor : dynamicActors) {
             if (actor instanceof Player) {
                 player = (Player) actor;
             }
         }
 
         if (player == null) {
-            System.err.println("Player is undefined!");
+            throw new NullPointerException("[Scene.checkCollisions()] Player is undefined!");
         }
 
         return player;
@@ -80,17 +92,17 @@ public class Scene {
 
     public void checkCollisions() {
 
-        List<Actor> aList = actors = new ArrayList<Actor>(actors);
+        //first loop to check dynamic actors against all other dynamic actors
+        List<DynamicActor> tempDActors = new ArrayList<DynamicActor>(dynamicActors);
 
+        for (int i = 0; i < tempDActors.size(); i++) {
 
-        for (int i = 0; i < aList.size(); i++) {
-
-            Actor a = aList.get(i);
+            DynamicActor a = tempDActors.get(i);
             Sprite aSprite = (Sprite) a.getDrawable();
             FloatRect aRect = aSprite.getGlobalBounds();
 
-            for (int j = i + 1; j < aList.size(); j++) {
-                Actor b = aList.get(j);
+            for (int j = i + 1; j < tempDActors.size(); j++) {
+                DynamicActor b = tempDActors.get(j);
                 Sprite bSprite = (Sprite) b.getDrawable();
                 FloatRect bRect = bSprite.getGlobalBounds();
 
@@ -100,34 +112,75 @@ public class Scene {
                 }
             }
         }
-    }
 
-    public void update() {
-        List<Actor> tempActors = new ArrayList<Actor>(actors);
+        //second loop checks all static actors (stationary objects can never collide)
 
-        //update actor positions
-        //doing this after detecting collisions prevents 2 collisions being detected
-        for (Actor actor : tempActors) {
-            actor.update();
+        List<StaticActor> tempSActors = new ArrayList<StaticActor>(staticActors);
 
+        for (StaticActor sActor : tempSActors) {
+
+            FloatRect sRect;
+
+            if (sActor instanceof MapTile) {
+                sRect = ((MapTile) sActor).getDrawable().getBounds();
+            } else {
+                sRect = ((Sprite) sActor.getDrawable()).getGlobalBounds();
+            }
+
+            for (DynamicActor dActor : tempDActors) {
+
+                Sprite dSprite = (Sprite) dActor.getDrawable();
+                FloatRect dRect = dSprite.getGlobalBounds();
+
+                if (sRect.intersection(dRect) != null) {
+                    dActor.onCollision(sActor);
+                    sActor.onCollision(dActor);
+                }
+            }
         }
     }
 
-    public void addActor(Actor actor) {
-        actors.add(actor);
+    public void update() {
+
+        List<DynamicActor> tempDActors = new ArrayList<DynamicActor>(dynamicActors);
+
+        //update actor positions
+        //doing this after detecting collisions prevents 2 collisions being detected
+        for (DynamicActor actor : tempDActors) {
+            actor.update();
+        }
     }
 
-    public void removeActor(Actor actor) {
-        actors.remove(actor);
+    public void addDynamicActor(DynamicActor dynamicActor) {
+        dynamicActors.add(dynamicActor);
+    }
+
+    public void removeDynamicActor(DynamicActor dynamicActor) {
+        dynamicActors.remove(dynamicActor);
+    }
+
+    public void addStaticActor(StaticActor staticActor) {
+        staticActors.add(staticActor);
+    }
+
+    public void removeStaticActor(StaticActor staticActor) {
+        staticActors.remove(staticActor);
     }
 
     public void draw(RenderWindow window) {
 
-        //window.draw(tileMap);
+        //draw the tile map
         window.draw(map);
 
-        for (Actor actor : actors) {
-            actor.draw(window);
+        //draw dynamic actors
+        for (DynamicActor dActor : dynamicActors) {
+            dActor.draw(window);
+        }
+
+        for (StaticActor sActor : staticActors) {
+            if (!(sActor instanceof MapTile)) {
+                sActor.draw(window);
+            }
         }
     }
 

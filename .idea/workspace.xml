@@ -68,13 +68,13 @@
     <favorites_list name="JRogueLike" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5378973">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Game/Main.java">
+          <file leaf-file-name="Player.java" pinned="true" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="58" column="30" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1360">
+                <state line="26" column="43" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1700">
                   <folding />
                 </state>
               </provider>
@@ -83,16 +83,7 @@
           <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Game/Game.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="29" selection-start="515" selection-end="522" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1445">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="InputManager.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Game/InputManager.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="162" column="52" selection-start="5728" selection-end="5728" vertical-scroll-proportion="0.0" vertical-offset="2259" max-vertical-offset="3179">
+                <state line="47" column="42" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1462">
                   <folding />
                 </state>
               </provider>
@@ -101,55 +92,63 @@
           <file leaf-file-name="Potion.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Potions/Potion.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="66" column="19" selection-start="1423" selection-end="1431" vertical-scroll-proportion="0.0" vertical-offset="327" max-vertical-offset="1037">
+                <state line="21" column="29" selection-start="551" selection-end="551" vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="969">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="Scene.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Game/Scene/Scene.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="34" column="39" selection-start="801" selection-end="801" vertical-scroll-proportion="-8.5" vertical-offset="204" max-vertical-offset="2210">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Map.java" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Game/Scene/Map.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="25" selection-start="435" selection-end="435" vertical-scroll-proportion="0.18550725" vertical-offset="161" max-vertical-offset="1190">
+                <state line="180" column="36" selection-start="5281" selection-end="5281" vertical-scroll-proportion="0.70434785" vertical-offset="2353" max-vertical-offset="3077">
                   <folding>
-                    <element signature="imports" expanded="true" />
+                    <element signature="e#633#647#0" expanded="true" />
+                    <element signature="e#759#772#0" expanded="true" />
+                    <element signature="e#2095#2096#0" expanded="true" />
+                    <element signature="e#2130#2131#0" expanded="true" />
+                    <element signature="e#2683#2697#0" expanded="true" />
+                    <element signature="e#3486#3499#0" expanded="true" />
+                    <element signature="e#4287#4301#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PlayerMovementManager.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerMovementManager.java">
+          <file leaf-file-name="StaticActor.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Generic/StaticActor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="43" column="0" selection-start="985" selection-end="985" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1156">
+                <state line="5" column="42" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HealthPotion.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Potions/HealthPotion.java">
+          <file leaf-file-name="Actor.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Generic/Actor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="34" column="4" selection-start="933" selection-end="933" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="918">
+                <state line="22" column="0" selection-start="609" selection-end="609" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SpeedPotion.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Potions/SpeedPotion.java">
+          <file leaf-file-name="DynamicActor.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Generic/DynamicActor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="51" column="69" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1037">
+                <state line="8" column="25" selection-start="200" selection-end="200" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Map.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Game/Scene/Map.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="80" column="27" selection-start="2753" selection-end="2753" vertical-scroll-proportion="0.0" vertical-offset="619" max-vertical-offset="1632">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -158,69 +157,26 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Item.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Items/Item.java">
+          <file leaf-file-name="MapTileReference.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Game/Scene/MapTileReference.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="25" column="0" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="527">
+                <state line="28" column="32" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="InventoryUI.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Game/UI/InventoryUI.java">
+          <file leaf-file-name="MapTile.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Game/Scene/MapTile.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="45" column="9" selection-start="1067" selection-end="1067" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1581">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="28" column="48" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="1955">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="UIManager.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Game/UI/UIManager.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="54" column="7" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1122">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PlayerInventoryManager.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerInventoryManager.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="77" column="5" selection-start="2482" selection-end="2482" vertical-scroll-proportion="0.0" vertical-offset="1309" max-vertical-offset="1598">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="InventoryItemInfo.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Game/UI/InventoryItemInfo.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="147" column="0" selection-start="3762" selection-end="3762" vertical-scroll-proportion="0.0" vertical-offset="1324" max-vertical-offset="2244">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MapTileLibrary.java" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Game/Scene/MapTileLibrary.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="3" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.07254623" vertical-offset="0" max-vertical-offset="703">
+                <state line="53" column="57" selection-start="1236" selection-end="1236" vertical-scroll-proportion="1.2444751" vertical-offset="0" max-vertical-offset="1326">
                   <folding>
-                    <element signature="e#600#601#0" expanded="true" />
-                    <element signature="e#633#634#0" expanded="true" />
-                    <element signature="e#668#669#0" expanded="true" />
-                    <element signature="e#699#700#0" expanded="true" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#788#789#0" expanded="true" />
+                    <element signature="e#818#819#0" expanded="true" />
+                    <element signature="e#856#857#0" expanded="true" />
+                    <element signature="e#886#887#0" expanded="true" />
+                    <element signature="e#1266#1267#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -238,13 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Monsters/Monster.java" />
-        <option value="$PROJECT_DIR$/src/Items/Items/Item.java" />
-        <option value="$PROJECT_DIR$/src/Items/Weapons/Item.java" />
-        <option value="$PROJECT_DIR$/src/MagicSpells/Item.java" />
-        <option value="$PROJECT_DIR$/src/MeleeCombat/Weapon.java" />
-        <option value="$PROJECT_DIR$/src/Game/UIManager.java" />
-        <option value="$PROJECT_DIR$/src/Game/UI/UIElement.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/Inventory.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/InventoryInfo.java" />
         <option value="$PROJECT_DIR$/src/Items/Consumeable.java" />
@@ -257,25 +206,19 @@
         <option value="$PROJECT_DIR$/src/Monsters/Skeleton.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/TextureLibrary.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/HotbarUI.java" />
-        <option value="$PROJECT_DIR$/src/MagicSpells/Projectile.java" />
         <option value="$PROJECT_DIR$/src/MagicSpells/GenericBolt.java" />
         <option value="$PROJECT_DIR$/src/Generic/Dice.java" />
         <option value="$PROJECT_DIR$/src/MagicSpells/MagicDart.java" />
         <option value="$PROJECT_DIR$/src/MagicSpells/IceBolt.java" />
         <option value="$PROJECT_DIR$/src/Game/CurrentFocus.java" />
-        <option value="$PROJECT_DIR$/src/Items/Item.java" />
-        <option value="$PROJECT_DIR$/src/Items/Longsword.java" />
         <option value="$PROJECT_DIR$/src/Player/PlayerManagers/PlayerMeleeManager.java" />
         <option value="$PROJECT_DIR$/src/Game/Main.java" />
-        <option value="$PROJECT_DIR$/src/Game/Game.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/Hotbar.java" />
-        <option value="$PROJECT_DIR$/src/Items/Consumeables/Potions/Potion.java" />
         <option value="$PROJECT_DIR$/src/Player/PlayerManagers/GenericPlayerManager.java" />
         <option value="$PROJECT_DIR$/src/Player/PlayerManagers/PlayerHPManager.java" />
         <option value="$PROJECT_DIR$/src/Player/PlayerManagers/PlayerMagicManager.java" />
         <option value="$PROJECT_DIR$/src/Player/PlayerManagers/PlayerManager.java" />
         <option value="$PROJECT_DIR$/src/Player/PlayerManagers/PlayerXPManager.java" />
-        <option value="$PROJECT_DIR$/src/Player/Player.java" />
         <option value="$PROJECT_DIR$/src/Player/PlayerManagers/PlayerMovementManager.java" />
         <option value="$PROJECT_DIR$/src/Items/Consumeables/Potions/SpeedPotion.java" />
         <option value="$PROJECT_DIR$/src/Items/Consumeables/Potions/HealthPotion.java" />
@@ -284,11 +227,24 @@
         <option value="$PROJECT_DIR$/src/Game/UI/InventoryUI.java" />
         <option value="$PROJECT_DIR$/src/Game/InputManager.java" />
         <option value="$PROJECT_DIR$/src/Game/UI/InventoryItemInfo.java" />
-        <option value="$PROJECT_DIR$/src/Game/Scene/MapTile.java" />
         <option value="$PROJECT_DIR$/src/Game/Scene/MapGenerator.java" />
+        <option value="$PROJECT_DIR$/src/Generic/StaticActor.java" />
+        <option value="$PROJECT_DIR$/src/Generic/HPBar.java" />
+        <option value="$PROJECT_DIR$/src/Items/Item.java" />
+        <option value="$PROJECT_DIR$/src/Monsters/Monster.java" />
+        <option value="$PROJECT_DIR$/src/Items/Longsword.java" />
+        <option value="$PROJECT_DIR$/src/MagicSpells/MagicSpell.java" />
+        <option value="$PROJECT_DIR$/src/MagicSpells/Projectile.java" />
+        <option value="$PROJECT_DIR$/src/Player/Player.java" />
+        <option value="$PROJECT_DIR$/src/Items/Consumeables/Potions/Potion.java" />
+        <option value="$PROJECT_DIR$/src/Generic/Actor.java" />
+        <option value="$PROJECT_DIR$/src/Generic/DynamicActor.java" />
         <option value="$PROJECT_DIR$/src/Game/Scene/MapTileLibrary.java" />
-        <option value="$PROJECT_DIR$/src/Game/Scene/Scene.java" />
+        <option value="$PROJECT_DIR$/src/Game/Game.java" />
+        <option value="$PROJECT_DIR$/src/Game/Scene/MapTileReference.java" />
+        <option value="$PROJECT_DIR$/src/Game/Scene/MapTile.java" />
         <option value="$PROJECT_DIR$/src/Game/Scene/Map.java" />
+        <option value="$PROJECT_DIR$/src/Game/Scene/Scene.java" />
       </list>
     </option>
   </component>
@@ -380,32 +336,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Player" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Player" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PlayerManagers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -422,122 +352,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Monsters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MeleeCombat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MagicSpells" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Items" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Items" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Consumeables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Items" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Consumeables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Potions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -595,28 +409,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JRogueLike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Scene" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -629,13 +421,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="project.propCompiler" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jsfml/jsfml.jar!/" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -709,6 +501,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -734,19 +539,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -850,25 +642,26 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32799146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32799146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12886049" sideWeight="0.67070484" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19871795" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.67070484" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -882,19 +675,19 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32799146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12886049" sideWeight="0.67070484" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23717949" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.67070484" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.67070484" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23717949" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -918,13 +711,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Game/Scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="24" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Generic/Actor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="14" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -944,11 +730,6 @@
         <state line="5" column="17" selection-start="44" selection-end="44" vertical-scroll-proportion="0.12212644" vertical-offset="0" max-vertical-offset="696" />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/jsfml-test-Dec02_2013/jsfml.jar!/org/jsfml/system/Vector2f.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="165" selection-end="165" vertical-scroll-proportion="0.12878788" vertical-offset="0" max-vertical-offset="680" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MeleeCombat/MeleeWeaponAttackType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="15" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
@@ -960,24 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="20" selection-start="1369" selection-end="1369" vertical-scroll-proportion="0.64888126" vertical-offset="286" max-vertical-offset="867">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Generic/MonsterHPBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="789" selection-end="789" vertical-scroll-proportion="0.82682514" vertical-offset="40" max-vertical-offset="629">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Generic/HPBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="5" selection-start="396" selection-end="396" vertical-scroll-proportion="0.56478405" vertical-offset="0" max-vertical-offset="602">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -993,29 +756,6 @@
     <entry file="file://$PROJECT_DIR$/src/MeleeCombat/Weapon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="48" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Monsters/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="46" selection-start="300" selection-end="305" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Generic/Actor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="41" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Consumeable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="43" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
           <folding />
         </state>
       </provider>
@@ -1062,37 +802,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MagicSpells/MagicSpell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="41" selection-start="163" selection-end="163" vertical-scroll-proportion="0.1784108" vertical-offset="0" max-vertical-offset="667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MagicSpells/Projectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="17" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Generic/Dice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="11" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MagicSpells/GenericBolt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="45" selection-start="2768" selection-end="2768" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1768">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MagicSpells/IceBolt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="21" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
           <folding />
         </state>
       </provider>
@@ -1109,11 +821,6 @@
         <state line="22" column="21" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/Longsword.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="58" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2040" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerMeleeManager.java">
@@ -1166,65 +873,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/Game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="48" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="1955">
+        <state line="58" column="30" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="1547">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/Item.java">
+    <entry file="file://$PROJECT_DIR$/src/Generic/HPBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="527">
+        <state line="16" column="4" selection-start="324" selection-end="324" vertical-scroll-proportion="0.2671156" vertical-offset="0" max-vertical-offset="891">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Potions/SpeedPotion.java">
+    <entry file="file://$PROJECT_DIR$/src/Generic/MonsterHPBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="69" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="782">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Potions/HealthPotion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="4" selection-start="933" selection-end="933" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerInventoryManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="5" selection-start="2482" selection-end="2482" vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="1530">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/UI/UIManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="7" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="1088">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerMovementManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="985" selection-end="985" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1156">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/UI/InventoryUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="9" selection-start="1067" selection-end="1067" vertical-scroll-proportion="0.0" vertical-offset="563" max-vertical-offset="1462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/UI/InventoryItemInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="0" selection-start="3762" selection-end="3762" vertical-scroll-proportion="0.0" vertical-offset="1324" max-vertical-offset="2244">
+        <state line="8" column="13" selection-start="134" selection-end="134" vertical-scroll-proportion="0.13553531" vertical-offset="0" max-vertical-offset="878">
           <folding />
         </state>
       </provider>
@@ -1236,51 +901,200 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Potions/Potion.java">
+    <entry file="file://$PROJECT_DIR$/src/Monsters/Monster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="19" selection-start="1423" selection-end="1431" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1037">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/Scene/MapTileLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.07254623" vertical-offset="0" max-vertical-offset="703">
+        <state line="15" column="82" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1666">
           <folding>
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#699#700#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Items/Longsword.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="30" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="1547">
+        <state line="40" column="25" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="2040">
+          <folding>
+            <element signature="e#0#2576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MagicSpells/MagicSpell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="48" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MagicSpells/IceBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="21" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MagicSpells/GenericBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="45" selection-start="2768" selection-end="2768" vertical-scroll-proportion="1.3645484" vertical-offset="0" max-vertical-offset="1768">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MagicSpells/Projectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="28" selection-start="145" selection-end="145" vertical-scroll-proportion="0.14945056" vertical-offset="0" max-vertical-offset="910">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerMovementManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="985" selection-end="985" vertical-scroll-proportion="0.53296703" vertical-offset="127" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Potions/SpeedPotion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="69" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.6725275" vertical-offset="0" max-vertical-offset="910">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/UI/InventoryUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="9" selection-start="1067" selection-end="1067" vertical-scroll-proportion="0.0" vertical-offset="563" max-vertical-offset="1462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/UI/UIManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="7" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="1088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player/PlayerManagers/PlayerInventoryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="5" selection-start="2482" selection-end="2482" vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/UI/InventoryItemInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="0" selection-start="3762" selection-end="3762" vertical-scroll-proportion="0.0" vertical-offset="1324" max-vertical-offset="2244">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="43" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1700">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Consumeable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="34" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="41" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Potions/Potion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="29" selection-start="551" selection-end="551" vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Consumeables/Potions/HealthPotion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="4" selection-start="933" selection-end="933" vertical-scroll-proportion="0.58036983" vertical-offset="0" max-vertical-offset="703">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Generic/DynamicActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="25" selection-start="200" selection-end="200" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Generic/StaticActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="42" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Generic/Actor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="609" selection-end="609" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="29" selection-start="515" selection-end="522" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1445">
+        <state line="47" column="42" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1462">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/Scene/Scene.java">
+    <entry file="file://$PROJECT_DIR$/src/Game/Scene/MapTileReference.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="39" selection-start="801" selection-end="801" vertical-scroll-proportion="-8.5" vertical-offset="204" max-vertical-offset="2210">
+        <state line="28" column="32" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/Scene/MapTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="57" selection-start="1236" selection-end="1236" vertical-scroll-proportion="1.2444751" vertical-offset="0" max-vertical-offset="1326">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#1266#1267#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/Scene/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="25" selection-start="435" selection-end="435" vertical-scroll-proportion="0.18550725" vertical-offset="161" max-vertical-offset="1190">
+        <state line="80" column="27" selection-start="2753" selection-end="2753" vertical-scroll-proportion="0.0" vertical-offset="619" max-vertical-offset="1632">
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/Scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="180" column="36" selection-start="5281" selection-end="5281" vertical-scroll-proportion="0.70434785" vertical-offset="2353" max-vertical-offset="3077">
+          <folding>
+            <element signature="e#633#647#0" expanded="true" />
+            <element signature="e#759#772#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+            <element signature="e#2130#2131#0" expanded="true" />
+            <element signature="e#2683#2697#0" expanded="true" />
+            <element signature="e#3486#3499#0" expanded="true" />
+            <element signature="e#4287#4301#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1364,6 +1178,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>jsfml</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

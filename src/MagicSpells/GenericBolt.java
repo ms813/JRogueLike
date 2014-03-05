@@ -52,7 +52,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
             rot *= -1;
         }
         boltSprite.setRotation(rot);
-        Game.getCurrentScene().addActor(this);
+        Game.getCurrentScene().addDynamicActor(this);
     }
 
     public void update() {
@@ -60,7 +60,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
         float distanceTravelled = VectorArithmetic.magnitude(Vector2f.sub(startPosition, getCurrentPosition()));
         if (distanceTravelled >= range) {
             //System.out.println("Target reached: " + getCurrentPosition());
-            Game.getCurrentScene().removeActor(this);
+            Game.getCurrentScene().removeDynamicActor(this);
         } else {
             Vector2f direction = VectorArithmetic.normalize(travelVector);
             boltSprite.move(Vector2f.mul(direction, speed));
@@ -77,14 +77,14 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
                 if (!(belongsTo instanceof Monster)) {
                     //if not, do some damage!
                     ((Monster) collider).reduceHP(Dice.roll(damage));
-                    Game.getCurrentScene().removeActor(this);
+                    Game.getCurrentScene().removeDynamicActor(this);
                 }
             }
 
             //have I hit a player?
             if (collider instanceof Player) {
                 ((Player) collider).reduceHP(Dice.roll(damage));
-                Game.getCurrentScene().removeActor(this);
+                Game.getCurrentScene().removeDynamicActor(this);
             }
 
         }
