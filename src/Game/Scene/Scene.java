@@ -122,6 +122,8 @@ public class Scene {
             FloatRect sRect;
 
             if (sActor instanceof MapTile) {
+                //we dont need to check if the tile is passable as only impassable tiles
+                //are added to the actor list when the map is generated
                 sRect = ((MapTile) sActor).getDrawable().getBounds();
             } else {
                 sRect = ((Sprite) sActor.getDrawable()).getGlobalBounds();

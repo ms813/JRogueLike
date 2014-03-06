@@ -40,9 +40,9 @@ public abstract class Monster implements DynamicActor {
 
                 if (colRect.height > (sprite.getLocalBounds().height / 10)) {
                     if (sprite.getPosition().y < col.getPosition().y) {
-                        sprite.move(0, -colRect.width / 10);
+                        sprite.move(0, -colRect.height / 10);
                     } else {
-                        sprite.move(0, colRect.width / 10);
+                        sprite.move(0, colRect.height / 10);
                     }
                 }
             }

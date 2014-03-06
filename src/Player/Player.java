@@ -1,5 +1,6 @@
 package Player;
 
+import Game.Scene.MapTile;
 import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Generic.DynamicActor;
@@ -9,6 +10,7 @@ import Player.PlayerManagers.PlayerHPManager;
 import Player.PlayerManagers.PlayerMagicManager;
 import Player.PlayerManagers.PlayerMovementManager;
 import Player.PlayerManagers.PlayerXPManager;
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
@@ -51,7 +53,7 @@ public class Player implements DynamicActor {
         learnSpell("IceBolt");
     }
 
-    private void managerSetup(){
+    private void managerSetup() {
         magicManager.setPlayer(this);
         xpManager.setPlayer(this);
         //meleeManager.setPlayer(this);
@@ -89,7 +91,26 @@ public class Player implements DynamicActor {
     }
 
     public void onCollision(Actor collider) {
+        if (collider instanceof MapTile) {
 
+            FloatRect tileRect = ((MapTile) collider).getDrawable().getBounds();
+            FloatRect intersectRect = playerSprite.getGlobalBounds().intersection(tileRect);
+
+            if (intersectRect != null) {
+
+                if (playerSprite.getPosition().x < collider.getCurrentPosition().x) {
+                    move(-intersectRect.width, 0);
+                } else if (playerSprite.getPosition().x > collider.getCurrentPosition().x + ((MapTile) collider).getWidth()) {
+                    move(intersectRect.width, 0);
+                }
+
+                if (playerSprite.getPosition().y < collider.getCurrentPosition().y) {
+                    move(0, -intersectRect.height);
+                } else if (playerSprite.getPosition().y > collider.getCurrentPosition().y + ((MapTile) collider).geHeight()) {
+                    move(0, intersectRect.height);
+                }
+            }
+        }
     }
 
     public void update() {

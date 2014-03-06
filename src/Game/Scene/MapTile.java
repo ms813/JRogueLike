@@ -56,9 +56,6 @@ public class MapTile implements StaticActor {
     }
 
     public void onCollision(Actor actor){
-        if(actor instanceof Player){
-        System.out.println("Wall at " + corners[0] + " was hit by " + actor.getClass());
-        }
     }
 
     public void draw(RenderWindow window){
@@ -68,5 +65,13 @@ public class MapTile implements StaticActor {
     public Vector2f getCurrentPosition(){
         //return the top left corner
         return corners[0];
+    }
+
+    public float getWidth(){
+        return (Vector2f.sub(corners[1], corners[0])).x;
+    }
+
+    public float geHeight(){
+        return (Vector2f.sub(corners[3], corners[0])).y;
     }
 }
