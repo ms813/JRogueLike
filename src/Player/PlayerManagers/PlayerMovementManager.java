@@ -32,11 +32,12 @@ public class PlayerMovementManager implements PlayerManager {
     }
 
     public void move(float x, float y){
+        Vector2f dir = new Vector2f(x, y);
+        move(dir);
+    }
 
-        Vector2f vel = new Vector2f(x, y);
-
-        player.getDrawable().move(Vector2f.mul(VectorArithmetic.normalize(vel), moveSpeed));
-
+    public void move(Vector2f dir){
+        player.getDrawable().move(Vector2f.mul(VectorArithmetic.normalize(dir), moveSpeed));
     }
 
     public void buffMoveSpeed(float speedChange, int timeMillis){

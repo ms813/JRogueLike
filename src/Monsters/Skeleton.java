@@ -37,12 +37,12 @@ public class Skeleton extends Monster {
 
         if (counter % 180 == 0) {
             IceBolt iceBolt = new IceBolt(this);
-            iceBolt.castSpell(PlayerXPManager.getInstance().getPlayer().getCurrentPosition(), 1);
+            iceBolt.castSpell(PlayerXPManager.getInstance().getPlayer().getPosition(), 1);
         }
 
         counter++;
-        Vector2f dir = VectorArithmetic.normalize(Vector2f.sub(PlayerXPManager.getInstance().getPlayer().getCurrentPosition(), sprite.getPosition()));
-        sprite.move(Vector2f.mul(dir, moveSpeed));
+        Vector2f dir =Vector2f.sub(PlayerXPManager.getInstance().getPlayer().getPosition(), sprite.getPosition());
+        move(Vector2f.mul(dir, moveSpeed));
     }
 
     @Override

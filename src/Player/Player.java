@@ -4,8 +4,6 @@ import Game.Scene.MapTile;
 import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Generic.DynamicActor;
-import Generic.StaticActor;
-import Generic.VectorArithmetic;
 import Player.PlayerManagers.PlayerHPManager;
 import Player.PlayerManagers.PlayerMagicManager;
 import Player.PlayerManagers.PlayerMovementManager;
@@ -14,10 +12,6 @@ import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Paths;
 
 /**
  * Created with IntelliJ IDEA.
@@ -65,6 +59,10 @@ public class Player implements DynamicActor {
         movementManager.move(x, y);
     }
 
+    public void move(Vector2f dir) {
+        movementManager.move(dir);
+    }
+
     public void castCurrentSpell(Vector2f mousePos) {
         magicManager.castCurrentSpell(mousePos);
     }
@@ -73,7 +71,7 @@ public class Player implements DynamicActor {
         return playerSprite;
     }
 
-    public Vector2f getCurrentPosition() {
+    public Vector2f getPosition() {
         //return the center of the sprite (see setOrigin() above)
         return playerSprite.getPosition();
     }
@@ -98,18 +96,26 @@ public class Player implements DynamicActor {
 
             if (intersectRect != null) {
 
-                if (playerSprite.getPosition().x < collider.getCurrentPosition().x) {
-                    move(-intersectRect.width, 0);
-                } else if (playerSprite.getPosition().x > collider.getCurrentPosition().x + ((MapTile) collider).getWidth()) {
-                    move(intersectRect.width, 0);
+                if (playerSprite.getPosition().x < collider.getPosition().x) {
+                    //approaching from the left
+                    move(new Vector2f(-intersectRect.width, 0));
+
+                } else if (playerSprite.getPosition().x > collider.getPosition().x + ((MapTile) collider).getWidth()) {
+                    //approaching from the right
+                    move(new Vector2f(intersectRect.width, 0));
                 }
 
-                if (playerSprite.getPosition().y < collider.getCurrentPosition().y) {
-                    move(0, -intersectRect.height);
-                } else if (playerSprite.getPosition().y > collider.getCurrentPosition().y + ((MapTile) collider).geHeight()) {
-                    move(0, intersectRect.height);
+                if (playerSprite.getPosition().y < collider.getPosition().y) {
+                    //approaching from the top
+                    move(new Vector2f(0, -intersectRect.height));
+                } else if (playerSprite.getPosition().y > collider.getPosition().y + ((MapTile) collider).getHeight()) {
+                    //approaching from the bottom
+                    move(new Vector2f(0, intersectRect.height));
                 }
+
+                System.out.println(intersectRect);
             }
+
         }
     }
 

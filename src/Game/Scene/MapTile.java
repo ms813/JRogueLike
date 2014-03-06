@@ -62,7 +62,7 @@ public class MapTile implements StaticActor {
         // this should never do anything as the map itself is drawn once by the scene
     }
 
-    public Vector2f getCurrentPosition(){
+    public Vector2f getPosition(){
         //return the top left corner
         return corners[0];
     }
@@ -71,7 +71,11 @@ public class MapTile implements StaticActor {
         return (Vector2f.sub(corners[1], corners[0])).x;
     }
 
-    public float geHeight(){
+    public float getHeight(){
         return (Vector2f.sub(corners[3], corners[0])).y;
+    }
+
+    public void update(){
+
     }
 }

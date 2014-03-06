@@ -33,14 +33,14 @@ public class SpeedPotion extends Potion {
     }
 
     public void quaff(){
-        System.out.println("Quaffed speed potion");
+        System.out.println("Quaffed moveSpeed potion");
     }
 
     public Sprite getDrawable(){
         return sprite;
     }
 
-    public Vector2f getCurrentPosition(){
+    public Vector2f getPosition(){
         return sprite.getPosition();
     }
 

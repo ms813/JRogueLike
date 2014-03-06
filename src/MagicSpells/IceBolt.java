@@ -2,11 +2,6 @@ package MagicSpells;
 
 import Game.UI.TextureLibrary;
 import Generic.Actor;
-import org.jsfml.graphics.Texture;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Paths;
 
 /**
  * Created by Matthew on 17/02/14.
@@ -17,7 +12,7 @@ public class IceBolt extends GenericBolt {
 
         super(_belongsTo);
 
-        speed = 10f;
+        moveSpeed = 10f;
         range = 600f;
         coolDown = 5f;
         damage = "5d4";

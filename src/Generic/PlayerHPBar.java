@@ -28,7 +28,7 @@ public class PlayerHPBar extends HPBar {
         float len = (current/max) * maxLen;
         bar.setSize(new Vector2f(len, thickness));
 
-        Vector2f pos = Vector2f.add(parent.getCurrentPosition(), new Vector2f(0, parent.getDrawable().getLocalBounds().height/4));
+        Vector2f pos = Vector2f.add(parent.getPosition(), new Vector2f(0, parent.getDrawable().getLocalBounds().height/4));
         bar.setPosition(pos);
     }
 }

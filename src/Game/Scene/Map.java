@@ -42,7 +42,7 @@ public class Map extends BasicTransformable implements Drawable {
 
                 //TODO update this to pick other tiles
 
-                if (i % 5 == 0 || j % 5 == 0) {
+                if (i % 5 == 0 && i % 10 != 0|| j % 5 == 0 && j % 10 != 0) {
                     mapTiles[i][j] = new MapTile(MapTileReference.WALL, corners);
                 } else {
                     mapTiles[i][j] = new MapTile(MapTileReference.GRASS, corners);

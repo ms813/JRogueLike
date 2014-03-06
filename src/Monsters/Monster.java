@@ -1,8 +1,10 @@
 package Monsters;
 
+import Game.Scene.MapTile;
 import Generic.Actor;
 import Generic.DynamicActor;
 import Generic.MonsterHPBar;
+import Generic.VectorArithmetic;
 import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
@@ -23,27 +25,49 @@ public abstract class Monster implements DynamicActor {
     protected MonsterHPBar hpBar;
 
     public void onCollision(Actor collider) {
+        //if collided with another monster move away
         if (collider instanceof Monster) {
 
             Sprite col = (Sprite) collider.getDrawable();
             FloatRect colRect = sprite.getGlobalBounds().intersection(col.getGlobalBounds());
 
             if (colRect != null) {
-                if (colRect.width > (sprite.getLocalBounds().width / 10)) {
+
 
                     if (sprite.getPosition().x < col.getPosition().x) {
-                        sprite.move(-colRect.width / 10, 0);
+                        move(-colRect.width / 10, 0);
                     } else {
-                        sprite.move(colRect.width / 10, 0);
+                        move(colRect.width / 10, 0);
                     }
+
+
+
+                    if (sprite.getPosition().y < col.getPosition().y) {
+                        move(0, -colRect.height / 10);
+                    } else {
+                        move(0, colRect.height / 10);
+                    }
+
+            }
+        }
+
+        //if monster collides with an impassable terrain tile
+        if(collider instanceof MapTile){
+            FloatRect tileRect = ((MapTile) collider).getDrawable().getBounds();
+            FloatRect intersectRect = sprite.getGlobalBounds().intersection(tileRect);
+
+            if (intersectRect != null) {
+
+                if (sprite.getPosition().x < collider.getPosition().x) {
+                    move(new Vector2f(-intersectRect.width, 0));
+                } else if (sprite.getPosition().x > collider.getPosition().x + ((MapTile) collider).getWidth()) {
+                    move(new Vector2f(intersectRect.width, 0));
                 }
 
-                if (colRect.height > (sprite.getLocalBounds().height / 10)) {
-                    if (sprite.getPosition().y < col.getPosition().y) {
-                        sprite.move(0, -colRect.height / 10);
-                    } else {
-                        sprite.move(0, colRect.height / 10);
-                    }
+                if (sprite.getPosition().y < collider.getPosition().y) {
+                    move(new Vector2f(0, -intersectRect.height));
+                } else if (sprite.getPosition().y > collider.getPosition().y + ((MapTile) collider).getHeight()) {
+                    move(new Vector2f(0, intersectRect.height));
                 }
             }
         }
@@ -53,7 +77,7 @@ public abstract class Monster implements DynamicActor {
         return sprite;
     }
 
-    public Vector2f getCurrentPosition() {
+    public Vector2f getPosition() {
         return sprite.getPosition();
     }
 
@@ -71,6 +95,14 @@ public abstract class Monster implements DynamicActor {
         }
 
         hpBar.update();
+    }
+
+    public void move(float x, float y){
+        move(new Vector2f(x,y));
+    }
+
+    public void move(Vector2f dir){
+        getDrawable().move(Vector2f.mul(VectorArithmetic.normalize(dir), moveSpeed));
     }
 
     protected abstract void onDeath();

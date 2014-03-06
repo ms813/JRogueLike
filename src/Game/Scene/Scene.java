@@ -1,5 +1,6 @@
 package Game.Scene;
 
+import Game.Game;
 import Generic.Actor;
 import Generic.DynamicActor;
 import Generic.StaticActor;
@@ -8,6 +9,7 @@ import Items.Consumeables.Potions.SpeedPotion;
 import Monsters.Skeleton;
 import Player.Player;
 import org.jsfml.graphics.*;
+import org.jsfml.system.Vector2f;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -174,9 +176,16 @@ public class Scene {
         //draw the tile map
         window.draw(map);
 
+        //get a floating rectangle that represents the edge of the visible screen
+        FloatRect playerRect = new FloatRect(Vector2f.sub(getPlayer().getPosition(), new Vector2f(Game.screenW / 2, Game.screenH / 2)), new Vector2f(window.getSize()));
+
         //draw dynamic actors
         for (DynamicActor dActor : dynamicActors) {
-            dActor.draw(window);
+
+            if(((Sprite) dActor.getDrawable()).getGlobalBounds().intersection(playerRect) != null){
+                //only draw actors that are on the screen
+                dActor.draw(window);
+            }
         }
 
         for (StaticActor sActor : staticActors) {

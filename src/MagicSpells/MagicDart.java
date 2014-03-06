@@ -2,12 +2,6 @@ package MagicSpells;
 
 import Game.UI.TextureLibrary;
 import Generic.Actor;
-import org.jsfml.graphics.Texture;
-
-import javax.xml.soap.Text;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Paths;
 
 /**
  * Created by Matthew on 16/02/14.
@@ -17,7 +11,7 @@ public class MagicDart extends GenericBolt {
     public MagicDart(Actor _belongsTo) {
         super(_belongsTo);
 
-        speed = 15f;
+        moveSpeed = 15f;
         range = 350f;
         coolDown = 1f;
         damage = "1d6";

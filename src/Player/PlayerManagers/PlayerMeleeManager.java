@@ -38,7 +38,7 @@ public class PlayerMeleeManager {
     }
 
     public void attack(Vector2f pos){
-        Vector2f dir = VectorArithmetic.normalize(Vector2f.sub(pos, player.getCurrentPosition()));
+        Vector2f dir = VectorArithmetic.normalize(Vector2f.sub(pos, player.getPosition()));
 
         if(currentWeapon.getAttackType() == MeleeWeaponAttackType.SLASH){
             float startRot = VectorArithmetic.AngleBetweenVectorsDegrees(VectorArithmetic.UP, dir);

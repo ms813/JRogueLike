@@ -15,11 +15,13 @@ public interface Actor{
 
     public Drawable getDrawable();
 
-    public Vector2f getCurrentPosition();
+    public Vector2f getPosition();
 
     //NOTE projectiles should always use their onCollision method to check for hits on monsters.
     //Monsters/players should use theirs for checking collisions with walls etc
     public void onCollision(Actor collider);
 
     public void draw(RenderWindow window);
+
+    public void update();
 }

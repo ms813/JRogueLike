@@ -38,7 +38,7 @@ public class HealthPotion extends Potion {
         return sprite;
     }
 
-    public Vector2f getCurrentPosition(){
+    public Vector2f getPosition(){
         return sprite.getPosition();
     }
 

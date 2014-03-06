@@ -62,7 +62,7 @@ public class Longsword extends MeleeWeapon implements StaticActor {
     }
 
     public void update(){
-//        Vector2f pos = PlayerMeleeManager.getInstance().getPlayer().getCurrentPosition();
+//        Vector2f pos = PlayerMeleeManager.getInstance().getPlayer().getPosition();
         //sprite.setPosition(pos);
 
         if(attacking){
@@ -92,7 +92,7 @@ public class Longsword extends MeleeWeapon implements StaticActor {
         }
     }
 
-    public Vector2f getCurrentPosition(){
+    public Vector2f getPosition(){
         return sprite.getPosition();
     }
 

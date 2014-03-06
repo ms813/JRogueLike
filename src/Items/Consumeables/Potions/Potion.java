@@ -61,4 +61,6 @@ public abstract class Potion implements Consumeable {
     }
 
     public abstract void use();
+
+    public void update(){}
 }
