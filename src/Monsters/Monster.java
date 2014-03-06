@@ -127,4 +127,8 @@ public abstract class Monster implements DynamicActor {
         return maxHP;
     }
 
+    public FloatRect getCollisionRect(){
+        return sprite.getGlobalBounds();
+    }
+
 }

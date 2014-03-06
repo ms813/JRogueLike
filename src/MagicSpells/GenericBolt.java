@@ -7,6 +7,7 @@ import Generic.VectorArithmetic;
 import Game.Game;
 import Monsters.Monster;
 import Player.Player;
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
@@ -117,5 +118,9 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
 
     public void draw(RenderWindow window){
         window.draw(boltSprite);
+    }
+
+    public FloatRect getCollisionRect(){
+        return boltSprite.getGlobalBounds();
     }
 }

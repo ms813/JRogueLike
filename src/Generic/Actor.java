@@ -1,6 +1,7 @@
 package Generic;
 
 import org.jsfml.graphics.Drawable;
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.system.Vector2f;
 
@@ -24,4 +25,8 @@ public interface Actor{
     public void draw(RenderWindow window);
 
     public void update();
+
+    //this allows the collision rectangle to be made smaller or larger by the object
+    //before being checked for collisions
+    public FloatRect getCollisionRect();
 }

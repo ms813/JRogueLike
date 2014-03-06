@@ -12,6 +12,7 @@ import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
+import sun.print.resources.serviceui_pt_BR;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,10 +34,11 @@ public class Player implements DynamicActor {
     private PlayerHPManager hpManager = PlayerHPManager.getInstance();
     private PlayerMovementManager movementManager = PlayerMovementManager.getInstance();
 
-    public Player() {
+    public Player(float x, float y) {
 
         playerSprite = new Sprite(TextureLibrary.getTexture("player"));
         playerSprite.setScale(0.5f, 0.5f);
+        playerSprite.setPosition(x,y);
 
         //set the origin to the center of the sprite rather than the top left
         playerSprite.setOrigin(playerSprite.getLocalBounds().width / 2, playerSprite.getLocalBounds().height / 2);
@@ -115,7 +117,6 @@ public class Player implements DynamicActor {
 
                 System.out.println(intersectRect);
             }
-
         }
     }
 
@@ -135,4 +136,8 @@ public class Player implements DynamicActor {
        meleeManager.attack(pos);
     }
     */
+
+    public FloatRect getCollisionRect(){
+        return new FloatRect(playerSprite.getGlobalBounds().left, playerSprite.getGlobalBounds().top, playerSprite.getGlobalBounds().width/2, playerSprite.getGlobalBounds().height/2);
+    }
 }

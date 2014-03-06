@@ -4,6 +4,7 @@ import Game.Game;
 import Generic.Actor;
 import Items.Consumeables.Consumeable;
 import Player.PlayerManagers.PlayerInventoryManager;
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
@@ -63,4 +64,8 @@ public abstract class Potion implements Consumeable {
     public abstract void use();
 
     public void update(){}
+
+    public FloatRect getCollisionRect(){
+        return sprite.getGlobalBounds();
+    }
 }

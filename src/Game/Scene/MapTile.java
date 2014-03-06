@@ -78,4 +78,8 @@ public class MapTile implements StaticActor {
     public void update(){
 
     }
+
+    public FloatRect getCollisionRect(){
+        return vertices.getBounds();
+    }
 }

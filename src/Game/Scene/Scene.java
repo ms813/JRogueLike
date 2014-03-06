@@ -36,8 +36,7 @@ public class Scene {
 
     public Scene(String _sceneName) {
 
-        dynamicActors.add(new Player());
-
+        dynamicActors.add(new Player(100,100));
         sceneName = _sceneName;
     }
 
@@ -100,13 +99,11 @@ public class Scene {
         for (int i = 0; i < tempDActors.size(); i++) {
 
             DynamicActor a = tempDActors.get(i);
-            Sprite aSprite = (Sprite) a.getDrawable();
-            FloatRect aRect = aSprite.getGlobalBounds();
+            FloatRect aRect = a.getCollisionRect();
 
             for (int j = i + 1; j < tempDActors.size(); j++) {
                 DynamicActor b = tempDActors.get(j);
-                Sprite bSprite = (Sprite) b.getDrawable();
-                FloatRect bRect = bSprite.getGlobalBounds();
+                FloatRect bRect = b.getCollisionRect();
 
                 if (aRect.intersection(bRect) != null) {
                     a.onCollision(b);
@@ -121,15 +118,7 @@ public class Scene {
 
         for (StaticActor sActor : tempSActors) {
 
-            FloatRect sRect;
-
-            if (sActor instanceof MapTile) {
-                //we dont need to check if the tile is passable as only impassable tiles
-                //are added to the actor list when the map is generated
-                sRect = ((MapTile) sActor).getDrawable().getBounds();
-            } else {
-                sRect = ((Sprite) sActor.getDrawable()).getGlobalBounds();
-            }
+            FloatRect sRect = sActor.getCollisionRect();
 
             for (DynamicActor dActor : tempDActors) {
 

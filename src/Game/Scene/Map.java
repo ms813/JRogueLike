@@ -5,6 +5,8 @@ import Game.UI.TextureLibrary;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
 
+import java.util.Random;
+
 
 /**
  * Created by Matthew on 04/03/14.
@@ -18,6 +20,7 @@ public class Map extends BasicTransformable implements Drawable {
     private MapTile[][] mapTiles;
 
     private Texture texture = new Texture();
+    Random rnd = new Random();
 
     //tiles are 1 cm by 1 cm at a resolution of 72 pixels/cm
     int tilePixels = 72;
@@ -42,7 +45,11 @@ public class Map extends BasicTransformable implements Drawable {
 
                 //TODO update this to pick other tiles
 
-                if (i % 5 == 0 && i % 10 != 0|| j % 5 == 0 && j % 10 != 0) {
+                int x = rnd.nextInt(15) +3;
+                System.out.println(x);
+                if ((i+1) % x == 0 || (j+1) % x == 0) {
+                    mapTiles[i][j] = new MapTile(MapTileReference.WALL, corners);
+                } else if(i == 0 || j == 0 || i == noOfTilesX-1 || j == noOfTilesY-1){
                     mapTiles[i][j] = new MapTile(MapTileReference.WALL, corners);
                 } else {
                     mapTiles[i][j] = new MapTile(MapTileReference.GRASS, corners);
