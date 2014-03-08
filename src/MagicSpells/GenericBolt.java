@@ -20,8 +20,11 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
 
     protected Sprite boltSprite;
     protected Actor belongsTo;
-    protected float moveSpeed;
+    protected float acceleration;
+    protected float maxSpeed;
+    protected Vector2f velocity = Vector2f.ZERO;
     protected float range;
+    protected float friction;
     protected Vector2f targetPosition;
     protected Vector2f startPosition;
     protected Vector2f travelVector;
@@ -48,23 +51,27 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     public void castSpell(Vector2f _target, int level) {
         targetPosition = _target;
         travelVector = Vector2f.sub(targetPosition, startPosition);
+
+
         //define rotation relative to the up axis of the start position
-        float rot = VectorArithmetic.AngleBetweenVectorsDegrees(VectorArithmetic.UP, travelVector);
+        float rot = VectorArithmetic.angleBetweenVectorsDegrees(VectorArithmetic.UP, travelVector);
         if (travelVector.x < 0) {
             rot *= -1;
         }
         boltSprite.setRotation(rot);
         Game.getCurrentScene().addDynamicActor(this);
+        changeVelocity(travelVector);
     }
 
     public void update() {
+        velocity = Vector2f.mul(velocity, friction);
         //update position
         float distanceTravelled = VectorArithmetic.magnitude(Vector2f.sub(startPosition, getPosition()));
         if (distanceTravelled >= range) {
             //System.out.println("Target reached: " + getPosition());
             Game.getCurrentScene().removeDynamicActor(this);
         } else {
-           move(travelVector);
+           move(velocity);
         }
     }
 
@@ -73,10 +80,10 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     }
 
     public void move(Vector2f dir){
-        boltSprite.move(Vector2f.mul(VectorArithmetic.normalize(dir), moveSpeed));
+        boltSprite.move(dir);
     }
 
-    public void onCollision(Actor collider) {
+    public void onCollision(Actor collider, FloatRect collisionRect) {
         if (collider != belongsTo) {
 
             //have I hit a monster?
@@ -120,7 +127,22 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
         window.draw(boltSprite);
     }
 
-    public FloatRect getCollisionRect(){
+    public FloatRect getBoundingRect(){
         return boltSprite.getGlobalBounds();
+    }
+
+    public void changeVelocity(float x, float y){
+        changeVelocity(new Vector2f(x, y));
+    }
+
+    public void changeVelocity(Vector2f vector){
+        velocity = Vector2f.add(Vector2f.mul(VectorArithmetic.normalize(vector), acceleration), velocity);
+        if (VectorArithmetic.magnitude(velocity) > maxSpeed) {
+            velocity = Vector2f.mul(velocity, maxSpeed/ VectorArithmetic.magnitude(velocity));
+        }
+    }
+
+    public Vector2f getVelocity(){
+        return velocity;
     }
 }

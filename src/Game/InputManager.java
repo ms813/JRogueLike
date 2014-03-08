@@ -148,16 +148,16 @@ public class InputManager {
             float deltaSeconds = Main.getDeltaSeconds();
             //look for WASD input to control player movement
             if (Keyboard.isKeyPressed(Keyboard.Key.W)) {
-                player.move(0, -deltaSeconds);
+                player.changeVelocity(0, -deltaSeconds);
             }
             if (Keyboard.isKeyPressed(Keyboard.Key.S)) {
-                player.move(0, deltaSeconds);
+                player.changeVelocity(0, deltaSeconds);
             }
             if (Keyboard.isKeyPressed(Keyboard.Key.A)) {
-                player.move(-deltaSeconds, 0);
+                player.changeVelocity(-deltaSeconds, 0);
             }
             if (Keyboard.isKeyPressed(Keyboard.Key.D)) {
-                player.move(deltaSeconds, 0);
+                player.changeVelocity(deltaSeconds, 0);
             }
 
             if (currentFocus == CurrentFocus.GAME) {

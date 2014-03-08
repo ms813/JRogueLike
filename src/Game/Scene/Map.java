@@ -45,11 +45,11 @@ public class Map extends BasicTransformable implements Drawable {
 
                 //TODO update this to pick other tiles
 
-                int x = rnd.nextInt(15) +3;
-                System.out.println(x);
+                int x = rnd.nextInt(50) +3;
                 if ((i+1) % x == 0 || (j+1) % x == 0) {
                     mapTiles[i][j] = new MapTile(MapTileReference.WALL, corners);
                 } else if(i == 0 || j == 0 || i == noOfTilesX-1 || j == noOfTilesY-1){
+                    //draw a border of wall tiles around the edge of the map
                     mapTiles[i][j] = new MapTile(MapTileReference.WALL, corners);
                 } else {
                     mapTiles[i][j] = new MapTile(MapTileReference.GRASS, corners);

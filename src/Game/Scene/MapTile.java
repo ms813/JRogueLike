@@ -55,7 +55,7 @@ public class MapTile implements StaticActor {
         return vertices;
     }
 
-    public void onCollision(Actor actor){
+    public void onCollision(Actor actor, FloatRect collisionRect){
     }
 
     public void draw(RenderWindow window){
@@ -79,7 +79,7 @@ public class MapTile implements StaticActor {
 
     }
 
-    public FloatRect getCollisionRect(){
+    public FloatRect getBoundingRect(){
         return vertices.getBounds();
     }
 }

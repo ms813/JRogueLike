@@ -4,6 +4,7 @@ import Game.Game;
 import Generic.Actor;
 import Generic.DynamicActor;
 import Generic.StaticActor;
+import Generic.VectorArithmetic;
 import Items.Consumeables.Potions.HealthPotion;
 import Items.Consumeables.Potions.SpeedPotion;
 import Monsters.Skeleton;
@@ -14,6 +15,7 @@ import org.jsfml.system.Vector2f;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,7 +38,7 @@ public class Scene {
 
     public Scene(String _sceneName) {
 
-        dynamicActors.add(new Player(100,100));
+        dynamicActors.add(new Player(150,150));
         sceneName = _sceneName;
     }
 
@@ -99,15 +101,18 @@ public class Scene {
         for (int i = 0; i < tempDActors.size(); i++) {
 
             DynamicActor a = tempDActors.get(i);
-            FloatRect aRect = a.getCollisionRect();
+
+            FloatRect aCollRect = VectorArithmetic.moveRect(a.getBoundingRect(), a.getVelocity());
 
             for (int j = i + 1; j < tempDActors.size(); j++) {
-                DynamicActor b = tempDActors.get(j);
-                FloatRect bRect = b.getCollisionRect();
 
-                if (aRect.intersection(bRect) != null) {
-                    a.onCollision(b);
-                    b.onCollision(a);
+                //TODO finish making this work!
+                DynamicActor b = tempDActors.get(j);
+                FloatRect bCollRect = VectorArithmetic.moveRect(b.getBoundingRect(), b.getVelocity());
+
+                if (aCollRect.intersection(bCollRect) != null) {
+                    a.onCollision(b, aCollRect.intersection(bCollRect));
+                    b.onCollision(a, aCollRect.intersection(bCollRect));
                 }
             }
         }
@@ -118,16 +123,15 @@ public class Scene {
 
         for (StaticActor sActor : tempSActors) {
 
-            FloatRect sRect = sActor.getCollisionRect();
+            FloatRect sRect = sActor.getBoundingRect();
 
             for (DynamicActor dActor : tempDActors) {
 
-                Sprite dSprite = (Sprite) dActor.getDrawable();
-                FloatRect dRect = dSprite.getGlobalBounds();
+                FloatRect dRect = VectorArithmetic.moveRect(dActor.getBoundingRect(), dActor.getVelocity());
 
                 if (sRect.intersection(dRect) != null) {
-                    dActor.onCollision(sActor);
-                    sActor.onCollision(dActor);
+                    dActor.onCollision(sActor, sRect.intersection(dRect));
+                    sActor.onCollision(dActor, sRect.intersection(dRect));
                 }
             }
         }

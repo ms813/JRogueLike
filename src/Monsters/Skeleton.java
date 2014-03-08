@@ -6,6 +6,7 @@ import Generic.Actor;
 import Generic.VectorArithmetic;
 import MagicSpells.IceBolt;
 import Player.PlayerManagers.PlayerXPManager;
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
 
@@ -19,7 +20,9 @@ public class Skeleton extends Monster {
         maxHP = 20f;
         currentHP = maxHP;
         XP = 10f;
-        moveSpeed = 2f;
+        acceleration = 2f;
+        maxSpeed = 3f;
+        friction = 0.9f;
 
         sprite = new Sprite(TextureLibrary.getTexture("skeleton"));
         sprite.setScale(0.5f, 0.5f);
@@ -41,13 +44,13 @@ public class Skeleton extends Monster {
         }
 
         counter++;
-        Vector2f dir =Vector2f.sub(PlayerXPManager.getInstance().getPlayer().getPosition(), sprite.getPosition());
-        move(Vector2f.mul(dir, moveSpeed));
+        Vector2f dir = Vector2f.sub(PlayerXPManager.getInstance().getPlayer().getPosition(), sprite.getPosition());
+        changeVelocity(dir);
     }
 
     @Override
-    public void onCollision(Actor collider) {
-        super.onCollision(collider);
+    public void onCollision(Actor collider, FloatRect collisionRect) {
+        super.onCollision(collider, collisionRect);
     }
 
     public void reduceHP(float damage) {

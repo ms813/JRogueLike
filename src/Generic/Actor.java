@@ -20,7 +20,7 @@ public interface Actor{
 
     //NOTE projectiles should always use their onCollision method to check for hits on monsters.
     //Monsters/players should use theirs for checking collisions with walls etc
-    public void onCollision(Actor collider);
+    public void onCollision(Actor collider, FloatRect collisionRect);
 
     public void draw(RenderWindow window);
 
@@ -28,5 +28,5 @@ public interface Actor{
 
     //this allows the collision rectangle to be made smaller or larger by the object
     //before being checked for collisions
-    public FloatRect getCollisionRect();
+    public FloatRect getBoundingRect();
 }

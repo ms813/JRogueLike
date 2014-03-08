@@ -4,6 +4,7 @@ import Game.Scene.MapTile;
 import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Generic.DynamicActor;
+import Generic.VectorArithmetic;
 import Player.PlayerManagers.PlayerHPManager;
 import Player.PlayerManagers.PlayerMagicManager;
 import Player.PlayerManagers.PlayerMovementManager;
@@ -25,8 +26,6 @@ public class Player implements DynamicActor {
 
     private Sprite playerSprite;
 
-    private boolean readyForDestruction = false;
-
     //set up the various skill managers
     private PlayerMagicManager magicManager = PlayerMagicManager.getInstance();
     private PlayerXPManager xpManager = PlayerXPManager.getInstance();
@@ -38,7 +37,7 @@ public class Player implements DynamicActor {
 
         playerSprite = new Sprite(TextureLibrary.getTexture("player"));
         playerSprite.setScale(0.5f, 0.5f);
-        playerSprite.setPosition(x,y);
+        playerSprite.setPosition(x, y);
 
         //set the origin to the center of the sprite rather than the top left
         playerSprite.setOrigin(playerSprite.getLocalBounds().width / 2, playerSprite.getLocalBounds().height / 2);
@@ -63,6 +62,14 @@ public class Player implements DynamicActor {
 
     public void move(Vector2f dir) {
         movementManager.move(dir);
+    }
+
+    public void changeVelocity(float x, float y) {
+        changeVelocity(new Vector2f(x, y));
+    }
+
+    public void changeVelocity(Vector2f vector) {
+        movementManager.changeVelocity(vector);
     }
 
     public void castCurrentSpell(Vector2f mousePos) {
@@ -90,39 +97,20 @@ public class Player implements DynamicActor {
         hpManager.reduceHP(damage);
     }
 
-    public void onCollision(Actor collider) {
-        if (collider instanceof MapTile) {
+    public void onCollision(Actor collider, FloatRect collisionRect) {
+        if (collisionRect != null) {
+            if (collider instanceof MapTile) {
 
-            FloatRect tileRect = ((MapTile) collider).getDrawable().getBounds();
-            FloatRect intersectRect = playerSprite.getGlobalBounds().intersection(tileRect);
+                //TODO collision detection here
 
-            if (intersectRect != null) {
-
-                if (playerSprite.getPosition().x < collider.getPosition().x) {
-                    //approaching from the left
-                    move(new Vector2f(-intersectRect.width, 0));
-
-                } else if (playerSprite.getPosition().x > collider.getPosition().x + ((MapTile) collider).getWidth()) {
-                    //approaching from the right
-                    move(new Vector2f(intersectRect.width, 0));
-                }
-
-                if (playerSprite.getPosition().y < collider.getPosition().y) {
-                    //approaching from the top
-                    move(new Vector2f(0, -intersectRect.height));
-                } else if (playerSprite.getPosition().y > collider.getPosition().y + ((MapTile) collider).getHeight()) {
-                    //approaching from the bottom
-                    move(new Vector2f(0, intersectRect.height));
-                }
-
-                System.out.println(intersectRect);
             }
         }
     }
 
     public void update() {
-
         //meleeManager.update();
+
+        movementManager.update();
         hpManager.update();
     }
 
@@ -137,7 +125,19 @@ public class Player implements DynamicActor {
     }
     */
 
-    public FloatRect getCollisionRect(){
-        return new FloatRect(playerSprite.getGlobalBounds().left, playerSprite.getGlobalBounds().top, playerSprite.getGlobalBounds().width/2, playerSprite.getGlobalBounds().height/2);
+    public FloatRect getBoundingRect() {
+        return playerSprite.getGlobalBounds();
+    }
+
+    public Vector2f getVelocity() {
+        return movementManager.getVelocity();
+    }
+
+    public void setVelocity(float x, float y) {
+        movementManager.setVelocity(x, y);
+    }
+
+    public void setVelocity(Vector2f vector){
+        movementManager.setVelocity(vector);
     }
 }

@@ -20,13 +20,17 @@ public abstract class Monster implements DynamicActor {
     protected float maxHP;
     protected float currentHP;
     protected float XP;
-    protected float moveSpeed;
+    protected float maxSpeed;
+    protected Vector2f velocity = Vector2f.ZERO;
+    protected float friction;
+    protected float acceleration;
 
     protected MonsterHPBar hpBar;
 
-    public void onCollision(Actor collider) {
+    public void onCollision(Actor collider, FloatRect collisionRect) {
+
         //if collided with another monster move away
-        if (collider instanceof Monster) {
+       /* if (collider instanceof Monster) {
 
             Sprite col = (Sprite) collider.getDrawable();
             FloatRect colRect = sprite.getGlobalBounds().intersection(col.getGlobalBounds());
@@ -70,7 +74,7 @@ public abstract class Monster implements DynamicActor {
                     move(new Vector2f(0, intersectRect.height));
                 }
             }
-        }
+        }*/
     }
 
     public Sprite getDrawable() {
@@ -93,16 +97,24 @@ public abstract class Monster implements DynamicActor {
         if (currentHP <= 0) {
             onDeath();
         }
-
+        velocity = Vector2f.mul(velocity, friction);
+        move(velocity);
         hpBar.update();
     }
 
-    public void move(float x, float y){
-        move(new Vector2f(x,y));
+    public void move(Vector2f dir){
+        sprite.move(dir);
     }
 
-    public void move(Vector2f dir){
-        getDrawable().move(Vector2f.mul(VectorArithmetic.normalize(dir), moveSpeed));
+    public void changeVelocity(float x, float y){
+        changeVelocity(new Vector2f(x, y));
+    }
+
+    public void changeVelocity(Vector2f vector){
+        velocity = Vector2f.add(Vector2f.mul(VectorArithmetic.normalize(vector), acceleration), velocity);
+        if (VectorArithmetic.magnitude(velocity) > maxSpeed) {
+            velocity = Vector2f.mul(velocity, maxSpeed/ VectorArithmetic.magnitude(velocity));
+        }
     }
 
     protected abstract void onDeath();
@@ -127,8 +139,12 @@ public abstract class Monster implements DynamicActor {
         return maxHP;
     }
 
-    public FloatRect getCollisionRect(){
+    public FloatRect getBoundingRect(){
         return sprite.getGlobalBounds();
+    }
+
+    public Vector2f getVelocity(){
+        return velocity;
     }
 
 }

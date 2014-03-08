@@ -10,6 +10,8 @@ import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
 import Player.Player;
 
+import java.awt.*;
+
 /**
  * Created by Matthew on 25/02/14.
  */
@@ -33,7 +35,7 @@ public abstract class Potion implements Consumeable {
         Game.getCurrentScene().removeStaticActor(this);
     }
 
-    public void onCollision(Actor actor) {
+    public void onCollision(Actor actor, FloatRect collisionRect) {
         if (actor instanceof Player) {
             pickUp(actor);
         }
@@ -65,7 +67,7 @@ public abstract class Potion implements Consumeable {
 
     public void update(){}
 
-    public FloatRect getCollisionRect(){
+    public FloatRect getBoundingRect(){
         return sprite.getGlobalBounds();
     }
 }

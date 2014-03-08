@@ -16,48 +16,76 @@ public class PlayerMovementManager implements PlayerManager {
 
     private Player player;
 
-    private float moveSpeed = 5f;
+    private float acceleration = 1f;
 
-    protected PlayerMovementManager(){}
+    private float maxSpeed = 7f;
 
-    public static PlayerMovementManager getInstance(){
-        if(instance == null){
+    private float friction = 0.9f;
+
+    private Vector2f velocity = Vector2f.ZERO;
+
+    protected PlayerMovementManager() {
+    }
+
+    public static PlayerMovementManager getInstance() {
+        if (instance == null) {
             instance = new PlayerMovementManager();
         }
         return instance;
     }
 
-    public void setPlayer(Player _player){
+    public void setPlayer(Player _player) {
         player = _player;
     }
 
-    public void move(float x, float y){
-        Vector2f dir = new Vector2f(x, y);
-        move(dir);
+    public void move(float x, float y) {
+        move(new Vector2f(x, y));
     }
 
-    public void move(Vector2f dir){
-        player.getDrawable().move(Vector2f.mul(VectorArithmetic.normalize(dir), moveSpeed));
+    public void move(Vector2f dir) {
+        player.getDrawable().move(dir);
     }
 
-    public void buffMoveSpeed(float speedChange, int timeMillis){
-        moveSpeed += speedChange;
+    public void changeVelocity(Vector2f vector) {
+        velocity = Vector2f.add(Vector2f.mul(VectorArithmetic.normalize(vector), acceleration), velocity);
+        if (VectorArithmetic.magnitude(velocity) > maxSpeed) {
+            velocity = Vector2f.mul(velocity, maxSpeed / VectorArithmetic.magnitude(velocity));
+        }
+    }
 
-        class ReduceSpeed extends TimerTask{
+    public void buffMoveSpeed(float speedChange, int timeMillis) {
+        acceleration += speedChange;
+
+        class ReduceSpeed extends TimerTask {
             float amount;
 
-            public ReduceSpeed(float amount){
+            public ReduceSpeed(float amount) {
                 this.amount = amount;
             }
 
             @Override
-            public void run(){
-                moveSpeed -= amount;
+            public void run() {
+                acceleration -= amount;
                 System.out.println("timer run reached");
             }
         }
 
         Timer timer = new Timer();
         timer.schedule(new ReduceSpeed(speedChange), timeMillis);
+    }
+
+    public void update(){
+        velocity = Vector2f.mul(velocity, friction);
+        move(velocity);
+    } 
+    public Vector2f getVelocity(){
+        return velocity;
+    }
+    public void setVelocity(float x, float y){
+        velocity = new Vector2f(x,y);
+    }
+
+    public void setVelocity(Vector2f vel){
+        velocity = vel;
     }
 }
