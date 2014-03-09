@@ -104,7 +104,8 @@ public abstract class Monster implements DynamicActor {
     }
 
     public void knockBack(Vector2f dir, float power){
-        velocity = Vector2f.add(velocity, Vector2f.mul(VectorArithmetic.normalize(dir), power/mass));
+       // velocity = Vector2f.add(velocity, Vector2f.mul(VectorArithmetic.normalize(dir), power/mass));
+        velocity = Vector2f.mul(VectorArithmetic.normalize(dir), power/mass);
     }
 
 

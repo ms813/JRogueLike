@@ -27,9 +27,9 @@ public class Player implements DynamicActor {
     private Sprite playerSprite;
 
     //set up the various skill managers
+    //private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
     private PlayerMagicManager magicManager = PlayerMagicManager.getInstance();
     private PlayerXPManager xpManager = PlayerXPManager.getInstance();
-    //private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
     private PlayerHPManager hpManager = PlayerHPManager.getInstance();
     private PlayerMovementManager movementManager = PlayerMovementManager.getInstance();
 
@@ -72,7 +72,7 @@ public class Player implements DynamicActor {
         changeVelocity(vector, 1);
     }
 
-    public void changeVelocity(Vector2f vector, float scaleFactor){
+    public void changeVelocity(Vector2f vector, float scaleFactor) {
         movementManager.changeVelocity(vector, scaleFactor);
     }
 
@@ -105,7 +105,34 @@ public class Player implements DynamicActor {
         if (collisionRect != null) {
             if (collider instanceof MapTile) {
 
+                MapTile tile = (MapTile) collider;
+
                 //TODO collision detection here
+
+                float xOverlap;
+                float yOverlap;
+                if (collisionRect.left <= getBoundingRect().left) {
+                    //collided on the right hand side
+                    xOverlap = collisionRect.width;
+                } else {
+                    //collided on the left
+                    xOverlap = -collisionRect.width;
+                }
+
+                if (collisionRect.top <= getBoundingRect().top) {
+                    yOverlap = collisionRect.height;
+                } else {
+                    yOverlap = -collisionRect.height;
+                }
+
+                if(Math.abs(xOverlap) <= Math.abs(yOverlap)){
+                    move(xOverlap, 0);
+                    System.out.println("resolve x");
+                }
+                if(Math.abs(yOverlap)<= Math.abs(xOverlap)){
+                    move(0, yOverlap);
+                    System.out.println("resolve y");
+                }
 
             }
         }
@@ -141,15 +168,15 @@ public class Player implements DynamicActor {
         movementManager.setVelocity(x, y);
     }
 
-    public void setVelocity(Vector2f vector){
+    public void setVelocity(Vector2f vector) {
         movementManager.setVelocity(vector);
     }
 
-    public float getMass(){
+    public float getMass() {
         return movementManager.getMass();
     }
 
-    public void knockBack(Vector2f dir, float power){
+    public void knockBack(Vector2f dir, float power) {
         movementManager.knockBack(dir, power);
     }
 }

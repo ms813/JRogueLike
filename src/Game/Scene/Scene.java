@@ -48,11 +48,11 @@ public class Scene {
         Random random = new Random();
         int noOfEnemies = random.nextInt(50) + 20;
 
-        for (int i = 0; i < noOfEnemies; i++) {
+        /*for (int i = 0; i < noOfEnemies; i++) {
             Skeleton skeleton = new Skeleton();
             skeleton.setPosition(map.getLocalBounds().width * random.nextFloat(), map.getLocalBounds().height * random.nextFloat());
             dynamicActors.add(skeleton);
-        }
+        }*/
 
         int noOfPots = random.nextInt(10) + 5;
 
