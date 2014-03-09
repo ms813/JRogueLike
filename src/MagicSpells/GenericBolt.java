@@ -30,6 +30,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     protected Vector2f travelVector;
     protected float coolDown;
     protected String damage;
+    protected float mass;
 
     protected GenericBolt() {
     }
@@ -71,19 +72,20 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
             //System.out.println("Target reached: " + getPosition());
             Game.getCurrentScene().removeDynamicActor(this);
         } else {
-           move(velocity);
+            move(velocity);
         }
     }
 
-    public void move(float x, float y){
-        move(new Vector2f(x,y));
+    public void move(float x, float y) {
+        move(new Vector2f(x, y));
     }
 
-    public void move(Vector2f dir){
+    public void move(Vector2f dir) {
         boltSprite.move(dir);
     }
 
     public void onCollision(Actor collider, FloatRect collisionRect) {
+        //check the projectile doesnt damage the caster
         if (collider != belongsTo) {
 
             //have I hit a monster?
@@ -91,7 +93,10 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
                 //was I cast by another monster?
                 if (!(belongsTo instanceof Monster)) {
                     //if not, do some damage!
-                    ((Monster) collider).reduceHP(Dice.roll(damage));
+                    Monster monster = (Monster) collider;
+                    monster.reduceHP(Dice.roll(damage));
+                    monster.knockBack(velocity, mass);
+
                     Game.getCurrentScene().removeDynamicActor(this);
                 }
             }
@@ -99,11 +104,12 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
             //have I hit a player?
             if (collider instanceof Player) {
                 ((Player) collider).reduceHP(Dice.roll(damage));
+                ((Player) collider).knockBack(velocity, mass);
                 Game.getCurrentScene().removeDynamicActor(this);
             }
 
             //have I hit some impassable terrain?
-            if(collider instanceof MapTile){
+            if (collider instanceof MapTile) {
                 Game.getCurrentScene().removeDynamicActor(this);
             }
 
@@ -117,32 +123,46 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
     public Vector2f getPosition() {
         return boltSprite.getPosition();
     }
+
     public abstract String getDamage();
 
     public boolean belongsTo(Actor actor) {
         return actor == belongsTo;
     }
 
-    public void draw(RenderWindow window){
+    public void draw(RenderWindow window) {
         window.draw(boltSprite);
     }
 
-    public FloatRect getBoundingRect(){
+    public FloatRect getBoundingRect() {
         return boltSprite.getGlobalBounds();
     }
 
-    public void changeVelocity(float x, float y){
-        changeVelocity(new Vector2f(x, y));
+    public void changeVelocity(float x, float y) {
+        changeVelocity(new Vector2f(x, y), 1);
     }
 
-    public void changeVelocity(Vector2f vector){
-        velocity = Vector2f.add(Vector2f.mul(VectorArithmetic.normalize(vector), acceleration), velocity);
+    public void changeVelocity(Vector2f vector) {
+        changeVelocity(vector, 1);
+    }
+
+    public void changeVelocity(Vector2f vector, float scaleFactor) {
+
+        velocity = Vector2f.mul(Vector2f.add(Vector2f.mul(VectorArithmetic.normalize(vector), acceleration), velocity), scaleFactor);
         if (VectorArithmetic.magnitude(velocity) > maxSpeed) {
-            velocity = Vector2f.mul(velocity, maxSpeed/ VectorArithmetic.magnitude(velocity));
+            velocity = Vector2f.mul(velocity, maxSpeed / VectorArithmetic.magnitude(velocity));
         }
     }
 
-    public Vector2f getVelocity(){
+    public Vector2f getVelocity() {
         return velocity;
+    }
+
+    public float getMass() {
+        return mass;
+    }
+
+    public void knockBack(Vector2f dir, float power){
+        //bolts disappear instantly on hitting something so no need for it to be knocked back
     }
 }

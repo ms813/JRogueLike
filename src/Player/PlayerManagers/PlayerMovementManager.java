@@ -16,12 +16,10 @@ public class PlayerMovementManager implements PlayerManager {
 
     private Player player;
 
-    private float acceleration = 1f;
-
+    private float acceleration = 100f;
     private float maxSpeed = 7f;
-
     private float friction = 0.9f;
-
+    private float mass = 75f;
     private Vector2f velocity = Vector2f.ZERO;
 
     protected PlayerMovementManager() {
@@ -46,8 +44,8 @@ public class PlayerMovementManager implements PlayerManager {
         player.getDrawable().move(dir);
     }
 
-    public void changeVelocity(Vector2f vector) {
-        velocity = Vector2f.add(Vector2f.mul(VectorArithmetic.normalize(vector), acceleration), velocity);
+    public void changeVelocity(Vector2f vector, float scaleFactor){
+        velocity = Vector2f.mul(Vector2f.add(Vector2f.mul(vector, acceleration), velocity), scaleFactor);
         if (VectorArithmetic.magnitude(velocity) > maxSpeed) {
             velocity = Vector2f.mul(velocity, maxSpeed / VectorArithmetic.magnitude(velocity));
         }
@@ -87,5 +85,13 @@ public class PlayerMovementManager implements PlayerManager {
 
     public void setVelocity(Vector2f vel){
         velocity = vel;
+    }
+
+    public float getMass(){
+        return mass;
+    }
+
+    public void knockBack(Vector2f dir, float power){
+        velocity = Vector2f.add(velocity, Vector2f.mul(VectorArithmetic.normalize(dir), power/mass));
     }
 }

@@ -29,4 +29,6 @@ public interface Actor{
     //this allows the collision rectangle to be made smaller or larger by the object
     //before being checked for collisions
     public FloatRect getBoundingRect();
+
+    public float getMass();
 }

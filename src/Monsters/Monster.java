@@ -24,6 +24,7 @@ public abstract class Monster implements DynamicActor {
     protected Vector2f velocity = Vector2f.ZERO;
     protected float friction;
     protected float acceleration;
+    protected float mass;
 
     protected MonsterHPBar hpBar;
 
@@ -102,16 +103,25 @@ public abstract class Monster implements DynamicActor {
         hpBar.update();
     }
 
+    public void knockBack(Vector2f dir, float power){
+        velocity = Vector2f.add(velocity, Vector2f.mul(VectorArithmetic.normalize(dir), power/mass));
+    }
+
+
     public void move(Vector2f dir){
         sprite.move(dir);
     }
 
     public void changeVelocity(float x, float y){
-        changeVelocity(new Vector2f(x, y));
+        changeVelocity(new Vector2f(x, y), 1);
     }
 
     public void changeVelocity(Vector2f vector){
-        velocity = Vector2f.add(Vector2f.mul(VectorArithmetic.normalize(vector), acceleration), velocity);
+        changeVelocity(vector, 1);
+    }
+
+    public void changeVelocity(Vector2f vector, float scaleFactor){
+        velocity = Vector2f.mul(Vector2f.add(Vector2f.mul(vector, acceleration), velocity), scaleFactor);
         if (VectorArithmetic.magnitude(velocity) > maxSpeed) {
             velocity = Vector2f.mul(velocity, maxSpeed/ VectorArithmetic.magnitude(velocity));
         }
@@ -147,4 +157,7 @@ public abstract class Monster implements DynamicActor {
         return velocity;
     }
 
+    public float getMass() {
+        return mass;
+    }
 }

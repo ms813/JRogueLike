@@ -14,6 +14,8 @@ public interface DynamicActor extends Actor {
 
     public void changeVelocity(float x, float y);
     public void changeVelocity(Vector2f vector);
+    public void changeVelocity(Vector2f vector, float scaleFactor);
+    public void knockBack(Vector2f direction, float power);
 
     public Vector2f getVelocity();
 

@@ -5,6 +5,7 @@ import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Generic.VectorArithmetic;
 import MagicSpells.IceBolt;
+import MagicSpells.Projectile;
 import Player.PlayerManagers.PlayerXPManager;
 import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.Sprite;
@@ -20,9 +21,10 @@ public class Skeleton extends Monster {
         maxHP = 20f;
         currentHP = maxHP;
         XP = 10f;
-        acceleration = 2f;
+        acceleration = 75f;
         maxSpeed = 3f;
         friction = 0.9f;
+        mass = 50f;
 
         sprite = new Sprite(TextureLibrary.getTexture("skeleton"));
         sprite.setScale(0.5f, 0.5f);

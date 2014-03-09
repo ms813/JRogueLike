@@ -18,6 +18,7 @@ public class MagicDart extends GenericBolt {
         range = 350f;
         coolDown = 1f;
         damage = "1d6";
+        mass = 1f;
 
         buildSprite(TextureLibrary.getTexture("magicDart"));
 

@@ -65,11 +65,15 @@ public class Player implements DynamicActor {
     }
 
     public void changeVelocity(float x, float y) {
-        changeVelocity(new Vector2f(x, y));
+        changeVelocity(new Vector2f(x, y), 1);
     }
 
     public void changeVelocity(Vector2f vector) {
-        movementManager.changeVelocity(vector);
+        changeVelocity(vector, 1);
+    }
+
+    public void changeVelocity(Vector2f vector, float scaleFactor){
+        movementManager.changeVelocity(vector, scaleFactor);
     }
 
     public void castCurrentSpell(Vector2f mousePos) {
@@ -139,5 +143,13 @@ public class Player implements DynamicActor {
 
     public void setVelocity(Vector2f vector){
         movementManager.setVelocity(vector);
+    }
+
+    public float getMass(){
+        return movementManager.getMass();
+    }
+
+    public void knockBack(Vector2f dir, float power){
+        movementManager.knockBack(dir, power);
     }
 }

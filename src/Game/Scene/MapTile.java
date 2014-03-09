@@ -82,4 +82,8 @@ public class MapTile implements StaticActor {
     public FloatRect getBoundingRect(){
         return vertices.getBounds();
     }
+
+    public float getMass(){
+        return 0;
+    }
 }

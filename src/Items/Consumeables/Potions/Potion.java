@@ -21,6 +21,7 @@ public abstract class Potion implements Consumeable {
     protected Sprite sprite;
     protected Sprite icon;
     protected boolean stackable = true;
+    protected float mass = 1f;
 
     protected float coolDown;
 
@@ -69,5 +70,9 @@ public abstract class Potion implements Consumeable {
 
     public FloatRect getBoundingRect(){
         return sprite.getGlobalBounds();
+    }
+
+    public float getMass(){
+        return mass;
     }
 }

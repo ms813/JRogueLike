@@ -19,6 +19,7 @@ public class IceBolt extends GenericBolt {
         range = 600f;
         coolDown = 5f;
         damage = "5d4";
+        mass = 5000f;
 
         buildSprite(TextureLibrary.getTexture("iceBolt"));
         boltSprite.setScale(0.3f, 0.3f);
