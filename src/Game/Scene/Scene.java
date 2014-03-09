@@ -9,8 +9,10 @@ import Items.Consumeables.Potions.HealthPotion;
 import Items.Consumeables.Potions.SpeedPotion;
 import Monsters.Skeleton;
 import Player.Player;
+import com.sun.accessibility.internal.resources.accessibility;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
+import Game.CollisionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,11 +50,11 @@ public class Scene {
         Random random = new Random();
         int noOfEnemies = random.nextInt(50) + 20;
 
-        /*for (int i = 0; i < noOfEnemies; i++) {
+        for (int i = 0; i < noOfEnemies; i++) {
             Skeleton skeleton = new Skeleton();
             skeleton.setPosition(map.getLocalBounds().width * random.nextFloat(), map.getLocalBounds().height * random.nextFloat());
             dynamicActors.add(skeleton);
-        }*/
+        }
 
         int noOfPots = random.nextInt(10) + 5;
 
@@ -101,16 +103,14 @@ public class Scene {
         for (int i = 0; i < tempDActors.size(); i++) {
 
             DynamicActor a = tempDActors.get(i);
-
             FloatRect aCollRect = VectorArithmetic.moveRect(a.getBoundingRect(), a.getVelocity());
 
             for (int j = i + 1; j < tempDActors.size(); j++) {
 
-                //TODO finish making this work!
                 DynamicActor b = tempDActors.get(j);
-                FloatRect bCollRect = VectorArithmetic.moveRect(b.getBoundingRect(), b.getVelocity());
+                FloatRect bCollRect = VectorArithmetic.moveRect(b.getBoundingRect(), ((DynamicActor) b).getVelocity());
 
-                if (aCollRect.intersection(bCollRect) != null) {
+                if(aCollRect.intersection(bCollRect) != null){
                     a.onCollision(b, aCollRect.intersection(bCollRect));
                     b.onCollision(a, aCollRect.intersection(bCollRect));
                 }

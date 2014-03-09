@@ -1,10 +1,12 @@
 package Player;
 
+import Game.CollisionManager;
 import Game.Scene.MapTile;
 import Game.UI.TextureLibrary;
 import Generic.Actor;
 import Generic.DynamicActor;
 import Generic.VectorArithmetic;
+import Monsters.Monster;
 import Player.PlayerManagers.PlayerHPManager;
 import Player.PlayerManagers.PlayerMagicManager;
 import Player.PlayerManagers.PlayerMovementManager;
@@ -105,12 +107,27 @@ public class Player implements DynamicActor {
         if (collisionRect != null) {
             if (collider instanceof MapTile) {
 
-                MapTile tile = (MapTile) collider;
-
-                //TODO collision detection here
-
+                boolean axis_x = false;
+                boolean axis_y = false;
                 float xOverlap;
                 float yOverlap;
+
+                boolean pp_collides_x = CollisionManager.collidesByAxis(getBoundingRect().left, getBoundingRect().width, collider.getBoundingRect().left, collider.getBoundingRect().width);
+                boolean pp_collides_y = CollisionManager.collidesByAxis(getBoundingRect().top, getBoundingRect().height, collider.getBoundingRect().top, collider.getBoundingRect().height);
+
+                if (pp_collides_x || pp_collides_y) {
+                    if (pp_collides_x) {
+                        axis_y = true;
+                    }
+                    if (pp_collides_y) {
+                        axis_x = true;
+                    }
+                } else {
+                    axis_x = true;
+                    axis_y = true;
+                }
+
+
                 if (collisionRect.left <= getBoundingRect().left) {
                     //collided on the right hand side
                     xOverlap = collisionRect.width;
@@ -125,15 +142,15 @@ public class Player implements DynamicActor {
                     yOverlap = -collisionRect.height;
                 }
 
-                if(Math.abs(xOverlap) <= Math.abs(yOverlap)){
-                    move(xOverlap, 0);
-                    System.out.println("resolve x");
+                if (!(axis_x && axis_y)) {
+                    if (axis_x) {
+                        move(xOverlap, 0);
+                    } else if (axis_y) {
+                        move(0, yOverlap);
+                    } else {
+                        //should never reach here
+                    }
                 }
-                if(Math.abs(yOverlap)<= Math.abs(xOverlap)){
-                    move(0, yOverlap);
-                    System.out.println("resolve y");
-                }
-
             }
         }
     }

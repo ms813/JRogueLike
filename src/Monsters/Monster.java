@@ -1,5 +1,6 @@
 package Monsters;
 
+import Game.CollisionManager;
 import Game.Scene.MapTile;
 import Generic.Actor;
 import Generic.DynamicActor;
@@ -29,53 +30,55 @@ public abstract class Monster implements DynamicActor {
     protected MonsterHPBar hpBar;
 
     public void onCollision(Actor collider, FloatRect collisionRect) {
+        if (collisionRect != null) {
+            if (collider instanceof MapTile) {
 
-        //if collided with another monster move away
-       /* if (collider instanceof Monster) {
+                boolean axis_x = false;
+                boolean axis_y = false;
+                float xOverlap;
+                float yOverlap;
 
-            Sprite col = (Sprite) collider.getDrawable();
-            FloatRect colRect = sprite.getGlobalBounds().intersection(col.getGlobalBounds());
+                boolean pp_collides_x = CollisionManager.collidesByAxis(getBoundingRect().left, getBoundingRect().width, collider.getBoundingRect().left, collider.getBoundingRect().width);
+                boolean pp_collides_y = CollisionManager.collidesByAxis(getBoundingRect().top, getBoundingRect().height, collider.getBoundingRect().top, collider.getBoundingRect().height);
 
-            if (colRect != null) {
-
-
-                    if (sprite.getPosition().x < col.getPosition().x) {
-                        move(-colRect.width / 10, 0);
-                    } else {
-                        move(colRect.width / 10, 0);
+                if (pp_collides_x || pp_collides_y) {
+                    if (pp_collides_x) {
+                        axis_y = true;
                     }
-
-
-
-                    if (sprite.getPosition().y < col.getPosition().y) {
-                        move(0, -colRect.height / 10);
-                    } else {
-                        move(0, colRect.height / 10);
+                    if (pp_collides_y) {
+                        axis_x = true;
                     }
+                } else {
+                    axis_x = true;
+                    axis_y = true;
+                }
 
+
+                if (collisionRect.left <= getBoundingRect().left) {
+                    //collided on the right hand side
+                    xOverlap = collisionRect.width;
+                } else {
+                    //collided on the left
+                    xOverlap = -collisionRect.width;
+                }
+
+                if (collisionRect.top <= getBoundingRect().top) {
+                    yOverlap = collisionRect.height;
+                } else {
+                    yOverlap = -collisionRect.height;
+                }
+
+                if (!(axis_x && axis_y)) {
+                    if (axis_x) {
+                        move(xOverlap, 0);
+                    } else if (axis_y) {
+                        move(0, yOverlap);
+                    } else {
+                        //should never reach here
+                    }
+                }
             }
         }
-
-        //if monster collides with an impassable terrain tile
-        if(collider instanceof MapTile){
-            FloatRect tileRect = ((MapTile) collider).getDrawable().getBounds();
-            FloatRect intersectRect = sprite.getGlobalBounds().intersection(tileRect);
-
-            if (intersectRect != null) {
-
-                if (sprite.getPosition().x < collider.getPosition().x) {
-                    move(new Vector2f(-intersectRect.width, 0));
-                } else if (sprite.getPosition().x > collider.getPosition().x + ((MapTile) collider).getWidth()) {
-                    move(new Vector2f(intersectRect.width, 0));
-                }
-
-                if (sprite.getPosition().y < collider.getPosition().y) {
-                    move(new Vector2f(0, -intersectRect.height));
-                } else if (sprite.getPosition().y > collider.getPosition().y + ((MapTile) collider).getHeight()) {
-                    move(new Vector2f(0, intersectRect.height));
-                }
-            }
-        }*/
     }
 
     public Sprite getDrawable() {
@@ -103,28 +106,32 @@ public abstract class Monster implements DynamicActor {
         hpBar.update();
     }
 
-    public void knockBack(Vector2f dir, float power){
-       // velocity = Vector2f.add(velocity, Vector2f.mul(VectorArithmetic.normalize(dir), power/mass));
-        velocity = Vector2f.mul(VectorArithmetic.normalize(dir), power/mass);
+    public void knockBack(Vector2f dir, float power) {
+        // velocity = Vector2f.add(velocity, Vector2f.mul(VectorArithmetic.normalize(dir), power/mass));
+        velocity = Vector2f.mul(VectorArithmetic.normalize(dir), power / mass);
     }
 
 
-    public void move(Vector2f dir){
+    public void move(Vector2f dir) {
         sprite.move(dir);
     }
 
-    public void changeVelocity(float x, float y){
+    public void move(float x, float y) {
+        sprite.move(x, y);
+    }
+
+    public void changeVelocity(float x, float y) {
         changeVelocity(new Vector2f(x, y), 1);
     }
 
-    public void changeVelocity(Vector2f vector){
+    public void changeVelocity(Vector2f vector) {
         changeVelocity(vector, 1);
     }
 
-    public void changeVelocity(Vector2f vector, float scaleFactor){
+    public void changeVelocity(Vector2f vector, float scaleFactor) {
         velocity = Vector2f.mul(Vector2f.add(Vector2f.mul(vector, acceleration), velocity), scaleFactor);
         if (VectorArithmetic.magnitude(velocity) > maxSpeed) {
-            velocity = Vector2f.mul(velocity, maxSpeed/ VectorArithmetic.magnitude(velocity));
+            velocity = Vector2f.mul(velocity, maxSpeed / VectorArithmetic.magnitude(velocity));
         }
     }
 
@@ -150,11 +157,11 @@ public abstract class Monster implements DynamicActor {
         return maxHP;
     }
 
-    public FloatRect getBoundingRect(){
+    public FloatRect getBoundingRect() {
         return sprite.getGlobalBounds();
     }
 
-    public Vector2f getVelocity(){
+    public Vector2f getVelocity() {
         return velocity;
     }
 
