@@ -4,6 +4,7 @@ import Game.CollisionManager;
 import Game.Scene.MapTile;
 import Game.UI.TextureLibrary;
 import Generic.Actor;
+import Generic.CSVLoader;
 import Generic.DynamicActor;
 import Generic.VectorArithmetic;
 import Monsters.Monster;
@@ -17,6 +18,9 @@ import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
 import sun.print.resources.serviceui_pt_BR;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Matthew
@@ -27,6 +31,8 @@ import sun.print.resources.serviceui_pt_BR;
 public class Player implements DynamicActor {
 
     private Sprite playerSprite;
+
+    private Bloodline bloodline = BloodlineLibrary.getInstance().getBloodline("Abhorsen");
 
     //set up the various skill managers
     //private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
@@ -48,6 +54,8 @@ public class Player implements DynamicActor {
 
         learnSpell("MagicDart");
         learnSpell("IceBolt");
+
+        System.out.println("Player's bloodline: " + bloodline);
     }
 
     private void managerSetup() {
