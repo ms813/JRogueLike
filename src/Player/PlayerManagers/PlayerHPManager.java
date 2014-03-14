@@ -73,6 +73,7 @@ public class PlayerHPManager implements PlayerManager  {
     public float getMaxHP(){
         return maxHP;
     }
+
 }
 
 

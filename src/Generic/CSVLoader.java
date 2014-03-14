@@ -27,7 +27,9 @@ public class CSVLoader {
         ArrayList<String[]> toReturn = new ArrayList<String[]>();
 
         String[] lines = contents.split("\n");
+
         for(String line : lines){
+            line = line.substring(0, line.length() -1);
             toReturn.add(line.split(","));
         }
 

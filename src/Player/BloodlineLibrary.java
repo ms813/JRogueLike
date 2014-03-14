@@ -17,7 +17,7 @@ public class BloodlineLibrary {
 
 
     protected BloodlineLibrary(){
-        ArrayList<String[]> bloodlineFileContents = CSVLoader.load("design/bloodlines");
+        ArrayList<String[]> bloodlineFileContents = CSVLoader.load("resources/vals/bloodlines");
 
         //remove the file column headers
         bloodlineFileContents.remove(0);

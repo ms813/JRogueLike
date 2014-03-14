@@ -59,13 +59,12 @@ public class PlayerInventoryManager implements PlayerManager {
         if(itemInfo.getItem().isStackable()){
             carriedItems.get(carriedItems.indexOf(itemInfo)).decrementQuantity(quantity);
             if(carriedItems.get(carriedItems.indexOf(itemInfo)).getQuantity() <= 0){
+                //if no items in the stack are left, remove it completely
                 itemInfo.setReadyForRemoval();
             }
         } else{
             itemInfo.setReadyForRemoval();
         }
-
-        //if only 1 item is left, remove it completely
     }
 
     public void tidy(){

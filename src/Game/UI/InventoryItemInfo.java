@@ -35,7 +35,6 @@ public class InventoryItemInfo {
         stackable = item.isStackable();
         quantity = _quantity;
 
-
         quantityText = new Text("", FontLibrary.getFont("arial"), 14);
         quantityText.setColor(Color.BLACK);
         quantityText.setStyle(TextStyle.BOLD);

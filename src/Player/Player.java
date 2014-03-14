@@ -32,8 +32,6 @@ public class Player implements DynamicActor {
 
     private Sprite playerSprite;
 
-    private Bloodline bloodline = BloodlineLibrary.getInstance().getBloodline("Abhorsen");
-
     //set up the various skill managers
     //private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
     private PlayerMagicManager magicManager = PlayerMagicManager.getInstance();
@@ -54,8 +52,6 @@ public class Player implements DynamicActor {
 
         learnSpell("MagicDart");
         learnSpell("IceBolt");
-
-        System.out.println("Player's bloodline: " + bloodline);
     }
 
     private void managerSetup() {

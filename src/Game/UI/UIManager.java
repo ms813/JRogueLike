@@ -13,6 +13,7 @@ public class UIManager implements UIElement {
 
     private InventoryUI inventoryUI = InventoryUI.getInstance();
     private Hotbar hotbar = Hotbar.getInstance();
+    private HUD hud = HUD.getInstance();
 
     protected UIManager() {
     }
@@ -27,10 +28,11 @@ public class UIManager implements UIElement {
     public void draw(RenderWindow window) {
         inventoryUI.draw(window);
         hotbar.draw(window);
+        hud.draw(window);
     }
 
     public void update() {
-
+        hud.update();
     }
 
     public void setInventoryPosition(float x, float y) {
@@ -48,6 +50,7 @@ public class UIManager implements UIElement {
     public void init(){
         inventoryUI.init();
         hotbar.init();
+        hud.init();
     }
 
     public void toggleInventory(){

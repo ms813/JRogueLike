@@ -20,4 +20,20 @@ public class Bloodline {
         return "Bloodline = " + name + ", hpMultiplier = " + hpMultiplier + ", mpMultiplier = " + mpMultiplier
                 + ", staminaMultiplier = " + staminaMultiplier;
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public float getHpMultiplier() {
+        return hpMultiplier;
+    }
+
+    public float getMpMultiplier() {
+        return mpMultiplier;
+    }
+
+    public float getStaminaMultiplier() {
+        return staminaMultiplier;
+    }
 }

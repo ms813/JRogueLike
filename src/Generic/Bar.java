@@ -7,16 +7,18 @@ import org.jsfml.graphics.RenderWindow;
 /**
  * Created by Matthew on 25/02/14.
  */
-public class HPBar {
+public abstract class Bar {
 
-    RectangleShape bar = new RectangleShape();
-    Color color = Color.RED;
+    protected RectangleShape bar = new RectangleShape();
+    protected Color color;
 
-    float maxLen;
-    float thickness = 5f;
+    protected float maxLen;
+    protected float thickness;
 
     public void draw(RenderWindow window){
         window.draw(bar);
     }
+
+    public abstract void update();
 
 }
