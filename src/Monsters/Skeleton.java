@@ -1,11 +1,9 @@
 package Monsters;
 
 import Game.Game;
-import Game.UI.TextureLibrary;
+import Generic.Libraries.TextureLibrary;
 import Generic.Actor;
-import Generic.VectorArithmetic;
 import MagicSpells.IceBolt;
-import MagicSpells.Projectile;
 import Player.PlayerManagers.PlayerXPManager;
 import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.Sprite;

@@ -11,9 +11,10 @@ public class PlayerHPManager implements PlayerManager  {
 
     private Player player;
 
-    private int maxHP;
-    private int currentHP;
+    private float maxHP;
+    private float currentHP;
     private PlayerHPBar hpBar;
+    private float hpRegen = 0.015f;
 
     private static PlayerHPManager instance = null;
 
@@ -35,6 +36,11 @@ public class PlayerHPManager implements PlayerManager  {
 
     public void update(){
         hpBar.update();
+
+        if(currentHP < maxHP){
+            currentHP += hpRegen;
+        }
+
         if(currentHP <= 0){
             onDeath();
         }
@@ -46,23 +52,23 @@ public class PlayerHPManager implements PlayerManager  {
 
     public void reduceHP(int damage){
         currentHP -= damage;
-        System.out.println("Player received " + damage + " points of damage!");
+        System.out.println("[PlayerHPManager.reduceHP()] Player received " + damage + " points of damage!");
     }
 
     public void increaseHP(int amount){
 
-        int before = currentHP;
+        float before = currentHP;
 
         currentHP += amount;
         if(currentHP > maxHP){
             currentHP = maxHP;
         }
-        int after = currentHP;
-        System.out.println("Player healed " + (after - before) + " hit points!");
+        float after = currentHP;
+        System.out.println("[PlayerHPManager.increaseHP()] Player healed " + (after - before) + " hit points!");
     }
 
     private void onDeath(){
-        System.out.println("Oh no, you died!");
+        System.out.println("[PlayerHPManager.onDeath()] Oh no, you died!");
         System.exit(0);
     }
 

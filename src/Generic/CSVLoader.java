@@ -29,6 +29,7 @@ public class CSVLoader {
         String[] lines = contents.split("\n");
 
         for(String line : lines){
+            //chop off the separator character
             line = line.substring(0, line.length() -1);
             toReturn.add(line.split(","));
         }
@@ -36,9 +37,7 @@ public class CSVLoader {
         return toReturn;
     }
 
-    static String readFile(String path) throws IOException
-
-    {
+    static String readFile(String path) throws IOException {
         Charset encoding = Charset.defaultCharset();
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return encoding.decode(ByteBuffer.wrap(encoded)).toString();

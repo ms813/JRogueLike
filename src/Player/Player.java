@@ -2,12 +2,9 @@ package Player;
 
 import Game.CollisionManager;
 import Game.Scene.MapTile;
-import Game.UI.TextureLibrary;
+import Generic.Libraries.TextureLibrary;
 import Generic.Actor;
-import Generic.CSVLoader;
 import Generic.DynamicActor;
-import Generic.VectorArithmetic;
-import Monsters.Monster;
 import Player.PlayerManagers.PlayerHPManager;
 import Player.PlayerManagers.PlayerMagicManager;
 import Player.PlayerManagers.PlayerMovementManager;
@@ -16,10 +13,6 @@ import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
-import sun.print.resources.serviceui_pt_BR;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -164,6 +157,8 @@ public class Player implements DynamicActor {
 
         movementManager.update();
         hpManager.update();
+        magicManager.update();
+        xpManager.update();
     }
 
     public void draw(RenderWindow window) {

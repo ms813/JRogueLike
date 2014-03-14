@@ -1,17 +1,10 @@
 package Items.Consumeables.Potions;
 
-import Game.UI.TextureLibrary;
-import Player.PlayerManagers.PlayerInventoryManager;
+import Generic.Libraries.TextureLibrary;
 import Player.PlayerManagers.PlayerMovementManager;
 import org.jsfml.graphics.Color;
 import org.jsfml.graphics.Sprite;
-import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.TimerTask;
 
 /**
  * Created by Matthew on 26/02/14.

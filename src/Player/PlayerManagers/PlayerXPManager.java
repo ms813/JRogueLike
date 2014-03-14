@@ -3,7 +3,7 @@ package Player.PlayerManagers;
 import Generic.CSVLoader;
 import Player.Player;
 import Player.Bloodline;
-import Player.BloodlineLibrary;
+import Generic.Libraries.BloodlineLibrary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,5 +62,9 @@ public class PlayerXPManager implements PlayerManager {
 
     public Player getPlayer(){
         return player;
+    }
+
+    public void update(){
+
     }
 }

@@ -1,7 +1,5 @@
 package Generic;
 
-import Game.UI.FontLibrary;
-import Game.UI.HUD;
 import Player.PlayerManagers.PlayerHPManager;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;

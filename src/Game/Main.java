@@ -57,8 +57,6 @@ public class Main {
                 Game.getCurrentScene().checkCollisions();
 
                 game.update();
-
-                PlayerMagicManager.getInstance().reduceCoolDownsRemaining(deltaSeconds);
             }
 
             game.draw(window);

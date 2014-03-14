@@ -1,6 +1,6 @@
 package MagicSpells;
 
-import Game.UI.TextureLibrary;
+import Generic.Libraries.TextureLibrary;
 import Generic.Actor;
 import org.jsfml.graphics.FloatRect;
 

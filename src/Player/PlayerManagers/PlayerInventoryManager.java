@@ -84,4 +84,8 @@ public class PlayerInventoryManager implements PlayerManager {
         player = _player;
     }
 
+    public void update(){
+
+    }
+
 }

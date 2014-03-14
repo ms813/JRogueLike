@@ -1,7 +1,7 @@
 package Game.Scene;
 
 import Game.Game;
-import Game.UI.TextureLibrary;
+import Generic.Libraries.TextureLibrary;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
 

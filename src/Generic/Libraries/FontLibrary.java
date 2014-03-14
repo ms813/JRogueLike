@@ -1,4 +1,4 @@
-package Game.UI;
+package Generic.Libraries;
 
 import org.jsfml.graphics.Font;
 import org.jsfml.graphics.Texture;

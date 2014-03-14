@@ -26,9 +26,10 @@ public class UIManager implements UIElement {
     }
 
     public void draw(RenderWindow window) {
+        hud.draw(window);
         inventoryUI.draw(window);
         hotbar.draw(window);
-        hud.draw(window);
+
     }
 
     public void update() {

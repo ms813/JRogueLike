@@ -1,5 +1,6 @@
 package Game.UI;
 
+import Generic.Libraries.FontLibrary;
 import Items.Consumeables.Consumeable;
 import Items.Item;
 import Player.PlayerManagers.PlayerInventoryManager;

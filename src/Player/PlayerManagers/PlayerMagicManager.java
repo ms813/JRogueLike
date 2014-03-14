@@ -1,5 +1,8 @@
 package Player.PlayerManagers;
 
+import Game.Main;
+import Generic.Actor;
+import Generic.Libraries.CooldownLibrary;
 import MagicSpells.MagicSpell;
 import MagicSpells.SpellInfo;
 import MagicSpells.*;
@@ -18,12 +21,13 @@ public class PlayerMagicManager implements PlayerManager {
 
     private Player player;
 
-    private HashMap coolDownLibrary = new HashMap();
-
     private List<SpellInfo> knownSpells = new ArrayList<SpellInfo>();
     private SpellInfo currentSpell;
 
     private static PlayerMagicManager instance = null;
+
+    private float maxMana;
+    private float currentMana;
 
     public static PlayerMagicManager getInstance(){
         if(instance == null){
@@ -33,10 +37,7 @@ public class PlayerMagicManager implements PlayerManager {
         return instance;
     }
 
-    protected PlayerMagicManager(){
-        coolDownLibrary.put("MagicDart", 0.10f);
-        coolDownLibrary.put("IceBolt", 2.0f);
-    }
+    protected PlayerMagicManager(){}
 
     public void setPlayer(Player _player){
         player = _player;
@@ -54,10 +55,11 @@ public class PlayerMagicManager implements PlayerManager {
             try {
                 //the Class.forName method must specify the full package address
                 Class cl = Class.forName("MagicSpells." + currentSpell.getSpellName());
-                Constructor con = cl.getConstructor(Generic.Actor.class);
+                Constructor<Actor> con = cl.getConstructor(Generic.Actor.class);
                 Object obj = con.newInstance(player);
                 MagicSpell spell = (MagicSpell) obj;
 
+                //set the cooldown to max
                 currentSpell.setCoolDownRemaining(currentSpell.getCoolDown());
 
                 spell.castSpell(target, currentSpell.getLevel());
@@ -87,15 +89,25 @@ public class PlayerMagicManager implements PlayerManager {
         for (SpellInfo value : knownSpells) {
             if (value.getCoolDownRemaining() > 0) {
                 value.reduceCoolDownRemaining(time);
-            }
-
-            if (value.getCoolDownRemaining() <= 0) {
+            } else if (value.getCoolDownRemaining() <= 0) {
                 value.setCoolDownRemaining(0);
             }
         }
     }
 
     private float getSpellCoolDown(String spellName){
-        return (Float) coolDownLibrary.get(spellName);
+        return CooldownLibrary.getInstance().getCooldown(spellName);
+    }
+
+    public void update(){
+        reduceCoolDownsRemaining(Main.getDeltaSeconds());
+    }
+
+    public float getMaxMana() {
+        return maxMana;
+    }
+
+    public float getCurrentMana() {
+        return currentMana;
     }
 }

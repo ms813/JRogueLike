@@ -1,16 +1,10 @@
 package Items.Consumeables.Potions;
 
-import Game.UI.TextureLibrary;
+import Generic.Libraries.TextureLibrary;
 import Generic.Dice;
 import Player.PlayerManagers.PlayerHPManager;
-import Player.PlayerManagers.PlayerInventoryManager;
 import org.jsfml.graphics.Sprite;
-import org.jsfml.graphics.Texture;
 import org.jsfml.system.Vector2f;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Paths;
 
 /**
  * Created by Matthew on 25/02/14.
