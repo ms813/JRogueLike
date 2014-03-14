@@ -88,4 +88,5 @@ public class PlayerInventoryManager implements PlayerManager {
 
     }
 
+    public void levelUp(){};
 }

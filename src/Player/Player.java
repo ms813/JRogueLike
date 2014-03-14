@@ -2,6 +2,7 @@ package Player;
 
 import Game.CollisionManager;
 import Game.Scene.MapTile;
+import Generic.Libraries.BloodlineLibrary;
 import Generic.Libraries.TextureLibrary;
 import Generic.Actor;
 import Generic.DynamicActor;
@@ -24,6 +25,7 @@ import org.jsfml.system.Vector2f;
 public class Player implements DynamicActor {
 
     private Sprite playerSprite;
+    private Bloodline bloodline = BloodlineLibrary.getInstance().getBloodline("Abhorsen");
 
     //set up the various skill managers
     //private PlayerMeleeManager meleeManager = PlayerMeleeManager.getInstance();
@@ -96,7 +98,7 @@ public class Player implements DynamicActor {
         magicManager.changeCurrentSpell(wheelTicks);
     }
 
-    public void reduceHP(int damage) {
+    public void reduceHP(float damage) {
         hpManager.reduceHP(damage);
     }
 
@@ -194,5 +196,13 @@ public class Player implements DynamicActor {
 
     public void knockBack(Vector2f dir, float power) {
         movementManager.knockBack(dir, power);
+    }
+
+    public Bloodline getBloodline(){
+        return bloodline;
+    }
+
+    public int getXPLevel(){
+        return xpManager.getXPLevel();
     }
 }

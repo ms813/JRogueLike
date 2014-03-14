@@ -52,24 +52,6 @@ public class PlayerMovementManager implements PlayerManager {
     }
 
     public void buffMoveSpeed(float speedChange, int timeMillis) {
-        acceleration += speedChange;
-
-        class ReduceSpeed extends TimerTask {
-            float amount;
-
-            public ReduceSpeed(float amount) {
-                this.amount = amount;
-            }
-
-            @Override
-            public void run() {
-                acceleration -= amount;
-                System.out.println("timer run reached");
-            }
-        }
-
-        Timer timer = new Timer();
-        timer.schedule(new ReduceSpeed(speedChange), timeMillis);
     }
 
     public void update(){
@@ -93,5 +75,9 @@ public class PlayerMovementManager implements PlayerManager {
 
     public void knockBack(Vector2f dir, float power){
         //velocity = Vector2f.add(velocity, Vector2f.mul(VectorArithmetic.normalize(dir), power/mass));
+    }
+
+    public void levelUp(){
+
     }
 }

@@ -17,7 +17,6 @@ public class PlayerXPManager implements PlayerManager {
 
     private int currentLevel = 0;
 
-    private Bloodline bloodline = BloodlineLibrary.getInstance().getBloodline("Abhorsen");
     private HashMap<Integer, Integer> xpTable = new HashMap<Integer, Integer>();
 
     private float currentXP;
@@ -42,8 +41,9 @@ public class PlayerXPManager implements PlayerManager {
         }
     }
 
-    private void levelUp(){
+    public void levelUp(){
         currentLevel++;
+        PlayerHPManager.getInstance().levelUp();
         System.out.println("[PlayerXPManager.levelUp()] Player level increased to " + currentLevel);
     }
 
@@ -67,4 +67,6 @@ public class PlayerXPManager implements PlayerManager {
     public void update(){
 
     }
+
+    public int getXPLevel(){ return currentLevel;}
 }

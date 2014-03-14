@@ -1,11 +1,13 @@
 package Monsters;
 
 import Game.CollisionManager;
+import Game.Game;
 import Game.Scene.MapTile;
 import Generic.Actor;
 import Generic.DynamicActor;
 import Generic.MonsterHPBar;
 import Generic.VectorArithmetic;
+import Player.PlayerManagers.PlayerXPManager;
 import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
@@ -26,6 +28,7 @@ public abstract class Monster implements DynamicActor {
     protected float friction;
     protected float acceleration;
     protected float mass;
+    protected float onTouchDamage;
 
     protected MonsterHPBar hpBar;
 
@@ -135,9 +138,14 @@ public abstract class Monster implements DynamicActor {
         }
     }
 
-    protected abstract void onDeath();
+    protected void onDeath(){
+        Game.getCurrentScene().removeDynamicActor(this);
+        PlayerXPManager.getInstance().gainXP(XP);
+    };
 
-    public abstract void reduceHP(float damage);
+    public void reduceHP(float damage){
+        currentHP -= damage;
+    }
 
     public void draw(RenderWindow window) {
         window.draw(sprite);

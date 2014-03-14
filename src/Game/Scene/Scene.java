@@ -7,6 +7,7 @@ import Generic.StaticActor;
 import Generic.VectorArithmetic;
 import Items.Consumeables.Potions.HealthPotion;
 import Items.Consumeables.Potions.SpeedPotion;
+import Monsters.Rat;
 import Monsters.Skeleton;
 import Player.Player;
 import com.sun.accessibility.internal.resources.accessibility;
@@ -40,7 +41,7 @@ public class Scene {
 
     public Scene(String _sceneName) {
 
-        dynamicActors.add(new Player(150,150));
+        dynamicActors.add(new Player(150, 150));
         sceneName = _sceneName;
     }
 
@@ -51,10 +52,17 @@ public class Scene {
         int noOfEnemies = random.nextInt(50) + 20;
 
         for (int i = 0; i < noOfEnemies; i++) {
-            Skeleton skeleton = new Skeleton();
-            skeleton.setPosition(map.getLocalBounds().width * random.nextFloat(), map.getLocalBounds().height * random.nextFloat());
-            dynamicActors.add(skeleton);
+            if (random.nextInt(2) == 0) {
+                Skeleton skeleton = new Skeleton();
+                skeleton.setPosition(map.getLocalBounds().width * random.nextFloat(), map.getLocalBounds().height * random.nextFloat());
+                dynamicActors.add(skeleton);
+            } else {
+                Rat rat = new Rat();
+                rat.setPosition(map.getLocalBounds().width * random.nextFloat(), map.getLocalBounds().height * random.nextFloat());
+                dynamicActors.add(rat);
+            }
         }
+
 
         int noOfPots = random.nextInt(10) + 5;
 
@@ -110,7 +118,7 @@ public class Scene {
                 DynamicActor b = tempDActors.get(j);
                 FloatRect bCollRect = VectorArithmetic.moveRect(b.getBoundingRect(), ((DynamicActor) b).getVelocity());
 
-                if(aCollRect.intersection(bCollRect) != null){
+                if (aCollRect.intersection(bCollRect) != null) {
                     a.onCollision(b, aCollRect.intersection(bCollRect));
                     b.onCollision(a, aCollRect.intersection(bCollRect));
                 }
@@ -175,7 +183,7 @@ public class Scene {
         //draw dynamic actors
         for (DynamicActor dActor : dynamicActors) {
 
-            if(((Sprite) dActor.getDrawable()).getGlobalBounds().intersection(playerRect) != null){
+            if (((Sprite) dActor.getDrawable()).getGlobalBounds().intersection(playerRect) != null) {
                 //only draw actors that are on the screen
                 dActor.draw(window);
             }

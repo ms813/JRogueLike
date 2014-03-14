@@ -8,4 +8,5 @@ import Player.Player;
 public interface PlayerManager {
     public void setPlayer(Player player);
     public void update();
+    public void levelUp();
 }

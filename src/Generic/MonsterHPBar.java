@@ -13,7 +13,7 @@ public class MonsterHPBar extends Bar {
 
     public MonsterHPBar(Monster _parent){
         parent= _parent;
-        maxLen = parent.getDrawable().getLocalBounds().width/2;
+        maxLen = parent.getDrawable().getLocalBounds().width * parent.getDrawable().getScale().x;
         color = Color.RED;
         thickness = 5f;
 
@@ -25,7 +25,7 @@ public class MonsterHPBar extends Bar {
     public void update(){
         float len = (parent.getCurrentHP()/parent.getMaxHP()) * maxLen;
         bar.setSize(new Vector2f(len, thickness));
-        Vector2f pos = Vector2f.add(parent.getDrawable().getPosition(), new Vector2f(0, parent.getDrawable().getLocalBounds().height/4));
+        Vector2f pos = Vector2f.add(parent.getDrawable().getPosition(), new Vector2f(0, parent.getDrawable().getLocalBounds().height/2 * parent.getDrawable().getScale().y));
         bar.setPosition(pos);
     }
 }

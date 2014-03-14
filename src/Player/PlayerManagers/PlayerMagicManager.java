@@ -110,4 +110,8 @@ public class PlayerMagicManager implements PlayerManager {
     public float getCurrentMana() {
         return currentMana;
     }
+
+    public void levelUp(){
+
+    }
 }

@@ -10,7 +10,8 @@ import org.jsfml.system.Vector2f;
  */
 public abstract class HudBar extends Bar {
 
-    protected Text text = new Text("", FontLibrary.getFont("arial"), 14);
+    protected Text mainText = new Text("", FontLibrary.getFont("arial"), 14);
+    protected Text regenText = new Text("", FontLibrary.getFont("arial"), 10);
     protected RectangleShape bg = new RectangleShape();
 
     public HudBar(Color color, Vector2f offset){
@@ -28,18 +29,22 @@ public abstract class HudBar extends Bar {
         bg.setOutlineThickness(2.0f);
         bg.setPosition(bar.getPosition());
 
+        mainText.setPosition(new Vector2f(bar.getGlobalBounds().left, bar.getGlobalBounds().top));
+        mainText.setColor(Color.BLACK);
+        mainText.setStyle(TextStyle.BOLD);
 
-        text.setPosition(new Vector2f(bar.getGlobalBounds().left, bar.getGlobalBounds().top));
-        text.setColor(Color.BLACK);
-        text.setStyle(TextStyle.BOLD);
+        regenText.setColor(Color.BLACK);
     }
 
     @Override
     public void draw(RenderWindow window){
         super.draw(window);
         window.draw(bg);
-        window.draw(text);
+        window.draw(mainText);
+        window.draw(regenText);
     }
 
-    public abstract void update();
+    public void update(){
+        regenText.setPosition(new Vector2f(bar.getGlobalBounds().left +bar.getLocalBounds().width - regenText.getLocalBounds().width, bar.getGlobalBounds().top + 3));
+    };
 }
