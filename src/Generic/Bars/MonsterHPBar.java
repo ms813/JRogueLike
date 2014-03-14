@@ -1,4 +1,4 @@
-package Generic;
+package Generic.Bars;
 
 import Monsters.Monster;
 import org.jsfml.graphics.Color;

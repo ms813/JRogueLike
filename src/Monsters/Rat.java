@@ -24,9 +24,9 @@ public class Rat extends Monster {
         maxHP = 5f;
         currentHP = maxHP;
         XP = 1f;
-        acceleration = 150f;
+        acceleration = 10f;
         maxSpeed = 6f;
-        friction = 0.98f;
+        friction = 0.99f;
         mass = 3f;
         onTouchDamage = 1f;
         onTouchAttackCooldown = 2f;

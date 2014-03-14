@@ -69,4 +69,16 @@ public class PlayerXPManager implements PlayerManager {
     }
 
     public int getXPLevel(){ return currentLevel;}
+
+    public int getXPRequiredForLevel(int level){
+        return xpTable.get(level);
+    }
+
+    public float getProgressToNextLevel(){
+        return (currentXP - xpTable.get(currentLevel)) / (xpTable.get(currentLevel +1) - xpTable.get(currentLevel));
+    }
+
+    public float getCurrentXP(){
+        return currentXP;
+    }
 }

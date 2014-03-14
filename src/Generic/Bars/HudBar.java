@@ -1,4 +1,4 @@
-package Generic;
+package Generic.Bars;
 
 import Generic.Libraries.FontLibrary;
 import Game.UI.HUD;
@@ -31,8 +31,6 @@ public abstract class HudBar extends Bar {
 
         mainText.setPosition(new Vector2f(bar.getGlobalBounds().left, bar.getGlobalBounds().top));
         mainText.setColor(Color.BLACK);
-        mainText.setStyle(TextStyle.BOLD);
-
         regenText.setColor(Color.BLACK);
     }
 
@@ -46,5 +44,5 @@ public abstract class HudBar extends Bar {
 
     public void update(){
         regenText.setPosition(new Vector2f(bar.getGlobalBounds().left +bar.getLocalBounds().width - regenText.getLocalBounds().width, bar.getGlobalBounds().top + 3));
-    };
+    }
 }

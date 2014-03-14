@@ -1,4 +1,4 @@
-package Generic;
+package Generic.Bars;
 
 import org.jsfml.graphics.Color;
 import org.jsfml.graphics.RectangleShape;

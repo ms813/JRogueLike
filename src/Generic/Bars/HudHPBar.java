@@ -1,4 +1,4 @@
-package Generic;
+package Generic.Bars;
 
 import Player.PlayerManagers.PlayerHPManager;
 import org.jsfml.graphics.*;

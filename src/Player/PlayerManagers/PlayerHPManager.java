@@ -1,7 +1,7 @@
 package Player.PlayerManagers;
 
 import Game.Main;
-import Generic.PlayerHPBar;
+import Generic.Bars.PlayerHPBar;
 import org.jsfml.graphics.RenderWindow;
 import Player.Player;
 

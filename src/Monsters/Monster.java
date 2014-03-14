@@ -5,7 +5,7 @@ import Game.Game;
 import Game.Scene.MapTile;
 import Generic.Actor;
 import Generic.DynamicActor;
-import Generic.MonsterHPBar;
+import Generic.Bars.MonsterHPBar;
 import Generic.VectorArithmetic;
 import Player.PlayerManagers.PlayerXPManager;
 import org.jsfml.graphics.FloatRect;

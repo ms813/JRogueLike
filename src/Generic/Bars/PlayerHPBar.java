@@ -1,4 +1,4 @@
-package Generic;
+package Generic.Bars;
 
 import Player.Player;
 import Player.PlayerManagers.PlayerHPManager;
