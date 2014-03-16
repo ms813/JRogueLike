@@ -4,6 +4,7 @@ import Game.UI.InventoryItemInfo;
 import Game.UI.InventoryUI;
 import Game.UI.UIManager;
 import Player.PlayerManagers.PlayerInventoryManager;
+import Player.PlayerManagers.PlayerMagicManager;
 import com.sun.java_cup.internal.runtime.lr_parser;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
@@ -68,8 +69,10 @@ public class InputManager {
                     currentFocus = CurrentFocus.GAME;
                 }
                 System.out.println("[InputManager.processEvent()] Current focus = " + currentFocus);
+            }
 
-
+            if(evt.key == Keyboard.Key.R){
+                PlayerMagicManager.getInstance().reload();
             }
         }
 

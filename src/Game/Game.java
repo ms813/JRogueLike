@@ -32,11 +32,11 @@ public class Game {
     private static View mainView;
     private View defaultView;
 
-    private UIManager uiManager = UIManager.getInstance();
+    private UIManager uiManager;
 
-    public Game(RenderWindow _window) {
+    public Game(RenderWindow window) {
 
-        window = _window;
+        this.window = window;
 
         //Create the main game view
         mainView = new View(new Vector2f(screenW / 2, screenH / 2), new Vector2f(screenW, screenH));
@@ -49,6 +49,7 @@ public class Game {
 
         mSceneList.add(currentScene);
 
+        uiManager = UIManager.getInstance();
         UIManager.getInstance().init();
     }
 

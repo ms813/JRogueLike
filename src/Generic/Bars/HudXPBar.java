@@ -1,8 +1,7 @@
 package Generic.Bars;
 
-import Game.UI.HUD;
+import Game.UI.HUD.HUD;
 import Generic.Libraries.FontLibrary;
-import Generic.VectorArithmetic;
 import Player.PlayerManagers.PlayerXPManager;
 import org.jsfml.graphics.Color;
 import org.jsfml.graphics.RenderWindow;

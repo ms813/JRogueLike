@@ -22,7 +22,6 @@ public class IceBolt extends GenericBolt {
         mass = 5000f;
 
         buildSprite(TextureLibrary.getTexture("iceBolt"));
-        boltSprite.setScale(0.3f, 0.3f);
     }
 
     public String getDamage() {

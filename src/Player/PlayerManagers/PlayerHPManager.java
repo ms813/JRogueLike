@@ -16,8 +16,7 @@ public class PlayerHPManager implements PlayerManager {
     private float currentHP;
     private PlayerHPBar hpBar;
 
-    //per second
-    private float hpRegen;
+    private float hpRegen; //per second
 
     private static PlayerHPManager instance = null;
 
@@ -38,7 +37,7 @@ public class PlayerHPManager implements PlayerManager {
         hpBar = new PlayerHPBar(player);
 
         //0.1% of max per second base
-        hpRegen = maxHP / (1000);
+        hpRegen = maxHP / 1000;
     }
 
     public void update() {
@@ -91,7 +90,9 @@ public class PlayerHPManager implements PlayerManager {
     }
 
     public void levelUp() {
+        float temp = maxHP;
         maxHP = calculateMaxHP();
+       increaseHP(maxHP - temp);
     }
 }
 

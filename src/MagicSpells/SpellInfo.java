@@ -1,5 +1,8 @@
 package MagicSpells;
 
+import Generic.Libraries.TextureLibrary;
+import org.jsfml.graphics.Sprite;
+
 /**
  * Created by Matthew on 20/02/14.
  */
@@ -9,15 +12,24 @@ public class SpellInfo {
     private float coolDown;
     private float coolDownRemaining;
     private int level;
+    private int castsPerReload;
+    private int castsRemaining;
+    private float reloadManaCost;
+    private Sprite icon;
 
-    public SpellInfo(String _spellName, float _cd, float _cdRemaining, int _level){
-        spellName = _spellName;
-        coolDown = _cd;
-        coolDownRemaining =_cdRemaining;
-        level = _level;
+    public SpellInfo(String spellName, float coolDown, int castsPerReload, float reloadManaCost) {
+        this.spellName = spellName;
+        this.coolDown = coolDown;
+        this.coolDownRemaining = 0;
+        this.castsPerReload = castsPerReload;
+        castsRemaining = castsPerReload;
+        this.reloadManaCost = reloadManaCost;
+        this.level = 1;
+
+        icon = new Sprite(TextureLibrary.getTexture(spellName));
     }
 
-    public void reduceCoolDownRemaining(float time){
+    public void reduceCoolDownRemaining(float time) {
         coolDownRemaining -= time;
     }
 
@@ -47,5 +59,34 @@ public class SpellInfo {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public float getReloadManaCost(){
+        return reloadManaCost;
+    }
+
+    public int getCastsPerReload() {
+        return castsPerReload;
+    }
+
+    public int getCastsRemaining(){
+        return castsRemaining;
+    }
+
+    public Sprite getIcon(){
+        return icon;
+    }
+
+    public void castSpell() {
+        coolDownRemaining = coolDown;
+        castsRemaining--;
+    }
+
+    public boolean isCastable() {
+        return coolDownRemaining <= 0 && castsRemaining > 0;
+    }
+
+    public void reload() {
+        castsRemaining = castsPerReload;
     }
 }

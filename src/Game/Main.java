@@ -29,10 +29,9 @@ public class Main {
         RenderWindow window = new RenderWindow();
         window.create(new VideoMode(Game.screenW, Game.screenH), "JRogueLike");
         Game game = new Game(window);
-        Player player = game.getPlayer();
 
         InputManager inputManager = InputManager.getInstance();
-        inputManager.setPlayer(player);
+        inputManager.setPlayer(game.getPlayer());
         inputManager.setWindow(window);
 
         window.setFramerateLimit(60);

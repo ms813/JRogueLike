@@ -1,7 +1,7 @@
 package Generic.Bars;
 
 import Generic.Libraries.FontLibrary;
-import Game.UI.HUD;
+import Game.UI.HUD.HUD;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
 
@@ -11,7 +11,7 @@ import org.jsfml.system.Vector2f;
 public abstract class HudBar extends Bar {
 
     protected Text mainText = new Text("", FontLibrary.getFont("arial"), 14);
-    protected Text regenText = new Text("", FontLibrary.getFont("arial"), 10);
+
     protected RectangleShape bg = new RectangleShape();
 
     public HudBar(Color color, Vector2f offset){
@@ -31,7 +31,7 @@ public abstract class HudBar extends Bar {
 
         mainText.setPosition(new Vector2f(bar.getGlobalBounds().left, bar.getGlobalBounds().top));
         mainText.setColor(Color.BLACK);
-        regenText.setColor(Color.BLACK);
+
     }
 
     @Override
@@ -39,10 +39,9 @@ public abstract class HudBar extends Bar {
         super.draw(window);
         window.draw(bg);
         window.draw(mainText);
-        window.draw(regenText);
+
     }
 
-    public void update(){
-        regenText.setPosition(new Vector2f(bar.getGlobalBounds().left +bar.getLocalBounds().width - regenText.getLocalBounds().width, bar.getGlobalBounds().top + 3));
-    }
+    public abstract void update();
+
 }

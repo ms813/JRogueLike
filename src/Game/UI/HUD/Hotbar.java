@@ -1,6 +1,8 @@
-package Game.UI;
+package Game.UI.HUD;
 
 import Game.Game;
+import Game.UI.InventoryItemInfo;
+import Game.UI.UIElement;
 import org.jsfml.graphics.Color;
 import org.jsfml.graphics.RectangleShape;
 import org.jsfml.graphics.RenderWindow;

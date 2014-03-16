@@ -1,6 +1,7 @@
 package Game.UI;
 
-import Player.PlayerManagers.PlayerInventoryManager;
+import Game.UI.HUD.HUD;
+import Game.UI.HUD.Hotbar;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.system.Vector2f;
 
@@ -11,9 +12,9 @@ public class UIManager implements UIElement {
 
     private static UIManager instance = null;
 
-    private InventoryUI inventoryUI = InventoryUI.getInstance();
-    private Hotbar hotbar = Hotbar.getInstance();
-    private HUD hud = HUD.getInstance();
+    private InventoryUI inventoryUI;
+    private Hotbar hotbar;
+    private HUD hud;
 
     protected UIManager() {
     }
@@ -29,7 +30,6 @@ public class UIManager implements UIElement {
         hud.draw(window);
         inventoryUI.draw(window);
         hotbar.draw(window);
-
     }
 
     public void update() {
@@ -49,6 +49,10 @@ public class UIManager implements UIElement {
     }
 
     public void init(){
+        inventoryUI = InventoryUI.getInstance();
+        hotbar = Hotbar.getInstance();
+        hud = HUD.getInstance();
+
         inventoryUI.init();
         hotbar.init();
         hud.init();
