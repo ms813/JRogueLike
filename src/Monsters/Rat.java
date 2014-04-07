@@ -10,8 +10,6 @@ import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
 
-import java.util.Random;
-
 /**
  * Created by Matthew on 14/03/14.
  */
@@ -21,11 +19,13 @@ public class Rat extends Monster {
     float cooldownRemaining;
 
     public Rat() {
+        super();
         maxHP = 5f;
         currentHP = maxHP;
         XP = 1f;
         acceleration = 10f;
-        maxSpeed = 6f;
+        currentMaxSpeed = 6f;
+        idealMaxSpeed = currentMaxSpeed;
         friction = 0.99f;
         mass = 3f;
         onTouchDamage = 1f;

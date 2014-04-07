@@ -1,6 +1,8 @@
 package MagicSpells;
 
 import Game.Scene.MapTile;
+import Game.Scene.Passable;
+import Game.Scene.SceneManager;
 import Generic.Actor;
 import Generic.Dice;
 import Generic.VectorArithmetic;
@@ -60,7 +62,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
             rot *= -1;
         }
         boltSprite.setRotation(rot);
-        Game.getCurrentScene().addDynamicActor(this);
+        SceneManager.getInstance().getCurrentScene().addDynamicActor(this);
         changeVelocity(travelVector);
     }
 
@@ -70,7 +72,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
         float distanceTravelled = VectorArithmetic.magnitude(Vector2f.sub(startPosition, getPosition()));
         if (distanceTravelled >= range) {
             //System.out.println("Target reached: " + getPosition());
-            Game.getCurrentScene().removeDynamicActor(this);
+            SceneManager.getInstance().getCurrentScene().removeDynamicActor(this);
         } else {
             move(velocity);
         }
@@ -97,7 +99,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
                     monster.reduceHP(Dice.roll(damage));
                     monster.knockBack(velocity, mass);
 
-                    Game.getCurrentScene().removeDynamicActor(this);
+                    SceneManager.getInstance().getCurrentScene().removeDynamicActor(this);
                 }
             }
 
@@ -105,14 +107,16 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
             if (collider instanceof Player) {
                 ((Player) collider).reduceHP(Dice.roll(damage));
                 ((Player) collider).knockBack(velocity, mass);
-                Game.getCurrentScene().removeDynamicActor(this);
+                SceneManager.getInstance().getCurrentScene().removeDynamicActor(this);
             }
 
             //have I hit some impassable terrain?
             if (collider instanceof MapTile) {
-                Game.getCurrentScene().removeDynamicActor(this);
-            }
+                if (((MapTile) collider).passable() == Passable.FALSE) {
+                    SceneManager.getInstance().getCurrentScene().removeDynamicActor(this);
+                }
 
+            }
         }
     }
 
@@ -162,7 +166,7 @@ public abstract class GenericBolt implements Projectile, MagicSpell {
         return mass;
     }
 
-    public void knockBack(Vector2f dir, float power){
+    public void knockBack(Vector2f dir, float power) {
         //bolts disappear instantly on hitting something so no need for it to be knocked back
     }
 }

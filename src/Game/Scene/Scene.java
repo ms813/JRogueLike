@@ -1,6 +1,7 @@
 package Game.Scene;
 
 import Game.Game;
+import Game.GameManager;
 import Generic.Actor;
 import Generic.DynamicActor;
 import Generic.StaticActor;
@@ -10,15 +11,12 @@ import Items.Consumeables.Potions.SpeedPotion;
 import Monsters.Rat;
 import Monsters.Skeleton;
 import Player.Player;
-import com.sun.accessibility.internal.resources.accessibility;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
-import Game.CollisionManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Vector;
 
 /**
  * Created with IntelliJ IDEA.
@@ -35,21 +33,25 @@ public class Scene {
     //a list of all immobile actors in the scene
     private List<StaticActor> staticActors = new ArrayList<StaticActor>();
 
-    private String sceneName;
+    private String title;
 
-    private Map map = new Map();
+    private Map map;
 
-    public Scene(String _sceneName) {
-
-        dynamicActors.add(new Player(150, 150));
-        sceneName = _sceneName;
+    public Scene(String title) {
+        dynamicActors.add(GameManager.getInstance().getPlayer());
+        this.title = title;
+        System.out.println("[Scene()] Welcome to the game");
+        map = new Map();
     }
 
-    public void generateMap(String tileMap) {
-        map.generate(tileMap, 100, 100);
+    public void generateMap(String tileMap, String level) {
+
+
+        map.generateFromFile(tileMap, level);
+
 
         Random random = new Random();
-        int noOfEnemies = random.nextInt(50) + 20;
+        int noOfEnemies = random.nextInt(10) + 10;
 
         for (int i = 0; i < noOfEnemies; i++) {
             if (random.nextInt(2) == 0) {
@@ -77,6 +79,7 @@ public class Scene {
                 staticActors.add(pot);
             }
         }
+
     }
 
     public List<DynamicActor> getDynamicActors() {
@@ -125,7 +128,7 @@ public class Scene {
             }
         }
 
-        //second loop checks all static actors (stationary objects can never collide)
+        //second loop checks all static actors against dynamic actors(stationary objects can never collide)
 
         List<StaticActor> tempSActors = new ArrayList<StaticActor>(staticActors);
 
@@ -155,6 +158,8 @@ public class Scene {
             actor.update();
         }
     }
+
+    public String getTitle(){return title;}
 
     public void addDynamicActor(DynamicActor dynamicActor) {
         dynamicActors.add(dynamicActor);
@@ -195,6 +200,4 @@ public class Scene {
             }
         }
     }
-
-
 }

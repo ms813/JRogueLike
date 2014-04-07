@@ -1,6 +1,7 @@
 package Game;
 
 import Game.Scene.Scene;
+import Game.Scene.SceneManager;
 import Game.UI.UIManager;
 import Player.Player;
 import org.jsfml.graphics.FloatRect;
@@ -24,15 +25,15 @@ public class Game {
     public static int screenW = 1500;
     public static int screenH = 900;
 
-    private List<Scene> mSceneList = new ArrayList<Scene>();
-    private static Scene currentScene;
+    private RenderWindow window;
 
-    private static RenderWindow window;
+    private SceneManager sceneManager = SceneManager.getInstance();
+    private Player player = GameManager.getInstance().getPlayer();
 
     private static View mainView;
     private View defaultView;
 
-    private UIManager uiManager;
+    private UIManager uiManager = UIManager.getInstance();
 
     public Game(RenderWindow window) {
 
@@ -44,23 +45,16 @@ public class Game {
         defaultView = new View(new FloatRect(0, 0, window.getSize().x, window.getSize().y));
 
         //Add scenes to the game
-        currentScene = new Scene("map");
-        currentScene.generateMap("MapTiles");
-
-        mSceneList.add(currentScene);
-
-        uiManager = UIManager.getInstance();
-        UIManager.getInstance().init();
-    }
-
-    public static RenderWindow getWindow() {
-        return window;
+        if(!sceneManager.sceneExists("level 1")) {
+            sceneManager.createNewScene("level 1", "MapTiles", "level1");
+        }
+        uiManager.init();
     }
 
     public void draw(RenderWindow window) {
         //draw the scene
         window.setView(mainView);
-        currentScene.draw(window);
+        sceneManager.getCurrentScene().draw(window);
 
         //switch to the default view (relative to the window, not the world)
         //meaning we dont have to move the UI every frame
@@ -72,8 +66,8 @@ public class Game {
     }
 
     public void update() {
-        setViewCenter(new Vector2i(getPlayer().getDrawable().getPosition()));
-        currentScene.update();
+        setViewCenter(new Vector2i(player.getDrawable().getPosition()));
+        sceneManager.update();
         uiManager.update();
     }
 
@@ -85,11 +79,4 @@ public class Game {
         mainView.setCenter(new Vector2f(pos));
     }
 
-    public Player getPlayer() {
-        return currentScene.getPlayer();
-    }
-
-    public static Scene getCurrentScene() {
-        return currentScene;
-    }
 }

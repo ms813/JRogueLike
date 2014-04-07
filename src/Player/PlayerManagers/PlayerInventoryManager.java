@@ -55,7 +55,7 @@ public class PlayerInventoryManager implements PlayerManager {
 
     public void removeItem(InventoryItemInfo itemInfo, int quantity){
 
-        //if item already exists in the list, decrement its quantity
+        //if item already sceneExists in the list, decrement its quantity
         if(itemInfo.getItem().isStackable()){
             carriedItems.get(carriedItems.indexOf(itemInfo)).decrementQuantity(quantity);
             if(carriedItems.get(carriedItems.indexOf(itemInfo)).getQuantity() <= 0){

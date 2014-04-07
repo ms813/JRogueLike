@@ -1,23 +1,21 @@
 package Game;
 
+import Game.Scene.SceneManager;
 import Game.UI.InventoryItemInfo;
 import Game.UI.InventoryUI;
 import Game.UI.UIManager;
 import Player.PlayerManagers.PlayerInventoryManager;
 import Player.PlayerManagers.PlayerMagicManager;
-import com.sun.java_cup.internal.runtime.lr_parser;
+import Player.PlayerManagers.PlayerMovementManager;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.system.Vector2f;
-import org.jsfml.system.Vector2i;
 import org.jsfml.window.Keyboard;
 import org.jsfml.window.Mouse;
 import org.jsfml.window.event.Event;
 import Player.Player;
 import org.jsfml.window.event.KeyEvent;
 import org.jsfml.window.event.MouseButtonEvent;
-
-import javax.swing.*;
 
 /**
  * Created by Matthew on 28/02/14.
@@ -71,8 +69,30 @@ public class InputManager {
                 System.out.println("[InputManager.processEvent()] Current focus = " + currentFocus);
             }
 
-            if(evt.key == Keyboard.Key.R){
+            if (evt.key == Keyboard.Key.R) {
                 PlayerMagicManager.getInstance().reload();
+            }
+            if (evt.key == Keyboard.Key.F) {
+                //for test purposes
+                PlayerMovementManager.getInstance().setFlying(!PlayerMovementManager.getInstance().isFlying());
+                if (PlayerMovementManager.getInstance().isFlying()) {
+                    System.out.println("[InputManager.processEvent()] You slowly rise up in to the air. You are now flying!");
+                } else {
+                    System.out.printf("[InputManager.processEvent()] You gently decent back to earth. You are no longer flying.");
+                }
+            }
+            if (evt.key == Keyboard.Key.L) {
+                //for test purposes
+                testLevelChange("level2");
+            }
+
+            if(evt.key == Keyboard.Key.P) {
+                testLevelChange("level 1");
+            }
+
+            if (evt.key == Keyboard.Key.K) {
+                //for test purposes
+                SceneManager.getInstance().printScenes();
             }
         }
 
@@ -140,6 +160,16 @@ public class InputManager {
             }
         }
 
+    }
+
+    private void testLevelChange(String title) {
+        if (SceneManager.getInstance().sceneExists(title)) {
+            System.out.println("[InputManager.processEvent()] Displaying: " + title);
+            SceneManager.getInstance().setCurrentScene(title);
+        } else {
+            System.out.println("[InputManager.processEvent()] Generating new level...");
+            SceneManager.getInstance().createNewScene(title, "MapTiles", title);
+        }
     }
 
     public void checkForContinuousInput() {

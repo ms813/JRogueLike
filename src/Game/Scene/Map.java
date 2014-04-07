@@ -1,10 +1,14 @@
 package Game.Scene;
 
 import Game.Game;
+import Generic.CSVLoader;
 import Generic.Libraries.TextureLibrary;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -16,21 +20,41 @@ public class Map extends BasicTransformable implements Drawable {
     //array of vertices used to actually draw the map (vertex arrays have low performance overhead)
     private VertexArray vertexArray = new VertexArray(PrimitiveType.QUADS);
 
-    //array of MapTiles detailing the corners of each tile and a MapTileReference object
+    //array of MapTiles detailing the corners of each tile and a MapTileLibrary object
     private MapTile[][] mapTiles;
 
     private Texture texture = new Texture();
-    Random rnd = new Random();
+    private Random rnd = new Random();
+
+    private SceneManager sceneManager = SceneManager.getInstance();
 
     //tiles are 1 cm by 1 cm at a resolution of 72 pixels/cm
     int tilePixels = 72;
 
-    public Map() {
+    public Map(){}
+
+    public void generateRandom(String tileSet, int noOfTilesX, int noOfTilesY){
+        //use this constructor to generate a random map of dimensions (x,y)
+
     }
 
-    public void generate(String tileSet, int noOfTilesX, int noOfTilesY) {
+    public void generateFromFile(String tileSet, String mapFile){
+        //use this constructor to create a map from a file
 
         texture = TextureLibrary.getTexture(tileSet);
+        int noOfTilesY = 0;
+        int noOfTilesX = 0;
+        List<String[]> mapFromFile = new ArrayList<String[]>();
+
+        if(!mapFile.equals("")) {
+            try {
+                mapFromFile = CSVLoader.load("resources/maps/" + mapFile);
+                noOfTilesY = mapFromFile.get(0).length;
+                noOfTilesX = mapFromFile.size();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
 
         mapTiles = new MapTile[noOfTilesX][noOfTilesY];
 
@@ -45,15 +69,7 @@ public class Map extends BasicTransformable implements Drawable {
 
                 //TODO update this to pick other tiles
 
-                int x = rnd.nextInt(50) +3;
-                if ((i+1) % x == 0 || (j+1) % x == 0) {
-                    mapTiles[i][j] = new MapTile(MapTileReference.WALL, corners);
-                } else if(i == 0 || j == 0 || i == noOfTilesX-1 || j == noOfTilesY-1){
-                    //draw a border of wall tiles around the edge of the map
-                    mapTiles[i][j] = new MapTile(MapTileReference.WALL, corners);
-                } else {
-                    mapTiles[i][j] = new MapTile(MapTileReference.GRASS, corners);
-                }
+                mapTiles[i][j] = new MapTile(MapTileLibrary.valueOf(mapFromFile.get(i)[j]), corners);
 
                 for (int k = 0; k < corners.length; k++) {
                     vertexArray.add(mapTiles[i][j].getVertex(k));
@@ -61,13 +77,13 @@ public class Map extends BasicTransformable implements Drawable {
 
 
                 //add unpassable tiles to the static actors list for collision checking
-                if (!mapTiles[i][j].isPassable()) {
-                    if (Game.getCurrentScene() != null) {
-                        Game.getCurrentScene().addStaticActor(mapTiles[i][j]);
+               // if (mapTiles[i][j].passable() == Passable.FALSE || mapTiles[i][j].passable() == Passable.FLYING) {
+                    if (sceneManager.getCurrentScene() != null) {
+                        sceneManager.getCurrentScene().addStaticActor(mapTiles[i][j]);
                     } else {
                         throw new NullPointerException("Scene hasn't been made yet!");
                     }
-                }
+                //}
             }
         }
     }

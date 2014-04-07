@@ -3,6 +3,7 @@ package Generic.Libraries;
 import Generic.CSVLoader;
 import MagicSpells.SpellInfo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,14 +17,17 @@ public class MagicSpellLibrary {
     private static MagicSpellLibrary instance = null;
 
     protected MagicSpellLibrary() {
-        ArrayList<String[]> fromFile = CSVLoader.load("resources/vals/magicSpellVals");
+        try {
+            ArrayList<String[]> fromFile = CSVLoader.load("resources/vals/magicSpellVals");
 
-        //ignore the header row
-        fromFile.remove(0);
+            //ignore the header row
+            fromFile.remove(0);
 
-        for (String[] line : fromFile) {
-            magicSpellHash.put(line[0], new SpellInfo(line[0], Float.parseFloat(line[1]), Integer.parseInt(line[2]), Float.parseFloat(line[3])));
-            System.out.println(magicSpellHash.get(line[0]));
+            for (String[] line : fromFile) {
+                magicSpellHash.put(line[0], new SpellInfo(line[0], Float.parseFloat(line[1]), Integer.parseInt(line[2]), Float.parseFloat(line[3])));
+            }
+        } catch(IOException e){
+            e.printStackTrace();
         }
 
     }

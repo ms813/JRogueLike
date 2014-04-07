@@ -3,6 +3,7 @@ package Generic.Libraries;
 import Generic.CSVLoader;
 import Player.Bloodline;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -17,13 +18,17 @@ public class BloodlineLibrary {
 
 
     protected BloodlineLibrary(){
-        ArrayList<String[]> bloodlineFileContents = CSVLoader.load("resources/vals/bloodlines");
+        try {
+            ArrayList<String[]> bloodlineFileContents = CSVLoader.load("resources/vals/bloodlines");
 
-        //remove the file column headers
-        bloodlineFileContents.remove(0);
+            //remove the file column headers
+            bloodlineFileContents.remove(0);
 
-        for(String[] line : bloodlineFileContents){
-            bloodlines.put(line[0], new Bloodline(line));
+            for (String[] line : bloodlineFileContents) {
+                bloodlines.put(line[0], new Bloodline(line));
+            }
+        } catch (IOException e){
+            e.printStackTrace();
         }
     }
 

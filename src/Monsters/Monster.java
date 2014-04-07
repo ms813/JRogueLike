@@ -3,6 +3,9 @@ package Monsters;
 import Game.CollisionManager;
 import Game.Game;
 import Game.Scene.MapTile;
+import Game.Scene.MapTileLibrary;
+import Game.Scene.Passable;
+import Game.Scene.SceneManager;
 import Generic.Actor;
 import Generic.DynamicActor;
 import Generic.Bars.MonsterHPBar;
@@ -23,61 +26,76 @@ public abstract class Monster implements DynamicActor {
     protected float maxHP;
     protected float currentHP;
     protected float XP;
-    protected float maxSpeed;
+    protected float currentMaxSpeed;
+    protected float idealMaxSpeed;
     protected Vector2f velocity = Vector2f.ZERO;
     protected float friction;
     protected float acceleration;
     protected float mass;
     protected float onTouchDamage;
 
+    protected boolean flying = false;
+
     protected MonsterHPBar hpBar;
 
     public void onCollision(Actor collider, FloatRect collisionRect) {
         if (collisionRect != null) {
             if (collider instanceof MapTile) {
+                MapTile tile = (MapTile) collider;
 
-                boolean axis_x = false;
-                boolean axis_y = false;
-                float xOverlap;
-                float yOverlap;
+                if (tile.getTileRef() == MapTileLibrary.WATER_SHALLOW) {
+                    currentMaxSpeed = idealMaxSpeed / 2;
+                } else {
+                    if(currentMaxSpeed < idealMaxSpeed) {
+                        currentMaxSpeed = idealMaxSpeed;
+                    }
+                }
 
-                boolean pp_collides_x = CollisionManager.collidesByAxis(getBoundingRect().left, getBoundingRect().width, collider.getBoundingRect().left, collider.getBoundingRect().width);
-                boolean pp_collides_y = CollisionManager.collidesByAxis(getBoundingRect().top, getBoundingRect().height, collider.getBoundingRect().top, collider.getBoundingRect().height);
+                if (tile.passable() == Passable.FALSE || (tile.passable() == Passable.FLYING && !flying)) {
 
-                if (pp_collides_x || pp_collides_y) {
-                    if (pp_collides_x) {
+                    boolean axis_x = false;
+                    boolean axis_y = false;
+                    float xOverlap;
+                    float yOverlap;
+
+                    boolean pp_collides_x = CollisionManager.collidesByAxis(getBoundingRect().left, getBoundingRect().width, collider.getBoundingRect().left, collider.getBoundingRect().width);
+                    boolean pp_collides_y = CollisionManager.collidesByAxis(getBoundingRect().top, getBoundingRect().height, collider.getBoundingRect().top, collider.getBoundingRect().height);
+
+                    if (pp_collides_x || pp_collides_y) {
+                        if (pp_collides_x) {
+                            axis_y = true;
+                        }
+                        if (pp_collides_y) {
+                            axis_x = true;
+                        }
+                    } else {
+                        axis_x = true;
                         axis_y = true;
                     }
-                    if (pp_collides_y) {
-                        axis_x = true;
-                    }
-                } else {
-                    axis_x = true;
-                    axis_y = true;
-                }
 
 
-                if (collisionRect.left <= getBoundingRect().left) {
-                    //collided on the right hand side
-                    xOverlap = collisionRect.width;
-                } else {
-                    //collided on the left
-                    xOverlap = -collisionRect.width;
-                }
-
-                if (collisionRect.top <= getBoundingRect().top) {
-                    yOverlap = collisionRect.height;
-                } else {
-                    yOverlap = -collisionRect.height;
-                }
-
-                if (!(axis_x && axis_y)) {
-                    if (axis_x) {
-                        move(xOverlap, 0);
-                    } else if (axis_y) {
-                        move(0, yOverlap);
+                    if (collisionRect.left <= getBoundingRect().left) {
+                        //collided on the right hand side
+                        xOverlap = collisionRect.width;
                     } else {
-                        //should never reach here
+                        //collided on the left
+                        xOverlap = -collisionRect.width;
+                    }
+
+                    if (collisionRect.top <= getBoundingRect().top) {
+                        yOverlap = collisionRect.height;
+                    } else {
+                        yOverlap = -collisionRect.height;
+                    }
+
+                    if (!(axis_x && axis_y)) {
+                        if (axis_x) {
+                            move(xOverlap, 0);
+                        } else if (axis_y) {
+                            move(0, yOverlap);
+                        } else {
+                            //should never reach here
+                        }
                     }
                 }
             }
@@ -133,17 +151,16 @@ public abstract class Monster implements DynamicActor {
 
     public void changeVelocity(Vector2f vector, float scaleFactor) {
         velocity = Vector2f.mul(Vector2f.add(Vector2f.mul(vector, acceleration), velocity), scaleFactor);
-        if (VectorArithmetic.magnitude(velocity) > maxSpeed) {
-            velocity = Vector2f.mul(velocity, maxSpeed / VectorArithmetic.magnitude(velocity));
+        if (VectorArithmetic.magnitude(velocity) > currentMaxSpeed) {
+            velocity = Vector2f.mul(velocity, currentMaxSpeed / VectorArithmetic.magnitude(velocity));
         }
     }
 
-    protected void onDeath(){
-        Game.getCurrentScene().removeDynamicActor(this);
+    protected void onDeath() {
+        SceneManager.getInstance().getCurrentScene().removeDynamicActor(this);
         PlayerXPManager.getInstance().gainXP(XP);
-    };
-
-    public void reduceHP(float damage){
+    }
+    public void reduceHP(float damage) {
         currentHP -= damage;
     }
 
@@ -153,8 +170,7 @@ public abstract class Monster implements DynamicActor {
     }
 
     public MonsterHPBar buildHPBar() {
-        MonsterHPBar bar = new MonsterHPBar(this);
-        return bar;
+        return new MonsterHPBar(this);
     }
 
     public float getCurrentHP() {

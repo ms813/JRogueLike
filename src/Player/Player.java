@@ -1,6 +1,6 @@
 package Player;
 
-import Game.CollisionManager;
+import Game.Scene.Passable;
 import Game.Scene.MapTile;
 import Generic.Libraries.BloodlineLibrary;
 import Generic.Libraries.TextureLibrary;
@@ -103,54 +103,8 @@ public class Player implements DynamicActor {
     }
 
     public void onCollision(Actor collider, FloatRect collisionRect) {
-        if (collisionRect != null) {
-            if (collider instanceof MapTile) {
-
-                boolean axis_x = false;
-                boolean axis_y = false;
-                float xOverlap;
-                float yOverlap;
-
-                boolean pp_collides_x = CollisionManager.collidesByAxis(getBoundingRect().left, getBoundingRect().width, collider.getBoundingRect().left, collider.getBoundingRect().width);
-                boolean pp_collides_y = CollisionManager.collidesByAxis(getBoundingRect().top, getBoundingRect().height, collider.getBoundingRect().top, collider.getBoundingRect().height);
-
-                if (pp_collides_x || pp_collides_y) {
-                    if (pp_collides_x) {
-                        axis_y = true;
-                    }
-                    if (pp_collides_y) {
-                        axis_x = true;
-                    }
-                } else {
-                    axis_x = true;
-                    axis_y = true;
-                }
-
-
-                if (collisionRect.left <= getBoundingRect().left) {
-                    //collided on the right hand side
-                    xOverlap = collisionRect.width;
-                } else {
-                    //collided on the left
-                    xOverlap = -collisionRect.width;
-                }
-
-                if (collisionRect.top <= getBoundingRect().top) {
-                    yOverlap = collisionRect.height;
-                } else {
-                    yOverlap = -collisionRect.height;
-                }
-
-                if (!(axis_x && axis_y)) {
-                    if (axis_x) {
-                        move(xOverlap, 0);
-                    } else if (axis_y) {
-                        move(0, yOverlap);
-                    } else {
-                        //should never reach here
-                    }
-                }
-            }
+        if (collider instanceof MapTile) {
+            movementManager.onCollision(collider, collisionRect);
         }
     }
 
@@ -198,11 +152,15 @@ public class Player implements DynamicActor {
         movementManager.knockBack(dir, power);
     }
 
-    public Bloodline getBloodline(){
+    public Bloodline getBloodline() {
         return bloodline;
     }
 
-    public int getXPLevel(){
+    public int getXPLevel() {
         return xpManager.getXPLevel();
+    }
+
+    public boolean isFlying(){
+        return movementManager.isFlying();
     }
 }

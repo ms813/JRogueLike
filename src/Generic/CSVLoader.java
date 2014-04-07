@@ -16,13 +16,10 @@ import java.util.Scanner;
  */
 public class CSVLoader {
 
-    public static ArrayList<String[]> load(String path) {
+    public static ArrayList<String[]> load(String path) throws IOException{
         String contents = "";
-        try{
-            contents = readFile(path + ".csv");
-        } catch(IOException e){
-            e.printStackTrace();
-        }
+
+        contents = readFile(path + ".csv");
 
         ArrayList<String[]> toReturn = new ArrayList<String[]>();
 
@@ -37,7 +34,7 @@ public class CSVLoader {
         return toReturn;
     }
 
-    static String readFile(String path) throws IOException {
+    private static String readFile(String path) throws IOException {
         Charset encoding = Charset.defaultCharset();
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return encoding.decode(ByteBuffer.wrap(encoded)).toString();

@@ -1,5 +1,6 @@
 package Game;
 
+import Game.Scene.SceneManager;
 import Player.Player;
 import Player.PlayerManagers.PlayerMagicManager;
 import org.jsfml.graphics.RenderWindow;
@@ -28,16 +29,21 @@ public class Main {
 
         RenderWindow window = new RenderWindow();
         window.create(new VideoMode(Game.screenW, Game.screenH), "JRogueLike");
-        Game game = new Game(window);
+
+        GameManager gameManager = GameManager.getInstance();
+        Game game = gameManager.createNewGame(window);
+
+        SceneManager sceneManager = SceneManager.getInstance();
 
         InputManager inputManager = InputManager.getInstance();
-        inputManager.setPlayer(game.getPlayer());
+        inputManager.setPlayer(gameManager.getPlayer());
         inputManager.setWindow(window);
 
         window.setFramerateLimit(60);
         window.setVerticalSyncEnabled(true);
 
 
+        //game loop
         while (window.isOpen()) {
 
             window.clear();
@@ -53,7 +59,7 @@ public class Main {
 
             if (!paused) {
 
-                Game.getCurrentScene().checkCollisions();
+                sceneManager.getCurrentScene().checkCollisions();
 
                 game.update();
             }

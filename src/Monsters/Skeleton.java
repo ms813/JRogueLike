@@ -1,10 +1,8 @@
 package Monsters;
 
-import Game.Game;
 import Generic.Libraries.TextureLibrary;
 import Generic.Actor;
 import Generic.VectorArithmetic;
-import MagicSpells.IceBolt;
 import Game.Main;
 import MagicSpells.MagicDart;
 import Player.PlayerManagers.PlayerXPManager;
@@ -23,7 +21,8 @@ public class Skeleton extends Monster {
         currentHP = maxHP;
         XP = 3f;
         acceleration = 75f;
-        maxSpeed = 3f;
+        currentMaxSpeed = 3f;
+        idealMaxSpeed = currentMaxSpeed;
         friction = 0.9f;
         mass = 50f;
 

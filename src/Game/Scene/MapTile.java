@@ -1,7 +1,6 @@
 package Game.Scene;
 
 import Generic.Actor;
-import Player.Player;
 import Generic.StaticActor;
 import org.jsfml.graphics.*;
 import org.jsfml.system.Vector2f;
@@ -12,13 +11,13 @@ import org.jsfml.system.Vector2f;
 public class MapTile implements StaticActor {
 
     //contains texture coordinates and passable information
-    private MapTileReference tileRef;
+    private MapTileLibrary tileRef;
 
     private Vector2f[] corners = new Vector2f[4];
 
     private VertexArray vertices = new VertexArray(PrimitiveType.QUADS);
 
-    public MapTile(MapTileReference tileRef, Vector2f[] corners){
+    public MapTile(MapTileLibrary tileRef, Vector2f[] corners){
         this.tileRef = tileRef;
         this.corners = corners;
 
@@ -27,7 +26,7 @@ public class MapTile implements StaticActor {
         }
     }
 
-    public MapTileReference getTileRef() {
+    public MapTileLibrary getTileRef() {
         return tileRef;
     }
 
@@ -43,8 +42,8 @@ public class MapTile implements StaticActor {
         return tileRef.getTextCoords();
     }
 
-    public boolean isPassable(){
-        return tileRef.isPassable();
+    public Passable passable(){
+        return tileRef.passable();
     }
 
     public Vertex getVertex(int i){

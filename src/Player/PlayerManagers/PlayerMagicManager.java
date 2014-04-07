@@ -54,7 +54,7 @@ public class PlayerMagicManager implements PlayerManager {
     }
 
     public void castCurrentSpell(Vector2f target) {
-        if (currentSpellInfo.isCastable()) {
+        if (currentSpellInfo.isReadyToCast()) {
 
             //use reflection to build an instance of the class from a string
             try {

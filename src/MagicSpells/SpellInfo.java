@@ -82,7 +82,7 @@ public class SpellInfo {
         castsRemaining--;
     }
 
-    public boolean isCastable() {
+    public boolean isReadyToCast() {
         return coolDownRemaining <= 0 && castsRemaining > 0;
     }
 

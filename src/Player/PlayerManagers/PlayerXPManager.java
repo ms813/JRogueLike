@@ -5,6 +5,7 @@ import Player.Player;
 import Player.Bloodline;
 import Generic.Libraries.BloodlineLibrary;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -34,10 +35,13 @@ public class PlayerXPManager implements PlayerManager {
     protected PlayerXPManager(){
         currentLevel = 1;
         currentXP = 0;
-
-        ArrayList<String[]> fromFile = CSVLoader.load("resources/vals/levelUp");
-        for(String[] line : fromFile){
-            xpTable.put(Integer.parseInt(line[0]), Integer.parseInt(line[1]));
+        try {
+            ArrayList<String[]> fromFile = CSVLoader.load("resources/vals/levelUp");
+            for (String[] line : fromFile) {
+                xpTable.put(Integer.parseInt(line[0]), Integer.parseInt(line[1]));
+            }
+        } catch (IOException e){
+            e.printStackTrace();
         }
     }
 

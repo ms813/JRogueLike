@@ -1,6 +1,7 @@
 package Items.Consumeables.Potions;
 
 import Game.Game;
+import Game.Scene.SceneManager;
 import Generic.Actor;
 import Items.Consumeables.Consumeable;
 import Player.PlayerManagers.PlayerInventoryManager;
@@ -33,7 +34,7 @@ public abstract class Potion implements Consumeable {
         if (actor instanceof Player) {
             PlayerInventoryManager.getInstance().addItem(this,1);
         }
-        Game.getCurrentScene().removeStaticActor(this);
+        SceneManager.getInstance().getCurrentScene().removeStaticActor(this);
     }
 
     public void onCollision(Actor actor, FloatRect collisionRect) {
